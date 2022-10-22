@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj": {}
+    "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\APICarreras.csproj": {}
   },
   "projects": {
-    "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj": {
+    "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\APICarreras.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj",
-        "projectName": "DatosCarrera",
-        "projectPath": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj",
+        "projectUniqueName": "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\APICarreras.csproj",
+        "projectName": "APICarreras",
+        "projectPath": "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\APICarreras.csproj",
         "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
-        "outputPath": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\obj\\",
+        "outputPath": "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -50,6 +56,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

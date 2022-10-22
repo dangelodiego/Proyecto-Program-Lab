@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\Diego\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\Proyecto-Program-Lab\\VS\\DatosCarrera\\DatosCarrera.csproj",
+      "projectUniqueName": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj",
       "projectName": "DatosCarrera",
-      "projectPath": "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\Proyecto-Program-Lab\\VS\\DatosCarrera\\DatosCarrera.csproj",
-      "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\Proyecto-Program-Lab\\VS\\DatosCarrera\\obj\\",
+      "projectPath": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj",
+      "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
+      "outputPath": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -51,8 +51,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -61,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

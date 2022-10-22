@@ -1,0 +1,10 @@
+D:\Proyecto Labo_ProgII\VS\CarrerasApp\bin\Debug\CarrerasApp.exe.config
+D:\Proyecto Labo_ProgII\VS\CarrerasApp\bin\Debug\CarrerasApp.exe
+D:\Proyecto Labo_ProgII\VS\CarrerasApp\bin\Debug\CarrerasApp.pdb
+D:\Proyecto Labo_ProgII\VS\CarrerasApp\obj\Debug\CarrerasApp.csproj.AssemblyReference.cache
+D:\Proyecto Labo_ProgII\VS\CarrerasApp\obj\Debug\CarrerasApp.csproj.SuggestedBindingRedirects.cache
+D:\Proyecto Labo_ProgII\VS\CarrerasApp\obj\Debug\CarrerasApp.Properties.Resources.resources
+D:\Proyecto Labo_ProgII\VS\CarrerasApp\obj\Debug\CarrerasApp.csproj.GenerateResource.cache
+D:\Proyecto Labo_ProgII\VS\CarrerasApp\obj\Debug\CarrerasApp.csproj.CoreCompileInputs.cache
+D:\Proyecto Labo_ProgII\VS\CarrerasApp\obj\Debug\CarrerasApp.exe
+D:\Proyecto Labo_ProgII\VS\CarrerasApp\obj\Debug\CarrerasApp.pdb
