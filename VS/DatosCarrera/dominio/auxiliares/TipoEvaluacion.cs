@@ -4,14 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DatosCarrera.dominio
+namespace DatosCarrera.dominio.auxiliares
 {
     public class TipoEvaluacion
     {
+        enum Tipos{
 
-        public int Id { get; set; }
-        public string Descripcion { get; set; }
+            Parcial,
+            TrabajoPractico,
+            Cuestionario,
+            NotaConcepto
 
+
+
+        }
 
 
 

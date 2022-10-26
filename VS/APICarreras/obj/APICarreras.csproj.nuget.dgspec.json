@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\APICarreras.csproj": {}
+    "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\repositorio\\Proyecto-Program-Lab\\VS\\APICarreras\\APICarreras.csproj": {}
   },
   "projects": {
-    "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\APICarreras.csproj": {
+    "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\repositorio\\Proyecto-Program-Lab\\VS\\APICarreras\\APICarreras.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\APICarreras.csproj",
+        "projectUniqueName": "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\repositorio\\Proyecto-Program-Lab\\VS\\APICarreras\\APICarreras.csproj",
         "projectName": "APICarreras",
-        "projectPath": "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\APICarreras.csproj",
-        "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
-        "outputPath": "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\obj\\",
+        "projectPath": "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\repositorio\\Proyecto-Program-Lab\\VS\\APICarreras\\APICarreras.csproj",
+        "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\repositorio\\Proyecto-Program-Lab\\VS\\APICarreras\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -51,7 +51,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -63,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -11,7 +11,7 @@ using Microsoft.Data.SqlClient;
 
 namespace DatosCarrera.datos
 {
-    public class DBHelper
+    internal class DBHelper
     {
         private static DBHelper instancia;
         private SqlConnection cnn;
@@ -29,7 +29,7 @@ namespace DatosCarrera.datos
             return instancia;
         }
 
-        public DataTable ConsultaSQL(string spNombre, List<Parametro> values)
+        internal DataTable ConsultaSQL(string spNombre, List<Parametro> values)
         {
             DataTable tabla = new DataTable();
 
@@ -49,7 +49,7 @@ namespace DatosCarrera.datos
             return tabla;
         }
 
-        public int ConsultaEscalarSQL(string spNombre, string pOutNombre)
+        internal int ConsultaEscalarSQL(string spNombre, string pOutNombre)
         {
             cnn.Open();
             SqlCommand cmd = new SqlCommand(spNombre, cnn);
@@ -65,7 +65,7 @@ namespace DatosCarrera.datos
         }
 
 
-        public int EjecutarSQL(string strSql, List<Parametro> values)
+        internal int EjecutarSQL(string strSql, List<Parametro> values)
         {
             int afectadas = 0;
             SqlTransaction t = null;
@@ -105,7 +105,7 @@ namespace DatosCarrera.datos
             return afectadas;
         }
 
-        public SqlConnection ObtenerConexion()
+        internal SqlConnection ObtenerConexion()
         {
             return this.cnn;
         }

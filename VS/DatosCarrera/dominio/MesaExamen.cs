@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DatosCarrera.dominio.auxiliares;
 
 namespace DatosCarrera.dominio
 {
-    public class MesaExamen
+    internal class MesaExamen
     {
 
 

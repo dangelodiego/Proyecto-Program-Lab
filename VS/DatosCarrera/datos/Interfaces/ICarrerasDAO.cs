@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.datos.Interfaces
 {
-    public interface ICarrerasDAO
+    internal interface ICarrerasDAO
     {
         List<Persona> ObtenerPersonas();
         int ObtenerProximoId();
