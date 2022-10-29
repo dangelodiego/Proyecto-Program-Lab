@@ -1,4 +1,15 @@
-create	database	Tecnicaturas_UTN_FRC_6
+
+create table Laboralidad
+(id_laboralidad int identity(1,1),
+descripcion varchar (60)
+constraint pk_id_laboralidad primary key (id_laboralidad))
+
+create table Habitacionalidad
+(id_habitacionalidad int identity (1,1),
+descripcion varchar(50)
+constraint pk_habitacionalidad primary key (id_habitacionalidad)) 
+
+
 
 create table provincias(
 id_provincia int identity(1,1),
@@ -14,20 +25,20 @@ constraint	fk_provincia foreign key(id_provincia)
 references provincias(id_provincia))
 
 create table barrios(
-id_barrios int identity(1,1),
+id_barrio int identity(1,1),
 nombre	varchar(50),
 id_ciudades int
-constraint	pk_barrios primary key (id_barrios),
+constraint	pk_barrios primary key (id_barrio),
 constraint	fk_ciudades foreign key(id_ciudades)
 references ciudades(id_ciudades))
 
-create table calles(
-id_calle int identity(1,1),
-nombre	varchar(50),
-id_barrios int
-constraint	pk_calle primary key (id_calle),
-constraint	fk_barrios foreign key(id_barrios)
-references barrios(id_barrios))
+--create table calles(
+--id_calle int identity(1,1),
+--nombre	varchar(50),
+--id_barrios int
+--constraint	pk_calle primary key (id_calle),
+--constraint	fk_barrios foreign key(id_barrios)
+--references barrios(id_barrios))
 
 create table estados_civiles(
 id_estado_civil int identity(1,1),
@@ -36,7 +47,7 @@ constraint	pk_estado_civil primary key (id_estado_civil))
 
 create table turnos(
 id_turno int identity(1,1),
-horario datetime
+descripcion varchar(40)
 constraint	pk_turno primary key (id_turno))
 
 create table cursos(
@@ -44,44 +55,63 @@ id_curso int identity(1,1),
 nombre varchar(50),
 id_turno int,
 año_ingreso datetime
-constraint	pk_curso primary key (id_curso))
+constraint	pk_curso primary key (id_curso)
+constraint fk_turno foreign key (id_turno)
+references turnos (id_turno))
 
 create table carreras(
 id_carrera	int	identity(1,1),
 nombre	varchar(50)
 constraint	pk_carrera primary key (id_carrera))
 
-create table personas(
-id_persona int identity(1,1),
+--create table personas(
+--id_persona int identity(1,1),
+--nombre varchar(50),
+--apellido varchar(50),
+--fecha_nac datetime,
+--dni smallint,
+--e_mail varchar(100),
+--telefono smallint,
+--id_calle int,
+--altura int,
+--sexo int  ---para manejarlo con enum?
+--constraint pk_persona primary key(id_persona),
+--constraint	fk_calle foreign key(id_calle)
+--references calles(id_calle))
+
+create table alumnos(
+legajo int,
 nombre varchar(50),
 apellido varchar(50),
 fecha_nac datetime,
 dni smallint,
 e_mail varchar(100),
 telefono smallint,
-id_calle int,
+calle varchar(100),
 altura int,
-sexo int  ---para manejarlo con enum?
-constraint pk_persona primary key(id_persona),
-constraint	fk_calle foreign key(id_calle)
-references calles(id_calle))
-
-create table alumnos(
-legajo int,
-id_persona int,
+sexo int,
 id_curso int,
 id_carrera int,
 fecha_insc datetime,
 id_estado_civil int,
+id_laboralidad int,
+id_habitacionalidad int,
+id_barrio int
 constraint pk_legajo primary key(legajo),
-constraint	fk_persona foreign key(id_persona)
-references personas(id_persona),
-constraint	fk_curso foreign key(id_curso)
+constraint fk_barrio foreign key (id_barrio)
+references barrios(id_barrio),
+constraint	fk_cursos foreign key(id_curso)
 references cursos(id_curso),
-constraint	fk_carrera foreign key(id_carrera)
+constraint	fk_carrea foreign key(id_carrera)
 references carreras(id_carrera),
 constraint	fk_estado_civil foreign key(id_estado_civil)
-references estados_civiles(id_estado_civil))
+references estados_civiles(id_estado_civil),
+constraint	fk_laboralidad foreign key(id_laboralidad)
+references laboralidad (id_laboralidad),
+constraint	fk_curso foreign key(id_curso)
+references cursos(id_curso),
+constraint	fk_habitacionalidad foreign key(id_habitacionalidad)
+references habitacionalidad(id_habitacionalidad))
 
 create table materias(
 id_materia	int	identity(1,1),
@@ -97,20 +127,31 @@ id_carrera	int
 constraint	pk_contenidos primary key(id_materia,id_carrera),
 constraint	fk_materia foreign key(id_materia)
 references materias(id_materia),
-constraint	FkCarrera foreign key(id_carrera)
+constraint	fk_carrera foreign key(id_carrera)
 references carreras(id_carrera))
 
 create table profesores(
 id_profesores	int	identity(1,1),
 id_materia	int,
-id_persona	int,
+nombre varchar(50),
+apellido varchar(50),
+fecha_nac datetime,
+dni smallint,
+e_mail varchar(100),
+telefono smallint,
+calle varchar(100),
+altura int,
+sexo int,
+id_barrio int
+constraint fk_barrios foreign key (id_barrio)
+references barrios(id_barrio),
 constraint pk_profesores primary key(id_profesores),
 constraint	fkmateria foreign key(id_materia)
-references materias(id_materia),
-constraint	FKpersona foreign key(id_persona)
-references personas(id_persona))
+references materias(id_materia))
 
-create table estados_ac(
+
+create table estados_ac
+(
 id_estado_ac	int	identity(1,1),
 descripcion	varchar(50)
 constraint	pk_estado_ac	primary	key(id_estado_ac))
@@ -123,7 +164,7 @@ id_estado_ac	int,
 asistencias	int,
 año	datetime
 ---pk 
-constraint	pk_estaos_academicos primary key(id_materia,legajo),
+constraint	pk_estados_academicos primary key(id_materia,legajo),
 constraint	fk_materia1 foreign key(id_materia)
 references materias(id_materia),
 constraint	fk_Legajo foreign key(legajo)
@@ -154,17 +195,28 @@ references alumnos(legajo),
 constraint	FK_Tipo_prueba foreign key(id_tipo_prueba)
 references tipo_prueba(id_tipo_prueba))
 
+
+create table turnos_examenes
+(id_turno_examen int identity (1,1),
+descripcion varchar(50)
+constraint pk_id_turno_examen primary key (id_turno_examen))
+
 create table mesa_examenes(
 id_mesa	int	identity(1,1),
 fecha	datetime,
-turno varchar(50),
+turno_examen int,
 id_materia	int,
 id_profesores	int,
 constraint	pk_mesa	primary	key(id_mesa),
 constraint	fk_materia3 foreign key(id_materia)
 references materias(id_materia),
 constraint	FK_Profesores foreign key(id_profesores)
-references profesores(id_profesores))
+references profesores(id_profesores),
+constraint fk_turno_examen foreign key(turno_examen) 
+references turnos_examenes (id_turno_examen))
+
+
+
 
 create table examenes(
 id_examenes	int	identity(1,1),
