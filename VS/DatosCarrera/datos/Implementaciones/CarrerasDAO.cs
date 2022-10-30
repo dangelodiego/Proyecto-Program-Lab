@@ -1,5 +1,7 @@
-﻿using DatosCarrera.datos.Interfaces;
+﻿using DatosCarrera.datos.DTOs;
+using DatosCarrera.datos.Interfaces;
 using DatosCarrera.dominio;
+using DatosCarrera.dominio.auxiliares;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -7,10 +9,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DatosCarrera.dominio.auxiliares.Sexo;
 
 namespace DatosCarrera.datos.Implementaciones
 {
-    public class CarrerasDAO : ICarrerasDAO
+    public class CarrerasDAO : ICarrerasDAO, IConsultasComplejas
     {
         public bool ActualizarMesa(MesaExamen mesaExamen)
         {
@@ -84,6 +87,50 @@ namespace DatosCarrera.datos.Implementaciones
             lst.Add(new Parametro("@presupuesto_nro", nro));
             int afectadas = DBHelper.ObtenerInstancia().EjecutarSQL(sp, lst);
             return afectadas > 0;
+        }
+
+        public List<Profesor> ConsultarProfesores(int aniosParaJubilarse)
+        {
+            string sp = "SP_PROFESORES_PRONTA_JUBILACION_SEGUN_ANIOS_RESTANTES";
+            List<Profesor> list = new List<Profesor>();
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@aniosParaJubilarse", aniosParaJubilarse));
+
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            foreach (DataRow r in tabla.Rows)
+            {
+                Profesor p = new Profesor();
+                p.Id = Convert.ToInt32(r["id_profesores"]);
+                if (r["id_materia"] != DBNull.Value)
+                    p.Materia.Id = Convert.ToInt32(r["id_materia"]);
+                if (r["nombre"] != DBNull.Value)
+                    p.Nombre = Convert.ToString(r["nombre"]);
+                if (r["apellido"] != DBNull.Value)
+                    p.Apellido = Convert.ToString(r["apellido"]);
+                if (r["fecha_nac"] != DBNull.Value)
+                    p.FechaNacimiento = Convert.ToDateTime(r["fecha_nac"]);
+                if (r["dni"] != DBNull.Value)
+                    p.Dni = Convert.ToInt32(r["dni"]);
+                if (r["e_mail"] != DBNull.Value)
+                    p.Email = Convert.ToString(r["dni"]);
+                if (r["telefono"] != DBNull.Value)
+                    p.Telefono = Convert.ToInt32(r["telefono"]);
+                if (r["calle"] != DBNull.Value)
+                    p.Calle = Convert.ToString(r["calle"]); ///cambiar calle y altura directamente por campo domicilio en la BD
+                if (r["altura"] != DBNull.Value)
+                    p.Altura = Convert.ToInt32(r["altura"]);
+
+
+                if (r["sexo"] != DBNull.Value)
+                    p.Sexo = Convert.ToInt32(r["sexo"]);
+
+                list.Add(p);
+            }
+            return list;
+
+
+
+
         }
 
         public bool CrearMesa(MesaExamen mesaExamen)
@@ -161,6 +208,26 @@ namespace DatosCarrera.datos.Implementaciones
             return lst;
         }
 
+        public List<Alumno> ObtenerAlumnos(int cantidad)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Alumno> ObtenerAlumnos(int anioIngreso1, int anioIngreso2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<AlumnosPromedioMayorPorMateriaDTO> ObtenerAlumnos(double promedio)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Materia> ObtenerMateriasSegunPromedio(int promedio)
+        {
+            throw new NotImplementedException();
+        }
+
         public MesaExamen ObtenerMesasPorId(int id)
         {
             throw new NotImplementedException();
@@ -204,10 +271,37 @@ namespace DatosCarrera.datos.Implementaciones
 
         }
 
+        public List<EdadPromedioXCursoDTO> ObtenerPromedioEdadPorCurso()
+        {
+            List<EdadPromedioXCursoDTO> listDTO = new List<EdadPromedioXCursoDTO>();
+            string sp = "SP_OBTENER_PROMEDIO_EDAD_CURSO";
+            DataTable dt = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            foreach (DataRow r in dt)
+            {
+                EdadPromedioXCursoDTO dto = new EdadPromedioXCursoDTO();
+
+                if (r["curso"] != DBNull.Value)
+                    dto.NombreCurso = Convert.ToString(r["curso"]);
+                if (r["promedio"] != DBNull.Value)
+                    dto.PromedioEdad = Convert.ToDouble(r["promedio"]);
+
+                listDTO.Add(dto);
+
+            }
+
+            return listDTO;
+
+        }
+
         public int ObtenerProximoId()
         {
             string sp = "SP_PROXIMO_ID";
             return DBHelper.ObtenerInstancia().ConsultaEscalarSQL("SP_PROXIMO_ID", "@next");
+        }
+
+        public List<MateriaPorcentajeAlumnosDTO> PorcentajeAlumnosNotaMenorPorMateria(int limite)
+        {
+            throw new NotImplementedException();
         }
     }
 }
