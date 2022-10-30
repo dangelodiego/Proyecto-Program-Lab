@@ -7,7 +7,7 @@ using DatosCarrera.dominio.auxiliares;
 
 namespace DatosCarrera.dominio
 {
-    internal class Curso
+    public class Curso
     {
         public int Id { get; set; }
 

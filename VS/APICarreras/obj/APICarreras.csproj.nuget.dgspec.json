@@ -1,20 +1,99 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\repositorio\\Proyecto-Program-Lab\\VS\\APICarreras\\APICarreras.csproj": {}
+    "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\APICarreras.csproj": {}
   },
   "projects": {
-    "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\repositorio\\Proyecto-Program-Lab\\VS\\APICarreras\\APICarreras.csproj": {
+    "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\APICarreras.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\repositorio\\Proyecto-Program-Lab\\VS\\APICarreras\\APICarreras.csproj",
+        "projectUniqueName": "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\APICarreras.csproj",
         "projectName": "APICarreras",
-        "projectPath": "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\repositorio\\Proyecto-Program-Lab\\VS\\APICarreras\\APICarreras.csproj",
-        "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\usuario\\source\\repos\\TPI_PROG_LCI_2022\\repositorio\\Proyecto-Program-Lab\\VS\\APICarreras\\obj\\",
+        "projectPath": "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\APICarreras.csproj",
+        "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
+        "outputPath": "D:\\Proyecto Labo_ProgII\\VS\\APICarreras\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj": {
+                "projectPath": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNet.WebApi.WebHost": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
+            "SimpleInjector": {
+              "target": "Package",
+              "version": "[5.4.1, )"
+            },
+            "SimpleInjector.Integration.WebApi": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj",
+        "projectName": "DatosCarrera",
+        "projectPath": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj",
+        "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
+        "outputPath": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,9 +119,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Swashbuckle.AspNetCore": {
+            "Microsoft.Data.SqlClient": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[5.0.1, )"
             }
           },
           "imports": [
@@ -51,20 +130,16 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

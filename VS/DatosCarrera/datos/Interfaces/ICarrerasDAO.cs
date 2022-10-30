@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.datos.Interfaces
 {
-    internal interface ICarrerasDAO
+    public interface ICarrerasDAO
     {
         List<Persona> ObtenerPersonas();
         int ObtenerProximoId();
@@ -19,6 +19,9 @@ namespace DatosCarrera.datos.Interfaces
         bool Borrar(int nro);
 
         MesaExamen ObtenerMesasPorId(int id);
+
+
+        public List<Materia> GetMateriaAll();
 
 
 

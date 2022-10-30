@@ -12,11 +12,7 @@ namespace DatosCarrera.facade
         public List<Persona> GetPersonasAll();
         public bool SaveMesaExamen(MesaExamen mesaExamen);
 
-
-
-
-
-
+        public List<Materia> GetMateriaAll();
 
 
     }

@@ -29,7 +29,7 @@ namespace DatosCarrera.datos.Implementaciones
                 cmd.CommandType = CommandType.StoredProcedure;
                 
                 cmd.Parameters.AddWithValue("@fecha", mesaExamen.Fecha);
-                cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno.Id);
+                //cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno.Id);
                 cmd.Parameters.AddWithValue("@id_materia", mesaExamen.Materia.Id);
                 cmd.Parameters.AddWithValue("@id_profesores", mesaExamen.Profesor.Id);
 
@@ -103,7 +103,7 @@ namespace DatosCarrera.datos.Implementaciones
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@fecha", mesaExamen.Fecha);
-                cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno.Id);
+               // cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno.Id);
                 cmd.Parameters.AddWithValue("@id_materia", mesaExamen.Materia.Id);
                 cmd.Parameters.AddWithValue("@id_profesores", mesaExamen.Profesor.Id);
 
@@ -145,6 +145,22 @@ namespace DatosCarrera.datos.Implementaciones
             return ok;
         }
 
+        public List<Materia> GetMateriaAll()
+        {
+            string sp = "sp_GetMateriasAll";
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            List<Materia> lst = new List<Materia>();
+            foreach(DataRow r in tabla.Rows)
+            {
+                Materia m = new Materia();
+                m.Id = Convert.ToInt32(r["id_materia"]);
+                m.Nombre = r["nombre"].ToString();
+                m.Promocionable = Convert.ToBoolean(r["promocionalbe"]);
+                lst.Add(m);
+            }
+            return lst;
+        }
+
         public MesaExamen ObtenerMesasPorId(int id)
         {
             throw new NotImplementedException();
@@ -161,7 +177,7 @@ namespace DatosCarrera.datos.Implementaciones
             {
                 //Mapear un registro a un objeto del modelo de dominio
              
-                bool activo = dr["activo"].ToString().Equals("S");
+                bool activo = row["activo"].ToString().Equals("S");
 
 
                 int id = int.Parse(row["id_persona"].ToString());

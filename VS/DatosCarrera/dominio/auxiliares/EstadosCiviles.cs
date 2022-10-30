@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.dominio.auxiliares
 {
-    internal enum EstadosCiviles
+    public enum EstadosCiviles
     {
         Soltero,
         Casado,

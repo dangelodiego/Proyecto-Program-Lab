@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.dominio
 {
-    internal class Examen
+    public class Examen
     {
         public int Id { get; set; }
        public Alumno Alumno { get; set; }

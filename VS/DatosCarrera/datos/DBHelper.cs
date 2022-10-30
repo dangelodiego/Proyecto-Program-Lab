@@ -18,7 +18,7 @@ namespace DatosCarrera.datos
 
         private DBHelper()
         {
-            cnn = new SqlConnection("");
+            cnn = new SqlConnection(@"Data Source=DESKTOP-74QHVRO\SQLEXPRESS;Initial Catalog=TECNICATURAS_UTN_FRC;Integrated Security=True");
 
         }
 
@@ -111,7 +111,16 @@ namespace DatosCarrera.datos
         }
 
 
-
+        internal DataTable ConsultaSQL(string spNombre)
+        {
+            DataTable dt = new DataTable();
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand(spNombre, cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            dt.Load(cmd.ExecuteReader());
+            cnn.Close();
+            return dt;
+        }
 
 
 

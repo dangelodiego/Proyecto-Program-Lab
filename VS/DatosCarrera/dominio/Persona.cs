@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.dominio
 {
-    internal class Persona
+    public class Persona
     {
 
 

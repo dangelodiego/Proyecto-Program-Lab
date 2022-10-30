@@ -9,13 +9,18 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.facade
 {
-    public class DatosLib
+    public class DatosLib:IDatos
     {
         private ICarrerasDAO dao;
 
-        public DatosLib()
+        public DatosLib(ICarrerasDAO dao)
         {
-            dao = new CarrerasDAO();
+            this.dao = dao;
+        }
+
+        public List<Materia> GetMateriaAll()
+        {
+            return dao.GetMateriaAll();
         }
 
         public List<Persona> GetPersonasAll()

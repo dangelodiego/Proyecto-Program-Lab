@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.dominio.auxiliares
 {
-    internal class TiposEstadoAcademico
+    public class TiposEstadoAcademico
     {
         enum Tipos
         {
