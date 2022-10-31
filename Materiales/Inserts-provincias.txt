@@ -1,95 +1,95 @@
 --Provincias--
-insert into provincias (nombre_provincia) values ('Buenos Aires')
-insert into provincias (nombre_provincia) values ('Catamarca')
-insert into provincias (nombre_provincia) values ('Chaco')
-insert into provincias (nombre_provincia) values ('Chubut')
-insert into provincias (nombre_provincia) values ('Córdoba')
-insert into provincias (nombre_provincia) values ('Corrientes')
-insert into provincias (nombre_provincia) values ('Entre Rios')
-insert into provincias (nombre_provincia) values ('Formosa')
-insert into provincias (nombre_provincia) values ('Jujuy')
-insert into provincias (nombre_provincia) values ('La Pampa')
-insert into provincias (nombre_provincia) values ('La Rioja')
-insert into provincias (nombre_provincia) values ('Mendoza')
-insert into provincias (nombre_provincia) values ('Misiones')
-insert into provincias (nombre_provincia) values ('Neuquén')
-insert into provincias (nombre_provincia) values ('Río Negro')
-insert into provincias (nombre_provincia) values ('Salta')
-insert into provincias (nombre_provincia) values ('San Juan')
-insert into provincias (nombre_provincia) values ('San Luis')
-insert into provincias (nombre_provincia) values ('Santa Cruz')
-insert into provincias (nombre_provincia) values ('Santa Fe')
-insert into provincias (nombre_provincia) values ('Santiago del estero')
-insert into provincias (nombre_provincia) values ('Tierra del Fuego')
-insert into provincias (nombre_provincia) values ('Tucumán')
---Localidades--
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (1,
+insert into provincias (nombre) values ('Buenos Aires')
+insert into provincias (nombre) values ('Catamarca')
+insert into provincias (nombre) values ('Chaco')
+insert into provincias (nombre) values ('Chubut')
+insert into provincias (nombre) values ('Córdoba')
+insert into provincias (nombre) values ('Corrientes')
+insert into provincias (nombre) values ('Entre Rios')
+insert into provincias (nombre) values ('Formosa')
+insert into provincias (nombre) values ('Jujuy')
+insert into provincias (nombre) values ('La Pampa')
+insert into provincias (nombre) values ('La Rioja')
+insert into provincias (nombre) values ('Mendoza')
+insert into provincias (nombre) values ('Misiones')
+insert into provincias (nombre) values ('Neuquén')
+insert into provincias (nombre) values ('Río Negro')
+insert into provincias (nombre) values ('Salta')
+insert into provincias (nombre) values ('San Juan')
+insert into provincias (nombre) values ('San Luis')
+insert into provincias (nombre)) values ('Santa Cruz')
+insert into provincias (nombre) values ('Santa Fe')
+insert into provincias (nombre) values ('Santiago del estero')
+insert into provincias (nombre) values ('Tierra del Fuego')
+insert into provincias (nombre) values ('Tucumán')
+--Ciudades--
+insert into Ciudades(nombre, id_provincia ) values (
 'Córdoba', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (2, 'Agua de
+insert into Ciudades( nombre, id_provincia ) values ( 'Agua de
 Oro', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (3, 'Alta
+insert into Ciudades( nombre, id_provincia ) values ( 'Alta
 Gracia', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (4,
+insert into Ciudades( nombre, id_provincia ) values (
 'Anisacate', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (5, 'Bell
+insert into Ciudades( nombre, id_provincia ) values ( 'Bell
 Ville', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (6, 'Bialet
+insert into Ciudades( nombre, id_provincia ) values ( 'Bialet
 Massé', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (7, 'Capilla
+insert into Ciudades( nombre, id_provincia ) values ( 'Capilla
 del Monte', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (8, 'Colonia
+insert into Ciudades( nombre, id_provincia ) values ( 'Colonia
 Caroya', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (9, 'Cosquín',
+insert into Ciudades( nombre, id_provincia ) values ( 'Cosquín',
 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (10, 'Cruz
+insert into Ciudades( nombre, id_provincia ) values ( 'Cruz
 del Eje', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (11, 'Deán
+insert into Ciudades( nombre, id_provincia ) values ( 'Deán
 Funes', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (12, 'Jesús
+insert into Ciudades( nombre, id_provincia ) values ( 'Jesús
 María', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (13, 'La
+insert into Ciudades( nombre, id_provincia ) values ( 'La
 Calera', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (14, 'Saldan',
+insert into Ciudades( nombre, id_provincia ) values ( 'Saldan',
 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (15, 'Villa
+insert into Ciudades( nombre, id_provincia ) values ( 'Villa
 Allende', 5)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (16,
+insert into Ciudades( nombre, id_provincia ) values (
 'Avellaneda', 1)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (17,
+insert into Ciudades( nombre, id_provincia ) values (
 'Cañuelas', 1)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (18, 'CABA',
+insert into Ciudades( nombre, id_provincia ) values ( 'CABA',
 1)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (19, 'La
+insert into Ciudades( nombre, id_provincia ) values ( 'La
 Matanza', 1)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (20,
+insert into Ciudades( nombre, id_provincia ) values (
 'Quilmes', 1)
-insert into Localidades(cod_localidad , nombre_localidad, cod_provincia) values (21, 'Carlos
+insert into Ciudades(nombre, id_provincia ) values ( 'Carlos
 Paz', 5)
 --Barrios--
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (1, 1,'Alta Cordoba')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (2, 1,'Alberdi')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (3, 1,'Alto Alberdi')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (4, 1,'Arguello')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (5, 1,'Jardin')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (6, 1,'Centro')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (7, 1,'Cerro de las
-Rosas')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (8, 1,'Nueva Córdoba')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (9, 1,'Observatorio')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (10, 1,'General Paz')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (11, 1,'San Vicente')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (12, 3,'Barrio Córdoba')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (13, 3,'El Crucero')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (14, 3,'Parque del
-Virrey')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (15, 3,'Liniers')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (16, 7,'Capilla del
-Monte Centro')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (17, 21,'VCP centro')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (18, 21,'Los
-Manantiales')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (19, 21,'Sol y Lago')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (20, 15,'San Isidro')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (21, 15,'San Alfonso')
-insert into Barrios (cod_barrio, cod_localidad, nombre_barrio) values (22, 15,'Villa Allende
-Parque')
+insert into Barrios ( nombre, id_ciudades) values ( 'Alta Cordoba', 1)
+insert into Barrios ( nombre, id_ciudades) values ( 'Alberdi', 1)
+insert into Barrios ( nombre, id_ciudades) values ( 'Alto Alberdi', 1)
+insert into Barrios ( nombre, id_ciudades) values ( 'Arguello', 1)
+insert into Barrios ( nombre, id_ciudades) values ( 'Jardin', 1)
+insert into Barrios ( nombre, id_ciudades) values ( 'Centro', 1)
+insert into Barrios ( nombre, id_ciudades) values ( 'Cerro de las
+Rosas', 1)
+insert into Barrios ( nombre, id_ciudades) values ( 'Nueva Córdoba', 1)
+insert into Barrios ( nombre, id_ciudades) values ( 'Observatorio', 1)
+insert into Barrios ( nombre, id_ciudades) values ( 'General Paz', 1)
+insert into Barrios ( nombre, id_ciudades) values ( 'San Vicente', 1)
+insert into Barrios ( nombre, id_ciudades) values ( 'Barrio Córdoba', 3)
+insert into Barrios ( nombre, id_ciudades) values ( 'El Crucero', 3)
+insert into Barrios ( nombre, id_ciudades) values ( 'Parque del
+Virrey', 3)
+insert into Barrios ( nombre, id_ciudades) values ( 'Liniers', 3)
+insert into Barrios ( nombre, id_ciudades) values ( 'Capilla del
+Monte Centro', 7)
+insert into Barrios ( nombre, id_ciudades) values ( 'VCP centro', 21)
+insert into Barrios ( nombre, id_ciudades) values ( 'Los
+Manantiales', 21)
+insert into Barrios ( nombre, id_ciudades) values ( 'Sol y Lago', 21)
+insert into Barrios ( nombre, id_ciudades) values ( 'San Isidro', 15)
+insert into Barrios ( nombre, id_ciudades) values ( 'San Alfonso', 15)
+insert into Barrios ( nombre, id_ciudades) values ( 'Villa Allende
+Parque', 15)
