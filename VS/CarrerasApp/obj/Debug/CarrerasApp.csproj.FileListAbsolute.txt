@@ -8,3 +8,13 @@ D:\Proyecto Labo_ProgII\VS\CarrerasApp\obj\Debug\CarrerasApp.csproj.GenerateReso
 D:\Proyecto Labo_ProgII\VS\CarrerasApp\obj\Debug\CarrerasApp.csproj.CoreCompileInputs.cache
 D:\Proyecto Labo_ProgII\VS\CarrerasApp\obj\Debug\CarrerasApp.exe
 D:\Proyecto Labo_ProgII\VS\CarrerasApp\obj\Debug\CarrerasApp.pdb
+E:\universidad\Proyecto LAB_PROG\Proyecto-Program-Lab\VS\CarrerasApp\bin\Debug\CarrerasApp.exe.config
+E:\universidad\Proyecto LAB_PROG\Proyecto-Program-Lab\VS\CarrerasApp\bin\Debug\CarrerasApp.exe
+E:\universidad\Proyecto LAB_PROG\Proyecto-Program-Lab\VS\CarrerasApp\bin\Debug\CarrerasApp.pdb
+E:\universidad\Proyecto LAB_PROG\Proyecto-Program-Lab\VS\CarrerasApp\obj\Debug\CarrerasApp.csproj.AssemblyReference.cache
+E:\universidad\Proyecto LAB_PROG\Proyecto-Program-Lab\VS\CarrerasApp\obj\Debug\CarrerasApp.csproj.SuggestedBindingRedirects.cache
+E:\universidad\Proyecto LAB_PROG\Proyecto-Program-Lab\VS\CarrerasApp\obj\Debug\CarrerasApp.Properties.Resources.resources
+E:\universidad\Proyecto LAB_PROG\Proyecto-Program-Lab\VS\CarrerasApp\obj\Debug\CarrerasApp.csproj.GenerateResource.cache
+E:\universidad\Proyecto LAB_PROG\Proyecto-Program-Lab\VS\CarrerasApp\obj\Debug\CarrerasApp.csproj.CoreCompileInputs.cache
+E:\universidad\Proyecto LAB_PROG\Proyecto-Program-Lab\VS\CarrerasApp\obj\Debug\CarrerasApp.exe
+E:\universidad\Proyecto LAB_PROG\Proyecto-Program-Lab\VS\CarrerasApp\obj\Debug\CarrerasApp.pdb
