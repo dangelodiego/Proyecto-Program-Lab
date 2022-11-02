@@ -2427,19 +2427,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\Diego\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\universidad\\Proyecto LAB_PROG\\Proyecto-Program-Lab\\VS\\DatosCarrera\\DatosCarrera.csproj",
+      "projectUniqueName": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj",
       "projectName": "DatosCarrera",
-      "projectPath": "E:\\universidad\\Proyecto LAB_PROG\\Proyecto-Program-Lab\\VS\\DatosCarrera\\DatosCarrera.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "E:\\universidad\\Proyecto LAB_PROG\\Proyecto-Program-Lab\\VS\\DatosCarrera\\obj\\",
+      "projectPath": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj",
+      "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
+      "outputPath": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2485,7 +2485,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
