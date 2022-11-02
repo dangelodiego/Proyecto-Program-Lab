@@ -34,19 +34,23 @@
             this.pictureBoxMinLogin = new System.Windows.Forms.PictureBox();
             this.txtUsuario = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblContraseña = new MaterialSkin.Controls.MaterialLabel();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtContraseña = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblUsuario = new MaterialSkin.Controls.MaterialLabel();
             this.btnAcceder = new MaterialSkin.Controls.MaterialRaisedButton();
             this.redondeo1 = new TecnicaturasPresentacion.Components.Redondeo();
+            this.pictureBoxOcultar = new System.Windows.Forms.PictureBox();
+            this.pictureBoxVisible = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoUtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCloseLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOcultar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVisible)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxLogoUtn
             // 
             this.pictureBoxLogoUtn.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogoUtn.Image")));
-            this.pictureBoxLogoUtn.Location = new System.Drawing.Point(102, 12);
+            this.pictureBoxLogoUtn.Location = new System.Drawing.Point(106, 12);
             this.pictureBoxLogoUtn.Name = "pictureBoxLogoUtn";
             this.pictureBoxLogoUtn.Size = new System.Drawing.Size(279, 307);
             this.pictureBoxLogoUtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -106,21 +110,21 @@
             this.lblContraseña.TabIndex = 2;
             this.lblContraseña.Text = "Contraseña";
             // 
-            // materialSingleLineTextField1
+            // txtContraseña
             // 
-            this.materialSingleLineTextField1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(102, 447);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(279, 23);
-            this.materialSingleLineTextField1.TabIndex = 1;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.txtContraseña.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtContraseña.Depth = 0;
+            this.txtContraseña.Hint = "";
+            this.txtContraseña.Location = new System.Drawing.Point(102, 447);
+            this.txtContraseña.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
+            this.txtContraseña.SelectedText = "";
+            this.txtContraseña.SelectionLength = 0;
+            this.txtContraseña.SelectionStart = 0;
+            this.txtContraseña.Size = new System.Drawing.Size(279, 23);
+            this.txtContraseña.TabIndex = 1;
+            this.txtContraseña.UseSystemPasswordChar = false;
             // 
             // lblUsuario
             // 
@@ -156,27 +160,54 @@
             this.redondeo1.CornerRadius = 30;
             this.redondeo1.TargetControl = this;
             // 
+            // pictureBoxOcultar
+            // 
+            this.pictureBoxOcultar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxOcultar.Image")));
+            this.pictureBoxOcultar.Location = new System.Drawing.Point(387, 447);
+            this.pictureBoxOcultar.Name = "pictureBoxOcultar";
+            this.pictureBoxOcultar.Size = new System.Drawing.Size(27, 23);
+            this.pictureBoxOcultar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxOcultar.TabIndex = 3;
+            this.pictureBoxOcultar.TabStop = false;
+            this.pictureBoxOcultar.Click += new System.EventHandler(this.pictureBoxOcultar_Click);
+            // 
+            // pictureBoxVisible
+            // 
+            this.pictureBoxVisible.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxVisible.Image")));
+            this.pictureBoxVisible.Location = new System.Drawing.Point(387, 447);
+            this.pictureBoxVisible.Name = "pictureBoxVisible";
+            this.pictureBoxVisible.Size = new System.Drawing.Size(27, 23);
+            this.pictureBoxVisible.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxVisible.TabIndex = 4;
+            this.pictureBoxVisible.TabStop = false;
+            this.pictureBoxVisible.Click += new System.EventHandler(this.pictureBoxVisible_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(489, 582);
+            this.Controls.Add(this.pictureBoxVisible);
+            this.Controls.Add(this.pictureBoxOcultar);
             this.Controls.Add(this.btnAcceder);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.lblContraseña);
-            this.Controls.Add(this.materialSingleLineTextField1);
+            this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.pictureBoxMinLogin);
             this.Controls.Add(this.pictureBoxCloseLogin);
             this.Controls.Add(this.pictureBoxLogoUtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoUtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCloseLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOcultar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVisible)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,9 +220,11 @@
         private PictureBox pictureBoxMinLogin;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtUsuario;
         private MaterialSkin.Controls.MaterialLabel lblContraseña;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtContraseña;
         private MaterialSkin.Controls.MaterialLabel lblUsuario;
         private MaterialSkin.Controls.MaterialRaisedButton btnAcceder;
         private Components.Redondeo redondeo1;
+        private PictureBox pictureBoxVisible;
+        private PictureBox pictureBoxOcultar;
     }
 }

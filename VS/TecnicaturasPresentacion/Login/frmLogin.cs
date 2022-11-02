@@ -24,7 +24,20 @@ namespace TecnicaturasPresentacion
         private void btnAcceder_Click(object sender, EventArgs e)
         {
             frmPrincipal principal = new frmPrincipal();
-            principal.ShowDialog();      
+            principal.Show(); 
+            this.Hide();
+        }
+
+        private void pictureBoxVisible_Click(object sender, EventArgs e)
+        {
+            pictureBoxOcultar.BringToFront();
+            txtContraseña.PasswordChar = '\0';
+        }
+
+        private void pictureBoxOcultar_Click(object sender, EventArgs e)
+        {
+            pictureBoxVisible.BringToFront();
+            txtContraseña.PasswordChar = '*';
         }
     }
 }
