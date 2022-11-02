@@ -61,7 +61,7 @@
   <data name="pictureBoxLogoUtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASYAAAEtCAYAAAClA80ZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAOaNJREFUeF7tfQt4FeW1Nso1CZcAOViPt/ZH7ZGKgEUuhgCJVeAc1Fbbeqy3CtWj
+        DAAACwwBP0AiyAAAOaNJREFUeF7tfQt4FeW1Nso1CZcAOViPt/ZH7ZGKgEUuhgCJVeAc1Fbbeqy3CtWj
         tR5vx2LFCyBYL8/x2vbYatTirV6eo0K1KpCEBERQBIra86hUFLQqtwQSEEjiv95xv9u1J7N3dsLeM7Mz
         632e91nr+2b2fGt/s753vrns2Z0MBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8Fg
         MBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAwGg8FgMBgMBoPBYDAYDAaDwWAwGAyG
@@ -326,4 +326,7 @@
         2QDHN1vX8KkglwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="redondeo1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

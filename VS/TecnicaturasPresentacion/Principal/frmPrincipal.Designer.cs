@@ -28,16 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.redondeo1 = new TecnicaturasPresentacion.Components.Redondeo();
             this.SuspendLayout();
             // 
-            // Principal
+            // redondeo1
+            // 
+            this.redondeo1.CornerRadius = 20;
+            this.redondeo1.TargetControl = this;
+            // 
+            // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1097, 659);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Principal";
+            this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             this.ResumeLayout(false);
@@ -45,5 +51,7 @@
         }
 
         #endregion
+
+        private Components.Redondeo redondeo1;
     }
 }

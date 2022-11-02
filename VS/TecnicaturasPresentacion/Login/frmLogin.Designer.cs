@@ -37,6 +37,7 @@
             this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblUsuario = new MaterialSkin.Controls.MaterialLabel();
             this.btnAcceder = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.redondeo1 = new TecnicaturasPresentacion.Components.Redondeo();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoUtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCloseLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinLogin)).BeginInit();
@@ -54,26 +55,31 @@
             // 
             // pictureBoxCloseLogin
             // 
+            this.pictureBoxCloseLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxCloseLogin.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCloseLogin.Image")));
-            this.pictureBoxCloseLogin.Location = new System.Drawing.Point(458, 0);
+            this.pictureBoxCloseLogin.Location = new System.Drawing.Point(462, 3);
             this.pictureBoxCloseLogin.Name = "pictureBoxCloseLogin";
-            this.pictureBoxCloseLogin.Size = new System.Drawing.Size(31, 31);
+            this.pictureBoxCloseLogin.Size = new System.Drawing.Size(21, 21);
+            this.pictureBoxCloseLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxCloseLogin.TabIndex = 1;
             this.pictureBoxCloseLogin.TabStop = false;
             this.pictureBoxCloseLogin.Click += new System.EventHandler(this.pictureBoxCloseLogin_Click);
             // 
             // pictureBoxMinLogin
             // 
+            this.pictureBoxMinLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxMinLogin.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMinLogin.Image")));
-            this.pictureBoxMinLogin.Location = new System.Drawing.Point(422, 0);
+            this.pictureBoxMinLogin.Location = new System.Drawing.Point(433, 3);
             this.pictureBoxMinLogin.Name = "pictureBoxMinLogin";
-            this.pictureBoxMinLogin.Size = new System.Drawing.Size(30, 31);
+            this.pictureBoxMinLogin.Size = new System.Drawing.Size(23, 21);
+            this.pictureBoxMinLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMinLogin.TabIndex = 2;
             this.pictureBoxMinLogin.TabStop = false;
             this.pictureBoxMinLogin.Click += new System.EventHandler(this.pictureBoxMinLogin_Click);
             // 
             // txtUsuario
             // 
+            this.txtUsuario.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUsuario.Depth = 0;
             this.txtUsuario.Hint = "";
             this.txtUsuario.Location = new System.Drawing.Point(102, 377);
@@ -102,6 +108,7 @@
             // 
             // materialSingleLineTextField1
             // 
+            this.materialSingleLineTextField1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.materialSingleLineTextField1.Depth = 0;
             this.materialSingleLineTextField1.Hint = "";
             this.materialSingleLineTextField1.Location = new System.Drawing.Point(102, 447);
@@ -131,6 +138,7 @@
             // btnAcceder
             // 
             this.btnAcceder.BackColor = System.Drawing.Color.White;
+            this.btnAcceder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAcceder.Depth = 0;
             this.btnAcceder.ForeColor = System.Drawing.Color.Black;
             this.btnAcceder.Location = new System.Drawing.Point(130, 501);
@@ -142,6 +150,11 @@
             this.btnAcceder.Text = "ACCEDER";
             this.btnAcceder.UseVisualStyleBackColor = false;
             this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
+            // 
+            // redondeo1
+            // 
+            this.redondeo1.CornerRadius = 30;
+            this.redondeo1.TargetControl = this;
             // 
             // frmLogin
             // 
@@ -179,5 +192,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
         private MaterialSkin.Controls.MaterialLabel lblUsuario;
         private MaterialSkin.Controls.MaterialRaisedButton btnAcceder;
+        private Components.Redondeo redondeo1;
     }
 }
