@@ -53,8 +53,7 @@ constraint	pk_turno primary key (id_turno))
 create table cursos(
 id_curso int identity(1,1),
 nombre varchar(50),
-id_turno int,
-año_ingreso datetime
+id_turno int
 constraint	pk_curso primary key (id_curso)
 constraint fk_turno foreign key (id_turno)
 references turnos (id_turno))
@@ -120,19 +119,18 @@ promocionable	bit
 constraint pk_materia primary key(id_materia))
 
 
-create table contenidos(
-id_materia	int,
-id_carrera	int
----pk
-constraint	pk_contenidos primary key(id_materia,id_carrera),
-constraint	fk_materia foreign key(id_materia)
-references materias(id_materia),
-constraint	fk_carrera foreign key(id_carrera)
-references carreras(id_carrera))
+--create table contenidos(
+--id_materia	int,
+--id_carrera	int
+-----pk
+--constraint	pk_contenidos primary key(id_materia,id_carrera),
+--constraint	fk_materia foreign key(id_materia)
+--references materias(id_materia),
+--constraint	fk_carrera foreign key(id_carrera)
+--references carreras(id_carrera))
 
 create table profesores(
-id_profesores	int	identity(1,1),
-id_materia	int,
+id_profesor	int	identity(1,1),
 nombre varchar(50),
 apellido varchar(50),
 fecha_nac datetime,
@@ -145,10 +143,18 @@ sexo int,
 id_barrio int
 constraint fk_barrios foreign key (id_barrio)
 references barrios(id_barrio),
-constraint pk_profesores primary key(id_profesores),
-constraint	fkmateria foreign key(id_materia)
-references materias(id_materia))
+constraint pk_profesor primary key(id_profesor))
 
+
+create table materia_x_profesores(
+id_mat_x_prof int identity(1,1),
+id_profesor int,
+id_materia int
+constraint fk_profesor foreign key (id_profesor)
+references profesores(id_profesor),
+constraint fk_materia foreign key (id_materia)
+references materias(id_materia),
+constraint pk_id_mat_x_prof primary key(id_mat_x_prof))
 
 create table estados_ac
 (
@@ -211,7 +217,7 @@ constraint	pk_mesa	primary	key(id_mesa),
 constraint	fk_materia3 foreign key(id_materia)
 references materias(id_materia),
 constraint	FK_Profesores foreign key(id_profesores)
-references profesores(id_profesores),
+references profesores(id_profesor),
 constraint fk_turno_examen foreign key(turno_examen) 
 references turnos_examenes (id_turno_examen))
 
