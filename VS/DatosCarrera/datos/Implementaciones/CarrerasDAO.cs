@@ -121,10 +121,66 @@ namespace DatosCarrera.datos.Implementaciones
 
         public bool BorrarAlumno(Alumno alumno)
         {
+            string sp = "SP_BORRAR_ALUMNO";
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@legajo", alumno.Legajo));
+            int afectadas = DBHelper.ObtenerInstancia().EjecutarSQL(sp, lst);
+            return afectadas > 0;
 
         }
 
 
+        public List<Alumno> GetAlumnosAll()
+        {
+            string sp = "SP_CONSULTAR_ALUMNOS";
+            List<Alumno> list = new List<Alumno>();
+            DataTable table= DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            foreach (DataRow r in table.Rows)
+            {
+                Alumno a = new Alumno();
+
+                a.Legajo = Convert.ToInt32(r["legajo"]);
+                if (r["nombre"] != DBNull.Value)
+                  a.Nombre  = Convert.ToString(r["nombre"]);
+                if (r["apellido"] != DBNull.Value)
+                    a.Apellido = Convert.ToString(r["apellido"]);
+                if (r["fecha_nac"] != DBNull.Value)
+                    a.FechaNacimiento = Convert.ToDateTime(r["fecha_nac"]);
+                if (r["dni"] != DBNull.Value)
+                    a.Dni = Convert.ToInt32(r["dni"]);
+                if (r["e_mail"] != DBNull.Value)
+                    a.Email = Convert.ToString(r["e_mail"]);
+                if (r["telefono"] != DBNull.Value)
+                    a.Telefono = Convert.ToInt32(r["telefono"]);
+                if (r["calle"] != DBNull.Value)
+                    a.Calle = Convert.ToString(r["calle"]);
+                if (r["altura"] != DBNull.Value)
+                    a.Altura = Convert.ToInt32(r["altura"]);
+                if (r["sexo"] != DBNull.Value)
+                    a.Sexo = (Sexo)(r["sexo"]);
+                if (r["id_curso"] != DBNull.Value)
+                    a.Curso.Id = Convert.ToInt32(r["id_curso"]);
+                if (r["id_carrera"] != DBNull.Value)
+                    a.Carrera.Id = Convert.ToInt32(r["carrera"]);
+                if (r["fecha_insc"] != DBNull.Value)
+                    a.FechaInscripcion = Convert.ToDateTime(r["fecha_insc"]);
+                if (r["id_laboralidad"] != DBNull.Value)
+                    a.Laboralidad = (Laboralidades)r["id_laboralidad"];
+                if (r["id_habitacionalidad"] != DBNull.Value)
+                    a.Habitacionalidad = (Habitacionalidades)r["id_habitacionalidad"];
+                if (r["id_barrio"] != DBNull.Value)
+                    a.Barrio = (Barrio)r["id_barrio"];
+
+                list.Add(a);
+
+            }
+            return list;
+
+
+
+
+
+        }
 
 
 
@@ -244,7 +300,7 @@ namespace DatosCarrera.datos.Implementaciones
 
 
                 if (r["sexo"] != DBNull.Value)
-                    p.Sexo = Convert.ToInt32(r["sexo"]);
+                    p.Sexo = (Sexo)r["sexo"];
 
                 list.Add(p);
             }
@@ -333,11 +389,7 @@ namespace DatosCarrera.datos.Implementaciones
             return lst;
         }
 
-        public List<Alumno> ObtenerAlumnos(int cantidad)
-        {
-            throw new NotImplementedException();
-        }
-
+     
         public List<Alumno> ObtenerAlumnos(int anioIngreso1, int anioIngreso2)
         {
             throw new NotImplementedException();
@@ -429,33 +481,9 @@ namespace DatosCarrera.datos.Implementaciones
             throw new NotImplementedException();
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public List<Alumno> ObtenerAlumnos(int cantidad)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
