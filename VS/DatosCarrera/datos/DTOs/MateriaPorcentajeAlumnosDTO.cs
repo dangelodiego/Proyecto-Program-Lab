@@ -8,6 +8,13 @@ namespace DatosCarrera.datos.DTOs
 {
     public class MateriaPorcentajeAlumnosDTO
     {
+
+        /*
+         5)--Listar las materias y su porcentaje de alumnos
+        que tienen notas menores a 6
+         * */
+
+
         public string NombreMateria { get; set; }
         public int PorcentajeAlumnos { get; set; }
     }
