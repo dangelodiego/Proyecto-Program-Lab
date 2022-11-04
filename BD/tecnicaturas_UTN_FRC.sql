@@ -1,4 +1,12 @@
 
+Create table Administradores
+(id_user int identity(1,1),
+usuario varchar(20),
+contrasenia varchar(25)
+constraint pk_id_user primary key (id_user)
+)
+
+
 create table Laboralidad
 (id_laboralidad int identity(1,1),
 descripcion varchar (60)
@@ -115,8 +123,12 @@ references habitacionalidad(id_habitacionalidad))
 create table materias(
 id_materia	int	identity(1,1),
 nombre	varchar(50),
-promocionable	bit
-constraint pk_materia primary key(id_materia))
+promocionable	bit,
+id_carrera int
+constraint pk_materia primary key(id_materia)
+constraint fk_id_carrera foreign key (id_carrera)
+references carreras(id_carrera)
+)
 
 
 --create table contenidos(
