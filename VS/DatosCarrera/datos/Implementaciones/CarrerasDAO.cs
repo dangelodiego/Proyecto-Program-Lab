@@ -15,6 +15,124 @@ namespace DatosCarrera.datos.Implementaciones
 {
     public class CarrerasDAO : ICarrerasDAO, IConsultasComplejas
     {
+
+       public bool InsertarAlumno(Alumno alumno)
+        {
+            bool ok = true;
+            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlTransaction t = null;
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cnn.Open();
+                t = cnn.BeginTransaction();
+                cmd.Connection = cnn;
+                cmd.Transaction = t;
+                cmd.CommandText = "SP_INSERTAR_ALUMNO";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", alumno.Nombre);
+                cmd.Parameters.AddWithValue("@apellido", alumno.Apellido);
+                cmd.Parameters.AddWithValue("@fecha_nac", alumno.FechaNacimiento);
+                cmd.Parameters.AddWithValue("@dni", alumno.Dni);
+                cmd.Parameters.AddWithValue("@e_mail", alumno.Email);
+                cmd.Parameters.AddWithValue("@telefono", alumno.Telefono);
+                cmd.Parameters.AddWithValue("@calle", alumno.Calle);
+                cmd.Parameters.AddWithValue("@altura", alumno.Altura);
+                cmd.Parameters.AddWithValue("@sexo", alumno.Sexo);
+                cmd.Parameters.AddWithValue("@id_curso", alumno.Curso.Id);
+                cmd.Parameters.AddWithValue("@id_carrera", alumno.Carrera.Id);
+                cmd.Parameters.AddWithValue("@fecha_insc", alumno.FechaInscripcion);
+                cmd.Parameters.AddWithValue("@id_estado_civil", alumno.EstadoCivil);
+                cmd.Parameters.AddWithValue("@id_laboralidad", alumno.Laboralidad);
+                cmd.Parameters.AddWithValue("@id_habitacionalidad", alumno.Habitacionalidad);
+                cmd.Parameters.AddWithValue("@id_barrio", alumno.Barrio.Id);
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+
+                if (t != null)
+                    t.Rollback();
+                ok = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+
+            return ok;
+
+
+        }
+
+
+        public bool ActualizarAlumno(Alumno alumno)
+        {
+            bool ok = true;
+            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlTransaction t = null;
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cnn.Open();
+                t = cnn.BeginTransaction();
+                cmd.Connection = cnn;
+                cmd.Transaction = t;
+                cmd.CommandText = "SP_MODIFICAR_ALUMNO";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", alumno.Nombre);
+                cmd.Parameters.AddWithValue("@apellido", alumno.Apellido);
+                cmd.Parameters.AddWithValue("@fecha_nac", alumno.FechaNacimiento);
+                cmd.Parameters.AddWithValue("@dni", alumno.Dni);
+                cmd.Parameters.AddWithValue("@e_mail", alumno.Email);
+                cmd.Parameters.AddWithValue("@telefono", alumno.Telefono);
+                cmd.Parameters.AddWithValue("@calle", alumno.Calle);
+                cmd.Parameters.AddWithValue("@altura", alumno.Altura);
+                cmd.Parameters.AddWithValue("@sexo", alumno.Sexo);
+                cmd.Parameters.AddWithValue("@id_curso", alumno.Curso.Id);
+                cmd.Parameters.AddWithValue("@id_carrera", alumno.Carrera.Id);
+                cmd.Parameters.AddWithValue("@fecha_insc", alumno.FechaInscripcion);
+                cmd.Parameters.AddWithValue("@id_estado_civil", alumno.EstadoCivil);
+                cmd.Parameters.AddWithValue("@id_laboralidad", alumno.Laboralidad);
+                cmd.Parameters.AddWithValue("@id_habitacionalidad", alumno.Habitacionalidad);
+                cmd.Parameters.AddWithValue("@id_barrio", alumno.Barrio.Id);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                if (t != null)
+                    t.Rollback();
+                ok = false;
+
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+
+            return ok;
+        }
+
+
+        public bool BorrarAlumno(Alumno alumno)
+        {
+
+        }
+
+
+
+
+
+
+
+
+
+
         public bool ActualizarMesa(MesaExamen mesaExamen)
         {
             bool ok = true;
@@ -80,14 +198,18 @@ namespace DatosCarrera.datos.Implementaciones
 
         }
 
-        public bool Borrar(int nro)
+        public bool BorrarMesa(int nro)
         {
             string sp = "SP_ELIMINAR_MESA";
             List<Parametro> lst = new List<Parametro>();
-            lst.Add(new Parametro("@presupuesto_nro", nro));
+            lst.Add(new Parametro("@id_mesa", nro));
             int afectadas = DBHelper.ObtenerInstancia().EjecutarSQL(sp, lst);
             return afectadas > 0;
         }
+
+
+
+
 
         public List<Profesor> ConsultarProfesores(int aniosParaJubilarse)
         {
@@ -132,6 +254,9 @@ namespace DatosCarrera.datos.Implementaciones
 
 
         }
+
+
+
 
         public bool CrearMesa(MesaExamen mesaExamen)
         {
@@ -303,5 +428,34 @@ namespace DatosCarrera.datos.Implementaciones
         {
             throw new NotImplementedException();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

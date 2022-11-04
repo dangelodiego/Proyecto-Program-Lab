@@ -23,6 +23,8 @@ namespace DatosCarrera.dominio
         public String Calle { get; set; }
 
         public int Altura { get; set; }
+
+        public Barrio Barrio { get; set; }
         public Sexo Sexo { get; set; }
 
 

@@ -33,8 +33,11 @@ namespace DatosCarrera.dominio
 
         public Sexo Sexo { get; set; }
 
-        public int IdBarrio { get; set; }
+        public Barrio Barrio { get; set; }
 
+       public Habitacionalidades Habitacionalidad { get; set; }
+
+        public Laboralidades Laboralidad { get; set; }
 
 
     }
