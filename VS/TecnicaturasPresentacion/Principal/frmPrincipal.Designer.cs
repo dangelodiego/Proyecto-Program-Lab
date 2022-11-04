@@ -69,6 +69,7 @@
             this.pbClose = new System.Windows.Forms.PictureBox();
             this.pbMaximizar = new System.Windows.Forms.PictureBox();
             this.pbMinimizar = new System.Windows.Forms.PictureBox();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.flpOpciones.SuspendLayout();
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).BeginInit();
@@ -172,6 +173,7 @@
             this.btnHome.Text = "                   Home";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // panel1
             // 
@@ -197,6 +199,7 @@
             this.btnAlumnos.Text = "                   Alumnos";
             this.btnAlumnos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAlumnos.UseVisualStyleBackColor = true;
+            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
             // 
             // panel2
             // 
@@ -222,6 +225,7 @@
             this.btnProfesores.Text = "                   Profesores";
             this.btnProfesores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProfesores.UseVisualStyleBackColor = true;
+            this.btnProfesores.Click += new System.EventHandler(this.btnProfesores_Click);
             // 
             // ConsultasContainer
             // 
@@ -518,6 +522,7 @@
             this.btnAbout.Text = "                   About";
             this.btnAbout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // sidebarTimer
             // 
@@ -565,12 +570,20 @@
             this.pbMinimizar.TabStop = false;
             this.pbMinimizar.Click += new System.EventHandler(this.pbMinimizar_Click);
             // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Location = new System.Drawing.Point(232, 23);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(853, 618);
+            this.panelPrincipal.TabIndex = 4;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1097, 659);
+            this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.pbMinimizar);
             this.Controls.Add(this.pbMaximizar);
             this.Controls.Add(this.pbClose);
@@ -648,5 +661,6 @@
         private PictureBox pbMinimizar;
         private PictureBox pbMaximizar;
         private PictureBox pbClose;
+        private Panel panelPrincipal;
     }
 }
