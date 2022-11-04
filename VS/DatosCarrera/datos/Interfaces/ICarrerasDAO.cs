@@ -16,7 +16,7 @@ namespace DatosCarrera.datos.Interfaces
 
         bool ActualizarMesa(MesaExamen mesaExamen);
 
-        bool Borrar(int nro);
+        bool BorrarMesa(int nro);
 
         MesaExamen ObtenerMesasPorId(int id);
 
