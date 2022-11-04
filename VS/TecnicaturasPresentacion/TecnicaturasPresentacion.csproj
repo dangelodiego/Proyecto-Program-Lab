@@ -27,4 +27,9 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Principal\Consultas\" />
+    <Folder Include="Principal\Reportes\" />
+  </ItemGroup>
+
 </Project>

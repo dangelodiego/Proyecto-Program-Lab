@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TecnicaturasPresentacion.Principal.About;
+using TecnicaturasPresentacion.Principal.Alumnos;
+using TecnicaturasPresentacion.Principal.Home;
+using TecnicaturasPresentacion.Principal.Profesores;
 
 namespace TecnicaturasPresentacion.Principal
 {
@@ -106,6 +110,39 @@ namespace TecnicaturasPresentacion.Principal
             if (MessageBox.Show("¿Desea cerrar la aplicacion?", "SISTEMA", MessageBoxButtons.YesNo, MessageBoxIcon.Question
                 , MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 this.Close();
+        }
+
+        private void AbrirFrom(object formhija)
+        {
+            if (this.panelPrincipal.Controls.Count > 0)
+                this.panelPrincipal.Controls.RemoveAt(0);
+            Form fh = formhija as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.panelPrincipal.Controls.Add(fh);
+            this.panelPrincipal.Tag = fh;
+            fh.Show();
+
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmAbout());
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmHome());
+        }
+
+        private void btnAlumnos_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmAlumnos());
+        }
+
+        private void btnProfesores_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmProfesores());
         }
     }
 }
