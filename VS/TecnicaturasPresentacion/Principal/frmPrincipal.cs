@@ -21,6 +21,7 @@ namespace TecnicaturasPresentacion.Principal
         public frmPrincipal()
         {
             InitializeComponent();
+            AbrirFrom(new frmHome());
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
@@ -109,7 +110,7 @@ namespace TecnicaturasPresentacion.Principal
         {
             if (MessageBox.Show("¿Desea cerrar la aplicacion?", "SISTEMA", MessageBoxButtons.YesNo, MessageBoxIcon.Question
                 , MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                this.Close();
+                Application.Exit();
         }
 
         private void AbrirFrom(object formhija)

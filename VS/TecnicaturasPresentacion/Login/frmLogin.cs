@@ -1,3 +1,4 @@
+using TecnicaturasPresentacion.PantallaDeCarga;
 using TecnicaturasPresentacion.Principal;
 
 namespace TecnicaturasPresentacion
@@ -23,8 +24,8 @@ namespace TecnicaturasPresentacion
 
         private void btnAcceder_Click(object sender, EventArgs e)
         {
-            frmPrincipal principal = new frmPrincipal();
-            principal.Show(); 
+            frmPantallaCarga carga = new frmPantallaCarga();
+            carga.Show(); 
             this.Hide();
         }
 

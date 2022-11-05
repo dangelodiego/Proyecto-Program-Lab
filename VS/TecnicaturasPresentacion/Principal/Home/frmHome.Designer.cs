@@ -38,10 +38,10 @@
             this.lblRegulares = new System.Windows.Forms.Label();
             this.lblCantAlumnNumero = new System.Windows.Forms.Label();
             this.lblCantAlumnos = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelProfesor = new System.Windows.Forms.Panel();
             this.lblCantProfesoresNumero = new System.Windows.Forms.Label();
             this.lblCantProfesores = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelTecnicaturas = new System.Windows.Forms.Panel();
             this.lblCantTecnicaturas = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lnkPaginaUTN = new System.Windows.Forms.LinkLabel();
@@ -50,9 +50,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.redondeo1 = new TecnicaturasPresentacion.Components.Redondeo();
             this.panelAlumnos.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelProfesor.SuspendLayout();
+            this.panelTecnicaturas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -166,15 +167,15 @@
             this.lblCantAlumnos.TabIndex = 0;
             this.lblCantAlumnos.Text = "Cantidad de Alumnos";
             // 
-            // panel1
+            // panelProfesor
             // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Controls.Add(this.lblCantProfesoresNumero);
-            this.panel1.Controls.Add(this.lblCantProfesores);
-            this.panel1.Location = new System.Drawing.Point(335, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(280, 292);
-            this.panel1.TabIndex = 8;
+            this.panelProfesor.BackColor = System.Drawing.Color.Black;
+            this.panelProfesor.Controls.Add(this.lblCantProfesoresNumero);
+            this.panelProfesor.Controls.Add(this.lblCantProfesores);
+            this.panelProfesor.Location = new System.Drawing.Point(335, 12);
+            this.panelProfesor.Name = "panelProfesor";
+            this.panelProfesor.Size = new System.Drawing.Size(280, 292);
+            this.panelProfesor.TabIndex = 8;
             // 
             // lblCantProfesoresNumero
             // 
@@ -199,15 +200,15 @@
             this.lblCantProfesores.TabIndex = 0;
             this.lblCantProfesores.Text = "Cantidad de Profesores";
             // 
-            // panel2
+            // panelTecnicaturas
             // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.lblCantTecnicaturas);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(12, 325);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(370, 115);
-            this.panel2.TabIndex = 9;
+            this.panelTecnicaturas.BackColor = System.Drawing.Color.Black;
+            this.panelTecnicaturas.Controls.Add(this.lblCantTecnicaturas);
+            this.panelTecnicaturas.Controls.Add(this.label2);
+            this.panelTecnicaturas.Location = new System.Drawing.Point(12, 325);
+            this.panelTecnicaturas.Name = "panelTecnicaturas";
+            this.panelTecnicaturas.Size = new System.Drawing.Size(370, 115);
+            this.panelTecnicaturas.TabIndex = 9;
             // 
             // lblCantTecnicaturas
             // 
@@ -305,6 +306,11 @@
             this.pictureBox3.TabIndex = 15;
             this.pictureBox3.TabStop = false;
             // 
+            // redondeo1
+            // 
+            this.redondeo1.CornerRadius = 20;
+            this.redondeo1.TargetControl = this.panelAlumnos;
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -317,8 +323,8 @@
             this.Controls.Add(this.lnkCalendario);
             this.Controls.Add(this.lnkCorreoUTN);
             this.Controls.Add(this.lnkPaginaUTN);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelTecnicaturas);
+            this.Controls.Add(this.panelProfesor);
             this.Controls.Add(this.panelAlumnos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmHome";
@@ -326,10 +332,10 @@
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.panelAlumnos.ResumeLayout(false);
             this.panelAlumnos.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelProfesor.ResumeLayout(false);
+            this.panelProfesor.PerformLayout();
+            this.panelTecnicaturas.ResumeLayout(false);
+            this.panelTecnicaturas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -349,10 +355,10 @@
         private Label lblLibres;
         private Label lblCantRegulares;
         private Label lblRegulares;
-        private Panel panel1;
+        private Panel panelProfesor;
         private Label lblCantProfesoresNumero;
         private Label lblCantProfesores;
-        private Panel panel2;
+        private Panel panelTecnicaturas;
         private Label lblCantTecnicaturas;
         private Label label2;
         private LinkLabel lnkPaginaUTN;
@@ -361,5 +367,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
+        private Components.Redondeo redondeo1;
     }
 }
