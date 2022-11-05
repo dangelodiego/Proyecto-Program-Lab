@@ -10,18 +10,22 @@ namespace DatosCarrera.datos.Interfaces
 {
     public interface IConsultasComplejas
     {
-        List<Materia> ObtenerMateriasSegunPromedio(int promedio);
-        List<Alumno> ObtenerAlumnos(int cantidad); //sirve para consultas 2 y 8
+        List<MateriaNotasSuperiorDTO> ObtenerMateriasSegunPromedio(int promedio);
 
-        List<Alumno> ObtenerAlumnos(int anioIngreso1, int anioIngreso2);
+        List<AlumnoInfoBasicaDTO> ObtenerAlumnosSegunMateriasCursadas(int cantidad);
+
+
+        List<AlumnosSegunPromedio_AnioIngresoDTO> ObtenerAlumnos(int anioIngreso1, int anioIngreso2);
 
         List<EdadPromedioXCursoDTO> ObtenerPromedioEdadPorCurso();
 
         List<MateriaPorcentajeAlumnosDTO> PorcentajeAlumnosNotaMenorPorMateria(int limite);
 
-        List<Profesor> ConsultarProfesores(int aniosParaJubilarse);
+        List<Profesor> ConsultarProfesoresProntaJubilacion(int aniosParaJubilarse);
 
         List<AlumnosPromedioMayorPorMateriaDTO> ObtenerAlumnos(double promedio);
+
+        List<AlumnoDesertor> ObtenerAlumnosDesertores(int cantidadAnios);
 
 
     }

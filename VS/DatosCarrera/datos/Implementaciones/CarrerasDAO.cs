@@ -16,7 +16,154 @@ namespace DatosCarrera.datos.Implementaciones
     public class CarrerasDAO : ICarrerasDAO, IConsultasComplejas
     {
 
-       public bool InsertarAlumno(Alumno alumno)
+        public int ObtenerProximoId()
+        {
+            string sp = "SP_PROXIMO_ID";
+            return DBHelper.ObtenerInstancia().ConsultaEscalarSQL("SP_PROXIMO_ID", "@next");
+        }
+
+
+
+
+
+
+
+
+        public bool CrearMesa(MesaExamen mesaExamen)
+        {
+            bool ok = true;
+            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlTransaction t = null;
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cnn.Open();
+                t = cnn.BeginTransaction();
+                cmd.Connection = cnn;
+                cmd.Transaction = t;
+                cmd.CommandText = "SP_INSERTAR_MAESTRO";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@fecha", mesaExamen.Fecha);
+                // cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno.Id);
+                cmd.Parameters.AddWithValue("@id_materia", mesaExamen.Materia.Id);
+                cmd.Parameters.AddWithValue("@id_profesores", mesaExamen.Profesor.Id);
+
+
+
+
+                cmd.ExecuteNonQuery();
+
+                SqlCommand cmdDetalle;
+                int detalleNro = 1;
+                foreach (Examen item in mesaExamen.Examenes)
+                {
+                    cmdDetalle = new SqlCommand("SP_INSERTAR_DETALLE", cnn, t);
+                    cmdDetalle.CommandType = CommandType.StoredProcedure;
+
+                    cmdDetalle.Parameters.AddWithValue("@id_mesa", mesaExamen.Id);
+                    cmdDetalle.Parameters.AddWithValue("@legajo", item.Alumno.Legajo);
+                    cmdDetalle.Parameters.AddWithValue("@nota", item.Nota);
+                    cmdDetalle.ExecuteNonQuery();
+
+                    detalleNro++;
+                }
+                t.Commit();
+            }
+
+            catch (Exception)
+            {
+                if (t != null)
+                    t.Rollback();
+                ok = false;
+            }
+
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+
+            return ok;
+        }
+
+        public bool ActualizarMesa(MesaExamen mesaExamen)
+        {
+            bool ok = true;
+            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlTransaction t = null;
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cnn.Open();
+                t = cnn.BeginTransaction();
+                cmd.Connection = cnn;
+                cmd.Transaction = t;
+                cmd.CommandText = "SP_MODIFICAR_MAESTRO";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@fecha", mesaExamen.Fecha);
+                //cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno.Id);
+                cmd.Parameters.AddWithValue("@id_materia", mesaExamen.Materia.Id);
+                cmd.Parameters.AddWithValue("@id_profesores", mesaExamen.Profesor.Id);
+
+
+
+
+                cmd.ExecuteNonQuery();
+
+                SqlCommand cmdDetalle;
+                int detalleNro = 1;
+                foreach (Examen item in mesaExamen.Examenes)
+                {
+                    cmdDetalle = new SqlCommand("SP_INSERTAR_DETALLE", cnn, t);
+                    cmdDetalle.CommandType = CommandType.StoredProcedure;
+
+                    cmdDetalle.Parameters.AddWithValue("@id_mesa", mesaExamen.Id);
+                    cmdDetalle.Parameters.AddWithValue("@legajo", item.Alumno.Legajo);
+                    cmdDetalle.Parameters.AddWithValue("@nota", item.Nota);
+                    cmdDetalle.ExecuteNonQuery();
+
+                    detalleNro++;
+                }
+                t.Commit();
+            }
+
+            catch (Exception)
+            {
+                if (t != null)
+                    t.Rollback();
+                ok = false;
+            }
+
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+
+            return ok;
+
+        }
+
+
+        public bool BorrarMesa(int nro)
+        {
+            string sp = "SP_ELIMINAR_MESA";
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@id_mesa", nro));
+            int afectadas = DBHelper.ObtenerInstancia().EjecutarSQL(sp, lst);
+            return afectadas > 0;
+        }
+
+
+        
+
+
+
+        public bool InsertarAlumno(Alumno alumno)
         {
             bool ok = true;
             SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
@@ -189,85 +336,159 @@ namespace DatosCarrera.datos.Implementaciones
 
 
 
-        public bool ActualizarMesa(MesaExamen mesaExamen)
-        {
-            bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
-            SqlTransaction t = null;
-            SqlCommand cmd = new SqlCommand();
+        
 
-            try
+  
+
+
+
+
+
+
+       
+
+        public List<Materia> GetMateriaAll()
+        {
+            string sp = "SP_CONSULTAR_MATERIAS";
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            List<Materia> lst = new List<Materia>();
+            foreach(DataRow r in tabla.Rows)
             {
-                cnn.Open();
-                t = cnn.BeginTransaction();
-                cmd.Connection = cnn;
-                cmd.Transaction = t;
-                cmd.CommandText = "SP_MODIFICAR_MAESTRO";
-                cmd.CommandType = CommandType.StoredProcedure;
+                Materia m = new Materia();
+                m.Id = Convert.ToInt32(r["id_materia"]);
+                m.Nombre = r["nombre"].ToString();
+                m.Promocionable = Convert.ToBoolean(r["promocionalbe"]);
+                lst.Add(m);
+            }
+            return lst;
+        }
+
+
+        /**
+         * 
+         * CONSULTAS COMPLEJAS PARA MOSTRAR EN LABORATORIO
+         */
+
+
+
+
+        //CONSULTA 1
+        public List<MateriaNotasSuperiorDTO> ObtenerMateriasSegunPromedio(int promedio)
+        {
+            string sp = "SP_MATERIAS_SEGUN_PROMEDIO";
+            DataTable tabla= DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            List<MateriaNotasSuperiorDTO> lst = new List<MateriaNotasSuperiorDTO>();
+            foreach(DataRow r in tabla.Rows)
+            {
+                MateriaNotasSuperiorDTO dto = new MateriaNotasSuperiorDTO();
+                dto.IdMateria = Convert.ToInt32(r["id_materia"]);
+                dto.NombreMateria = Convert.ToString(r["nombre"]);
+                dto.Promedio = Convert.ToDouble(r["promedio"]);
+                lst.Add(dto);
+
                 
-                cmd.Parameters.AddWithValue("@fecha", mesaExamen.Fecha);
-                //cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno.Id);
-                cmd.Parameters.AddWithValue("@id_materia", mesaExamen.Materia.Id);
-                cmd.Parameters.AddWithValue("@id_profesores", mesaExamen.Profesor.Id);
-
-
-
-
-                cmd.ExecuteNonQuery();
-
-                SqlCommand cmdDetalle;
-                int detalleNro = 1;
-                foreach (Examen item in mesaExamen.Examenes)
-                {
-                    cmdDetalle = new SqlCommand("SP_INSERTAR_DETALLE", cnn, t);
-                    cmdDetalle.CommandType = CommandType.StoredProcedure;
-                    
-                    cmdDetalle.Parameters.AddWithValue("@id_mesa", mesaExamen.Id);
-                    cmdDetalle.Parameters.AddWithValue("@legajo", item.Alumno.Legajo);
-                    cmdDetalle.Parameters.AddWithValue("@nota", item.Nota);
-                    cmdDetalle.ExecuteNonQuery();
-
-                    detalleNro++;
-                }
-                t.Commit();
             }
-
-            catch (Exception)
-            {
-                if (t != null)
-                    t.Rollback();
-                ok = false;
-            }
-
-            finally
-            {
-                if (cnn != null && cnn.State == ConnectionState.Open)
-                    cnn.Close();
-            }
-
-            return ok;
-
-
-
-
-
-
+            return lst;
         }
 
-        public bool BorrarMesa(int nro)
+        //CONSULTA 2
+
+        public List<AlumnoInfoBasicaDTO> ObtenerAlumnosSegunMateriasCursadas(int cantidad)
         {
-            string sp = "SP_ELIMINAR_MESA";
-            List<Parametro> lst = new List<Parametro>();
-            lst.Add(new Parametro("@id_mesa", nro));
-            int afectadas = DBHelper.ObtenerInstancia().EjecutarSQL(sp, lst);
-            return afectadas > 0;
+            string sp = "SP_CONSULTAR_ALUMNOS_SEGUN_MATERIAS_CURSADAS";
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            List<AlumnoInfoBasicaDTO> lst = new List<AlumnoInfoBasicaDTO>();
+            foreach(DataRow r in tabla.Rows)
+            {
+                AlumnoInfoBasicaDTO dto = new AlumnoInfoBasicaDTO();
+                dto.Legajo = Convert.ToInt32(r["legajo"]);
+                dto.Alumno = Convert.ToString(r["Alumno"]);
+                dto.Dni = Convert.ToInt32(r["documento"]);
+                dto.FechaInscripcion = Convert.ToDateTime(r["fecha de inscripcion"]);
+                lst.Add(dto);
+
+
+            }
+            return lst;
+
         }
 
 
 
 
 
-        public List<Profesor> ConsultarProfesores(int aniosParaJubilarse)
+
+
+
+        //CONSULTA 3
+        public List<AlumnosSegunPromedio_AnioIngresoDTO> ObtenerAlumnos(int anioIngreso1, int anioIngreso2)
+        {
+            string sp = "SP_ALUMNOS_SEGUN_PROMEDIO_ANIOS_INGRESO";
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            List<AlumnosSegunPromedio_AnioIngresoDTO> lst = new List<AlumnosSegunPromedio_AnioIngresoDTO>();
+            foreach(DataRow r in tabla.Rows)
+            {
+                AlumnosSegunPromedio_AnioIngresoDTO dto = new AlumnosSegunPromedio_AnioIngresoDTO();
+                dto.Legajo = Convert.ToInt32(r["Legajo"]);
+                dto.Alumno = Convert.ToString(r["Nombre Alumno"]);
+                dto.Observaciones = Convert.ToString(r["Observaciones"]);
+
+
+                lst.Add(dto);
+
+
+            }
+
+            return lst;
+        }
+
+
+
+        //CONSULTA 4
+        public List<EdadPromedioXCursoDTO> ObtenerPromedioEdadPorCurso()
+        {
+            List<EdadPromedioXCursoDTO> listDTO = new List<EdadPromedioXCursoDTO>();
+            string sp = "SP_OBTENER_PROMEDIO_EDAD_CURSO";
+            DataTable dt = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            foreach (DataRow r in dt.Rows)
+            {
+                EdadPromedioXCursoDTO dto = new EdadPromedioXCursoDTO();
+
+                if (r["curso"] != DBNull.Value)
+                    dto.NombreCurso = Convert.ToString(r["curso"]);
+                if (r["promedio"] != DBNull.Value)
+                    dto.PromedioEdad = Convert.ToDouble(r["promedio"]);
+
+                listDTO.Add(dto);
+
+            }
+
+            return listDTO;
+
+        }
+
+        //CONSULTA 5
+        public List<MateriaPorcentajeAlumnosDTO> PorcentajeAlumnosNotaMenorPorMateria(int limite)
+        {
+            List<MateriaPorcentajeAlumnosDTO> listDTO = new List<MateriaPorcentajeAlumnosDTO>();
+            string sp = "SP_MATERIAS_PORCENTAJE_ALUMNOS_NOTAS_MENOR";
+            DataTable dt = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            foreach(DataRow r in dt.Rows)
+            {
+                MateriaPorcentajeAlumnosDTO dto = new MateriaPorcentajeAlumnosDTO();
+                if (r["nombre"] != DBNull.Value)
+                    dto.NombreMateria = Convert.ToString(r["nombre"]);
+                if (r["porcentaje"]!=DBNull.Value)
+                    dto.PorcentajeAlumnos = Convert.ToDouble(r["porcentaje"]);
+                listDTO.Add(dto);
+            }
+            return listDTO;
+
+        }
+
+
+        //CONSULTA 6
+        public List<Profesor> ConsultarProfesoresProntaJubilacion(int aniosParaJubilarse)
         {
             string sp = "SP_PROFESORES_PRONTA_JUBILACION_SEGUN_ANIOS_RESTANTES";
             List<Profesor> list = new List<Profesor>();
@@ -307,103 +528,63 @@ namespace DatosCarrera.datos.Implementaciones
             return list;
 
 
-
-
         }
 
 
 
 
-        public bool CrearMesa(MesaExamen mesaExamen)
-        {
-            bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
-            SqlTransaction t = null;
-            SqlCommand cmd = new SqlCommand();
-
-            try
-            {
-                cnn.Open();
-                t = cnn.BeginTransaction();
-                cmd.Connection = cnn;
-                cmd.Transaction = t;
-                cmd.CommandText = "SP_INSERTAR_MAESTRO";
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@fecha", mesaExamen.Fecha);
-               // cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno.Id);
-                cmd.Parameters.AddWithValue("@id_materia", mesaExamen.Materia.Id);
-                cmd.Parameters.AddWithValue("@id_profesores", mesaExamen.Profesor.Id);
 
 
-
-
-                cmd.ExecuteNonQuery();
-
-                SqlCommand cmdDetalle;
-                int detalleNro = 1;
-                foreach (Examen item in mesaExamen.Examenes)
-                {
-                    cmdDetalle = new SqlCommand("SP_INSERTAR_DETALLE", cnn, t);
-                    cmdDetalle.CommandType = CommandType.StoredProcedure;
-
-                    cmdDetalle.Parameters.AddWithValue("@id_mesa", mesaExamen.Id);
-                    cmdDetalle.Parameters.AddWithValue("@legajo", item.Alumno.Legajo);
-                    cmdDetalle.Parameters.AddWithValue("@nota", item.Nota);
-                    cmdDetalle.ExecuteNonQuery();
-
-                    detalleNro++;
-                }
-                t.Commit();
-            }
-
-            catch (Exception)
-            {
-                if (t != null)
-                    t.Rollback();
-                ok = false;
-            }
-
-            finally
-            {
-                if (cnn != null && cnn.State == ConnectionState.Open)
-                    cnn.Close();
-            }
-
-            return ok;
-        }
-
-        public List<Materia> GetMateriaAll()
-        {
-            string sp = "sp_GetMateriasAll";
-            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
-            List<Materia> lst = new List<Materia>();
-            foreach(DataRow r in tabla.Rows)
-            {
-                Materia m = new Materia();
-                m.Id = Convert.ToInt32(r["id_materia"]);
-                m.Nombre = r["nombre"].ToString();
-                m.Promocionable = Convert.ToBoolean(r["promocionalbe"]);
-                lst.Add(m);
-            }
-            return lst;
-        }
-
-     
-        public List<Alumno> ObtenerAlumnos(int anioIngreso1, int anioIngreso2)
-        {
-            throw new NotImplementedException();
-        }
+        //CONSULTA 7
 
         public List<AlumnosPromedioMayorPorMateriaDTO> ObtenerAlumnos(double promedio)
         {
-            throw new NotImplementedException();
+            string sp = "SP_ALUMNOS_PROMEDIO_MAYOR_POR_MATERIA";
+            List < AlumnosPromedioMayorPorMateriaDTO> lst = new List<AlumnosPromedioMayorPorMateriaDTO>();
+            DataTable dt = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            foreach(DataRow r in dt.Rows)
+            {
+                AlumnosPromedioMayorPorMateriaDTO dto = new AlumnosPromedioMayorPorMateriaDTO();
+                dto.NombreMateria = Convert.ToString(r["Materia"]);
+                dto.Alumno = Convert.ToString(r["Alumno"]);
+                lst.Add(dto);
+
+            }
+            return lst;
+
+
+
         }
 
-        public List<Materia> ObtenerMateriasSegunPromedio(int promedio)
+    
+       
+
+      
+
+   
+   
+        //CONSULTAS  8
+      public List<AlumnoDesertor> ObtenerAlumnosDesertores(int cantidad)
         {
-            throw new NotImplementedException();
+            string sp = "SP_NO_VAN_A_RENDIR_HACE_TANTOS_AÑOS";
+            List<AlumnoDesertor> lst = new List<AlumnoDesertor>();
+            DataTable dt = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            foreach(DataRow r in dt.Rows)
+            {
+                AlumnoDesertor a = new AlumnoDesertor();
+                a.Legajo = Convert.ToInt32(r["legajo"]);
+                a.NombreCompleto = Convert.ToString(r["nombre_completo"]);
+                lst.Add(a);
+
+            }
+
+            return lst;
         }
+
+
+
+        ///METODOS AUXILIARES///
+
 
         public MesaExamen ObtenerMesasPorId(int id)
         {
@@ -420,7 +601,7 @@ namespace DatosCarrera.datos.Implementaciones
             foreach (DataRow row in t.Rows)
             {
                 //Mapear un registro a un objeto del modelo de dominio
-             
+
                 bool activo = row["activo"].ToString().Equals("S");
 
 
@@ -433,13 +614,13 @@ namespace DatosCarrera.datos.Implementaciones
                 int telefono = int.Parse(row["telefono"].ToString());
                 int idCalle = int.Parse(row["id_calle"].ToString());
                 int altura = int.Parse(row["altura"].ToString());
-                int sexo= int.Parse(row["sexo"].ToString());
+                int sexo = int.Parse(row["sexo"].ToString());
 
 
 
 
                 Persona aux = new Persona(id, nombre, apellido, fechaNacimiento, dni, email, telefono);
-       
+
                 lst.Add(aux);
 
             }
@@ -448,42 +629,30 @@ namespace DatosCarrera.datos.Implementaciones
 
         }
 
-        public List<EdadPromedioXCursoDTO> ObtenerPromedioEdadPorCurso()
-        {
-            List<EdadPromedioXCursoDTO> listDTO = new List<EdadPromedioXCursoDTO>();
-            string sp = "SP_OBTENER_PROMEDIO_EDAD_CURSO";
-            DataTable dt = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
-            foreach (DataRow r in dt)
-            {
-                EdadPromedioXCursoDTO dto = new EdadPromedioXCursoDTO();
 
-                if (r["curso"] != DBNull.Value)
-                    dto.NombreCurso = Convert.ToString(r["curso"]);
-                if (r["promedio"] != DBNull.Value)
-                    dto.PromedioEdad = Convert.ToDouble(r["promedio"]);
 
-                listDTO.Add(dto);
 
-            }
 
-            return listDTO;
 
-        }
 
-        public int ObtenerProximoId()
-        {
-            string sp = "SP_PROXIMO_ID";
-            return DBHelper.ObtenerInstancia().ConsultaEscalarSQL("SP_PROXIMO_ID", "@next");
-        }
 
-        public List<MateriaPorcentajeAlumnosDTO> PorcentajeAlumnosNotaMenorPorMateria(int limite)
-        {
-            throw new NotImplementedException();
-        }
 
-        public List<Alumno> ObtenerAlumnos(int cantidad)
-        {
-            throw new NotImplementedException();
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

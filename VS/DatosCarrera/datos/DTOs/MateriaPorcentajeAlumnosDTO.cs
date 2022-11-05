@@ -16,6 +16,6 @@ namespace DatosCarrera.datos.DTOs
 
 
         public string NombreMateria { get; set; }
-        public int PorcentajeAlumnos { get; set; }
+        public double PorcentajeAlumnos { get; set; }
     }
 }
