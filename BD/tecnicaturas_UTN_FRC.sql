@@ -17,7 +17,11 @@ create table Habitacionalidad
 descripcion varchar(50)
 constraint pk_habitacionalidad primary key (id_habitacionalidad)) 
 
-
+create table sexos
+(id_sexo int identity(1,1),
+descripcion varchar(20)
+constraint pk_descripcion primary key (id_sexo)
+)
 
 create table provincias(
 id_provincia int identity(1,1),
@@ -96,7 +100,7 @@ e_mail varchar(100),
 telefono bigint,
 calle varchar(100),
 altura int,
-sexo int,
+id_sexo int,
 id_curso int,
 id_carrera int,
 fecha_insc datetime,
@@ -118,7 +122,10 @@ references laboralidad (id_laboralidad),
 constraint	fk_curso foreign key(id_curso)
 references cursos(id_curso),
 constraint	fk_habitacionalidad foreign key(id_habitacionalidad)
-references habitacionalidad(id_habitacionalidad))
+references habitacionalidad(id_habitacionalidad),
+constraint	fk_sexos foreign key(id_sexo)
+references sexos(id_sexo)
+)
 
 create table materias(
 id_materia	int	identity(1,1),
@@ -151,11 +158,14 @@ e_mail varchar(100),
 telefono bigint,
 calle varchar(100),
 altura int,
-sexo int,
+id_sexo int,
 id_barrio int
 constraint fk_barrios foreign key (id_barrio)
 references barrios(id_barrio),
-constraint pk_profesor primary key(id_profesor))
+constraint pk_profesor primary key(id_profesor),
+constraint	fk_sexo foreign key(id_sexo)
+references sexos(id_sexo)
+)
 
 
 create table materia_x_profesores(
