@@ -18,6 +18,7 @@ Insert into Sexos(descripcion) values ('Desconocido')
 --Provincias
 
 insert into provincias (nombre) values ('Buenos Aires')
+insert into provincias (nombre) values ('CABA')
 insert into provincias (nombre) values ('Catamarca')
 insert into provincias (nombre) values ('Chaco')
 insert into provincias (nombre) values ('Chubut')
