@@ -67,15 +67,20 @@ namespace DatosCarrera.datos.Implementaciones
             return DBHelper.ObtenerInstancia().ActualizarAlumno(alumno);
         }
 
-       
+
         public bool BorrarAlumno(Alumno alumno)
         {
-            return DBHelper.ObtenerInstancia().BorrarAlumno(alumno);
+            string sp = "SP_BORRAR_ALUMNO";
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@legajo", alumno.Legajo));
+            int afectadas = DBHelper.ObtenerInstancia().EjecutarSQL(sp, lst);
+            return afectadas > 0;
+
         }
 
 
 
-     
+
 
         public List<Alumno> GetAlumnosAll()
         {
@@ -141,112 +146,13 @@ namespace DatosCarrera.datos.Implementaciones
 
         public bool InsertarProfesor(Profesor profesor)
         {
-            bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
-            SqlTransaction t = null;
-            SqlCommand cmd = new SqlCommand();
-
-
-
-            try
-            {
-                cnn.Open();
-                t = cnn.BeginTransaction();
-                cmd.Connection = cnn;
-                cmd.Transaction = t;
-                cmd.CommandText = "SP_INSERTAR_PROFESOR";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nombre", profesor.Nombre);
-                cmd.Parameters.AddWithValue("@apellido", profesor.Apellido);
-                cmd.Parameters.AddWithValue("@fecha_nac", profesor.FechaNacimiento);
-                cmd.Parameters.AddWithValue("@dni", profesor.Dni);
-                cmd.Parameters.AddWithValue("@e_mail", profesor.Email);
-                cmd.Parameters.AddWithValue("@telefono", profesor.Telefono);
-                cmd.Parameters.AddWithValue("@calle", profesor.Calle);
-                cmd.Parameters.AddWithValue("@altura", profesor.Altura);
-                cmd.Parameters.AddWithValue("@sexo", profesor.Sexo);
-                cmd.Parameters.AddWithValue("@id_barrio", profesor.Barrio.Id);
-                cmd.ExecuteNonQuery();
-                t.Commit();
-
-
-
-
-            }
-            catch (Exception)
-            {
-
-                if (t != null)
-                    t.Rollback();
-                ok = false;
-            }
-            finally
-            {
-                if (cnn != null && cnn.State == ConnectionState.Open)
-                    cnn.Close();
-            }
-
-            return ok;
-
-
-
+            return DBHelper.ObtenerInstancia().InsertarProfesor(profesor);
         }
 
         public bool ActualizarProfesor(Profesor profesor)
         {
-            bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
-            SqlTransaction t = null;
-            SqlCommand cmd = new SqlCommand();
-
-            try
-            {
-                cnn.Open();
-                t = cnn.BeginTransaction();
-                cmd.Connection = cnn;
-                cmd.Transaction = t;
-                cmd.CommandText = "SP_MODIFICAR_PROFESOR";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nombre", profesor.Nombre);
-                cmd.Parameters.AddWithValue("@apellido", profesor.Apellido);
-                cmd.Parameters.AddWithValue("@fecha_nac", profesor.FechaNacimiento);
-                cmd.Parameters.AddWithValue("@dni", profesor.Dni);
-                cmd.Parameters.AddWithValue("@e_mail", profesor.Email);
-                cmd.Parameters.AddWithValue("@telefono", profesor.Telefono);
-                cmd.Parameters.AddWithValue("@calle", profesor.Calle);
-                cmd.Parameters.AddWithValue("@altura", profesor.Altura);
-                cmd.Parameters.AddWithValue("@sexo", profesor.Sexo);
-                cmd.Parameters.AddWithValue("@id_barrio", profesor.Barrio.Id);
-                cmd.ExecuteNonQuery();
-                t.Commit();
-
-
-
-
-            }
-            catch (Exception)
-            {
-
-                if (t != null)
-                    t.Rollback();
-                ok = false;
-            }
-            finally
-            {
-                if (cnn != null && cnn.State == ConnectionState.Open)
-                    cnn.Close();
-            }
-
-            return ok;
-
-
-
-
-
-
+            return DBHelper.ObtenerInstancia().InsertarProfesor(profesor);
         }
-
-
 
         public bool BorrarProfesor(Profesor profesor)
         {
