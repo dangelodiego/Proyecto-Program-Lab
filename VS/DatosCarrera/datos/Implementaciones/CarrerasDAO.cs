@@ -124,34 +124,29 @@ namespace DatosCarrera.datos.Implementaciones
                 cmd.CommandText = "SP_MODIFICAR_MESA"; ///DELETE FROM examenes WHERE id_mesa=@id_mesa
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id_mesa", mesaExamen.Id);
-            
+                cmd.Parameters.AddWithValue("@fecha", mesaExamen.Fecha);
+                cmd.Parameters.AddWithValue("@turno_examen", mesaExamen.Turno);
+                cmd.Parameters.AddWithValue("@id_materia", mesaExamen.Materia.Id);
+                cmd.Parameters.AddWithValue("@id_profesores", mesaExamen.Profesor.Id);
 
-
-                SqlParameter pOut = new SqlParameter();
-                pOut.ParameterName = "@id_mesa";
-                pOut.DbType = DbType.Int32;
-                pOut.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(pOut);
-
-
+          
 
 
                 cmd.ExecuteNonQuery();
-                int idMesa = Convert.ToInt32(pOut.Value);
+                
                 SqlCommand cmdDetalle;
-                int detalleNro = 1;
+              
                 foreach (Examen item in mesaExamen.Examenes)
                 {
                     cmdDetalle = new SqlCommand("SP_INSERTAR_DETALLE", cnn, t);
                     cmdDetalle.CommandType = CommandType.StoredProcedure;
 
-                    cmdDetalle.Parameters.AddWithValue("@id_mesa", idMesa);
+                    cmdDetalle.Parameters.AddWithValue("@id_mesa", mesaExamen.Id);
                     cmdDetalle.Parameters.AddWithValue("@legajo", item.Alumno.Legajo);
                     cmdDetalle.Parameters.AddWithValue("@nota", item.Nota);
                     cmdDetalle.ExecuteNonQuery();
 
-                    detalleNro++;
+                 
                 }
                 t.Commit();
             }
@@ -356,19 +351,181 @@ namespace DatosCarrera.datos.Implementaciones
 
 
 
+        /// <summary>
+        /// CRUD DE PROFESORES
+        /// </summary>
+        /// <returns></returns>
+
+
+        public bool InsertarProfesor(Profesor profesor)
+        {
+            bool ok = true;
+            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlTransaction t = null;
+            SqlCommand cmd = new SqlCommand();
 
 
 
-        
+            try
+            {
+                cnn.Open();
+                t = cnn.BeginTransaction();
+                cmd.Connection = cnn;
+                cmd.Transaction = t;
+                cmd.CommandText = "SP_INSERTAR_PROFESOR";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", profesor.Nombre);
+                cmd.Parameters.AddWithValue("@apellido", profesor.Apellido);
+                cmd.Parameters.AddWithValue("@fecha_nac", profesor.FechaNacimiento);
+                cmd.Parameters.AddWithValue("@dni", profesor.Dni);
+                cmd.Parameters.AddWithValue("@e_mail", profesor.Email);
+                cmd.Parameters.AddWithValue("@telefono", profesor.Telefono);
+                cmd.Parameters.AddWithValue("@calle", profesor.Calle);
+                cmd.Parameters.AddWithValue("@altura", profesor.Altura);
+                cmd.Parameters.AddWithValue("@sexo", profesor.Sexo);
+                cmd.Parameters.AddWithValue("@id_barrio", profesor.Barrio.Id);
+                cmd.ExecuteNonQuery();
+                t.Commit();
 
-  
+
+
+
+            }
+            catch (Exception)
+            {
+
+                if (t != null)
+                    t.Rollback();
+                ok = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+
+            return ok;
+
+
+
+        }
+
+        public bool ActualizarProfesor(Profesor profesor)
+        {
+            bool ok = true;
+            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlTransaction t = null;
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cnn.Open();
+                t = cnn.BeginTransaction();
+                cmd.Connection = cnn;
+                cmd.Transaction = t;
+                cmd.CommandText = "SP_MODIFICAR_PROFESOR";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", profesor.Nombre);
+                cmd.Parameters.AddWithValue("@apellido", profesor.Apellido);
+                cmd.Parameters.AddWithValue("@fecha_nac", profesor.FechaNacimiento);
+                cmd.Parameters.AddWithValue("@dni", profesor.Dni);
+                cmd.Parameters.AddWithValue("@e_mail", profesor.Email);
+                cmd.Parameters.AddWithValue("@telefono", profesor.Telefono);
+                cmd.Parameters.AddWithValue("@calle", profesor.Calle);
+                cmd.Parameters.AddWithValue("@altura", profesor.Altura);
+                cmd.Parameters.AddWithValue("@sexo", profesor.Sexo);
+                cmd.Parameters.AddWithValue("@id_barrio", profesor.Barrio.Id);
+                cmd.ExecuteNonQuery();
+                t.Commit();
+
+
+
+
+            }
+            catch (Exception)
+            {
+
+                if (t != null)
+                    t.Rollback();
+                ok = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+
+            return ok;
 
 
 
 
 
 
-       
+        }
+
+
+
+        public bool BorrarProfesor(Alumno alumno)
+        {
+            string sp = "SP_BORRAR_PROFESOR";
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@legajo", alumno.Legajo));
+            int afectadas = DBHelper.ObtenerInstancia().EjecutarSQL(sp, lst);
+            return afectadas > 0;
+
+        }
+
+
+
+        public List<Profesor> GetProfesoresAll()
+        {
+            string sp = "SP_CONSULTAR_PROFESOR";
+            List<Profesor> list = new List<Profesor>();
+            DataTable table = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            foreach (DataRow r in table.Rows)
+            {
+                Profesor p = new Profesor();
+
+                p.Id = Convert.ToInt32(r["id_profesor"]);
+                if (r["nombre"] != DBNull.Value)
+                    p.Nombre = Convert.ToString(r["nombre"]);
+                if (r["apellido"] != DBNull.Value)
+                    p.Apellido = Convert.ToString(r["apellido"]);
+                if (r["fecha_nac"] != DBNull.Value)
+                    p.FechaNacimiento = Convert.ToDateTime(r["fecha_nac"]);
+                if (r["dni"] != DBNull.Value)
+                    p.Dni = Convert.ToInt32(r["dni"]);
+                if (r["e_mail"] != DBNull.Value)
+                    p.Email = Convert.ToString(r["e_mail"]);
+                if (r["telefono"] != DBNull.Value)
+                    p.Telefono = Convert.ToInt32(r["telefono"]);
+                if (r["calle"] != DBNull.Value)
+                    p.Calle = Convert.ToString(r["calle"]);
+                if (r["altura"] != DBNull.Value)
+                    p.Altura = Convert.ToInt32(r["altura"]);
+                if (r["sexo"] != DBNull.Value)
+                    p.Sexo = (Sexo)(r["sexo"]);
+                if (r["id_barrio"] != DBNull.Value)
+                    p.Barrio = (Barrio)r["id_barrio"];
+
+                list.Add(p);
+
+            }
+            return list;
+
+
+
+
+
+        }
+
+
+
+
+
+
+
 
         public List<Materia> GetMateriaAll()
         {
