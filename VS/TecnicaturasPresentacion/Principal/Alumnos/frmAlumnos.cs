@@ -16,5 +16,10 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
         {
             InitializeComponent();
         }
+
+        private void frmAlumnos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
