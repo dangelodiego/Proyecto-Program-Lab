@@ -5,6 +5,7 @@ using DatosCarrera.dominio.auxiliares;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -376,19 +377,21 @@ namespace DatosCarrera.datos.Implementaciones
         public List<MateriaNotasSuperiorDTO> ObtenerMateriasSegunPromedio(int promedio)
         {
             string sp = "SP_MATERIAS_SEGUN_PROMEDIO";
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@promedio", promedio));
             DataTable tabla= DBHelper.ObtenerInstancia().ConsultaSQL(sp);
-            List<MateriaNotasSuperiorDTO> lst = new List<MateriaNotasSuperiorDTO>();
+            List<MateriaNotasSuperiorDTO> listDTO = new List<MateriaNotasSuperiorDTO>();
             foreach(DataRow r in tabla.Rows)
             {
                 MateriaNotasSuperiorDTO dto = new MateriaNotasSuperiorDTO();
                 dto.IdMateria = Convert.ToInt32(r["id_materia"]);
                 dto.NombreMateria = Convert.ToString(r["nombre"]);
                 dto.Promedio = Convert.ToDouble(r["promedio"]);
-                lst.Add(dto);
+                listDTO.Add(dto);
 
                 
             }
-            return lst;
+            return listDTO;
         }
 
         //CONSULTA 2
@@ -396,8 +399,10 @@ namespace DatosCarrera.datos.Implementaciones
         public List<AlumnoInfoBasicaDTO> ObtenerAlumnosSegunMateriasCursadas(int cantidad)
         {
             string sp = "SP_CONSULTAR_ALUMNOS_SEGUN_MATERIAS_CURSADAS";
-            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
-            List<AlumnoInfoBasicaDTO> lst = new List<AlumnoInfoBasicaDTO>();
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@cantidad", cantidad));
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lst);
+            List<AlumnoInfoBasicaDTO> listDTO = new List<AlumnoInfoBasicaDTO>();
             foreach(DataRow r in tabla.Rows)
             {
                 AlumnoInfoBasicaDTO dto = new AlumnoInfoBasicaDTO();
@@ -405,11 +410,11 @@ namespace DatosCarrera.datos.Implementaciones
                 dto.Alumno = Convert.ToString(r["Alumno"]);
                 dto.Dni = Convert.ToInt32(r["documento"]);
                 dto.FechaInscripcion = Convert.ToDateTime(r["fecha de inscripcion"]);
-                lst.Add(dto);
+                listDTO.Add(dto);
 
 
             }
-            return lst;
+            return listDTO;
 
         }
 
@@ -424,8 +429,11 @@ namespace DatosCarrera.datos.Implementaciones
         public List<AlumnosSegunPromedio_AnioIngresoDTO> ObtenerAlumnos(int anioIngreso1, int anioIngreso2)
         {
             string sp = "SP_ALUMNOS_SEGUN_PROMEDIO_ANIOS_INGRESO";
-            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
-            List<AlumnosSegunPromedio_AnioIngresoDTO> lst = new List<AlumnosSegunPromedio_AnioIngresoDTO>();
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@anioIngreso1", anioIngreso1));
+            lst.Add(new Parametro("@anioIngreso2", anioIngreso2));
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lst);
+            List<AlumnosSegunPromedio_AnioIngresoDTO> listDTO = new List<AlumnosSegunPromedio_AnioIngresoDTO>();
             foreach(DataRow r in tabla.Rows)
             {
                 AlumnosSegunPromedio_AnioIngresoDTO dto = new AlumnosSegunPromedio_AnioIngresoDTO();
@@ -434,12 +442,12 @@ namespace DatosCarrera.datos.Implementaciones
                 dto.Observaciones = Convert.ToString(r["Observaciones"]);
 
 
-                lst.Add(dto);
+                listDTO.Add(dto);
 
 
             }
 
-            return lst;
+            return listDTO;
         }
 
 
@@ -447,10 +455,11 @@ namespace DatosCarrera.datos.Implementaciones
         //CONSULTA 4
         public List<EdadPromedioXCursoDTO> ObtenerPromedioEdadPorCurso()
         {
-            List<EdadPromedioXCursoDTO> listDTO = new List<EdadPromedioXCursoDTO>();
+           
             string sp = "SP_OBTENER_PROMEDIO_EDAD_CURSO";
-            DataTable dt = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
-            foreach (DataRow r in dt.Rows)
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            List<EdadPromedioXCursoDTO> listDTO = new List<EdadPromedioXCursoDTO>();
+            foreach (DataRow r in tabla.Rows)
             {
                 EdadPromedioXCursoDTO dto = new EdadPromedioXCursoDTO();
 
@@ -470,10 +479,13 @@ namespace DatosCarrera.datos.Implementaciones
         //CONSULTA 5
         public List<MateriaPorcentajeAlumnosDTO> PorcentajeAlumnosNotaMenorPorMateria(int limite)
         {
-            List<MateriaPorcentajeAlumnosDTO> listDTO = new List<MateriaPorcentajeAlumnosDTO>();
+            
             string sp = "SP_MATERIAS_PORCENTAJE_ALUMNOS_NOTAS_MENOR";
-            DataTable dt = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
-            foreach(DataRow r in dt.Rows)
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@limite", limite));
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lst);
+            List<MateriaPorcentajeAlumnosDTO> listDTO = new List<MateriaPorcentajeAlumnosDTO>();
+            foreach (DataRow r in tabla.Rows)
             {
                 MateriaPorcentajeAlumnosDTO dto = new MateriaPorcentajeAlumnosDTO();
                 if (r["nombre"] != DBNull.Value)
@@ -495,7 +507,7 @@ namespace DatosCarrera.datos.Implementaciones
             List<Parametro> lst = new List<Parametro>();
             lst.Add(new Parametro("@aniosParaJubilarse", aniosParaJubilarse));
 
-            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lst);
             foreach (DataRow r in tabla.Rows)
             {
                 Profesor p = new Profesor();
@@ -540,17 +552,19 @@ namespace DatosCarrera.datos.Implementaciones
         public List<AlumnosPromedioMayorPorMateriaDTO> ObtenerAlumnos(double promedio)
         {
             string sp = "SP_ALUMNOS_PROMEDIO_MAYOR_POR_MATERIA";
-            List < AlumnosPromedioMayorPorMateriaDTO> lst = new List<AlumnosPromedioMayorPorMateriaDTO>();
-            DataTable dt = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@promedio", promedio));
+            List < AlumnosPromedioMayorPorMateriaDTO> listDTO = new List<AlumnosPromedioMayorPorMateriaDTO>();
+            DataTable dt = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lst);
             foreach(DataRow r in dt.Rows)
             {
                 AlumnosPromedioMayorPorMateriaDTO dto = new AlumnosPromedioMayorPorMateriaDTO();
                 dto.NombreMateria = Convert.ToString(r["Materia"]);
                 dto.Alumno = Convert.ToString(r["Alumno"]);
-                lst.Add(dto);
+                listDTO.Add(dto);
 
             }
-            return lst;
+            return listDTO;
 
 
 
@@ -567,18 +581,20 @@ namespace DatosCarrera.datos.Implementaciones
       public List<AlumnoDesertor> ObtenerAlumnosDesertores(int cantidad)
         {
             string sp = "SP_NO_VAN_A_RENDIR_HACE_TANTOS_AÑOS";
-            List<AlumnoDesertor> lst = new List<AlumnoDesertor>();
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@cantidad", cantidad));
+            List<AlumnoDesertor> listDTO = new List<AlumnoDesertor>();
             DataTable dt = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
             foreach(DataRow r in dt.Rows)
             {
                 AlumnoDesertor a = new AlumnoDesertor();
                 a.Legajo = Convert.ToInt32(r["legajo"]);
                 a.NombreCompleto = Convert.ToString(r["nombre_completo"]);
-                lst.Add(a);
+                listDTO.Add(a);
 
             }
 
-            return lst;
+            return listDTO;
         }
 
 
