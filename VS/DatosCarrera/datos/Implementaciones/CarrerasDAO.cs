@@ -47,7 +47,7 @@ namespace DatosCarrera.datos.Implementaciones
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@fecha", mesaExamen.Fecha);
-                // cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno.Id);
+                 cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno);
                 cmd.Parameters.AddWithValue("@id_materia", mesaExamen.Materia.Id);
                 cmd.Parameters.AddWithValue("@id_profesores", mesaExamen.Profesor.Id);
 
@@ -106,9 +106,16 @@ namespace DatosCarrera.datos.Implementaciones
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@fecha", mesaExamen.Fecha);
-                //cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno.Id);
+                cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno.Id);
                 cmd.Parameters.AddWithValue("@id_materia", mesaExamen.Materia.Id);
                 cmd.Parameters.AddWithValue("@id_profesores", mesaExamen.Profesor.Id);
+
+
+                SqlParameter pOut = new SqlParameter();
+                pOut.ParameterName = "@id_materia";
+                pOut.DbType = DbType.Int32;
+                pOut.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(pOut);
 
 
 
@@ -160,7 +167,76 @@ namespace DatosCarrera.datos.Implementaciones
         }
 
 
-        
+        public bool BajaLogicaMesa(MesaExamen mesa)
+        {
+            bool ok = true;
+            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlTransaction t = null;
+            SqlCommand cmd = new SqlCommand();
+
+            try
+            {
+                cnn.Open();
+                t = cnn.BeginTransaction();
+                cmd.Connection = cnn;
+                cmd.Transaction = t;
+                cmd.CommandText = "SP_BAJA_LOGICA_MESA";  ///este SP debería cambiar el campo Activo del maestro a falso y hacer un DELETE FROM examenes WHERE id_mesa=@id_mesa
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_mesa", mesa.Id);
+                cmd.ExecuteNonQuery();
+                SqlCommand cmdDetalle;
+                foreach(Examen examen in mesa.Examenes)
+                {
+                    cmdDetalle = new SqlCommand("SP_INSERTAR_DETALLE", cnn, t);
+                    cmdDetalle.CommandType = CommandType.StoredProcedure;
+                    cmdDetalle.Parameters.AddWithValue("@id_mesa", mesa.Id);
+                    cmdDetalle.Parameters.AddWithValue("@legajo", examen.Alumno.Legajo);
+                    cmdDetalle.Parameters.AddWithValue("@nota", examen.Nota);
+                    cmdDetalle.ExecuteNonQuery();
+
+                }
+
+                t.Commit();
+
+
+
+            }
+            catch (Exception)
+            {
+
+                if (t != null)
+                    t.Rollback();
+                ok = false; ;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+            return ok;
+
+
+   
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -196,6 +272,7 @@ namespace DatosCarrera.datos.Implementaciones
                 cmd.Parameters.AddWithValue("@id_habitacionalidad", alumno.Habitacionalidad);
                 cmd.Parameters.AddWithValue("@id_barrio", alumno.Barrio.Id);
                 cmd.ExecuteNonQuery();
+                t.Commit();
 
             }
             catch (Exception)
@@ -249,6 +326,7 @@ namespace DatosCarrera.datos.Implementaciones
                 cmd.Parameters.AddWithValue("@id_habitacionalidad", alumno.Habitacionalidad);
                 cmd.Parameters.AddWithValue("@id_barrio", alumno.Barrio.Id);
                 cmd.ExecuteNonQuery();
+                t.Commit();
             }
             catch (Exception)
             {

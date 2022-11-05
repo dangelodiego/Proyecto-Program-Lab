@@ -15,7 +15,7 @@ namespace DatosCarrera.dominio
 
         public int Id { get; set; } 
         public DateTime Fecha { get; set; }
-        public Turno Turno{ get; set; }
+        public TurnosExamen Turno{ get; set; }
 
         public Materia Materia{ get; set; } 
 

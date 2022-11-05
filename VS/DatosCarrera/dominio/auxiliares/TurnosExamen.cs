@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.dominio.auxiliares
 {
-    public class TurnosExamen
+    public enum TurnosExamen
     {
   
-        enum TurnosExamen
-        {
+ 
+       
             PrimeroNoviembreDiciembre,
             SegundoNoviembreDiciembre,
             PrimeroFebreroMarzo,
@@ -18,7 +18,7 @@ namespace DatosCarrera.dominio.auxiliares
             PrimeroJulio,
             SegundoJulio
 
-        }
+       
 
 
 
