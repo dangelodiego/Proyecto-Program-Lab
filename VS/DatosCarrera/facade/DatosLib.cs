@@ -18,15 +18,7 @@ namespace DatosCarrera.facade
             this.dao = dao;
         }
 
-        public List<Materia> GetMateriaAll()
-        {
-            return dao.GetMateriaAll();
-        }
-
-        public List<Persona> GetPersonasAll()
-        {
-            return dao.ObtenerPersonas();
-        }
+       
 
         public bool SaveMesaExamen(MesaExamen mesaExamen)
         {
@@ -34,8 +26,26 @@ namespace DatosCarrera.facade
         }
 
 
+        public List<Barrio> GetBarriosaLL()
+        {
+            return dao.ObtenerBarrios();
+        }
 
+        public List<Ciudad> GetCiudadesAll()
+        {
+            return dao.ObtenerCiudades();
+        }
+        public List<Provincia> GetProvinciasAll()
+        {
+            return dao.ObtenerProvincias();
+        }
 
+        public List<Materia> GetMateriaAll()
+        {
+            return dao.GetMateriaAll();
+        }
+
+      
 
 
 

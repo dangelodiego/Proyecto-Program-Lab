@@ -9,14 +9,26 @@ namespace DatosCarrera.datos.Interfaces
 {
     public interface ICarrerasDAO
     {
-        List<Persona> ObtenerPersonas();
+         List<Provincia> ObtenerProvincias();
+
+         List<Ciudad> ObtenerCiudades();
+
+         List<Barrio> ObtenerBarrios();
+
+
+
+
+
+
+
+
         int ObtenerProximoId();
 
         bool CrearMesa(MesaExamen mesaExamen);
 
-        bool ActualizarMesa(MesaExamen mesaExamen);
+        bool RectificarMesa(MesaExamen mesaExamen);
 
-        bool BorrarMesa(int nro);
+      
 
         MesaExamen ObtenerMesasPorId(int id);
 

@@ -9,10 +9,22 @@ namespace DatosCarrera.facade
 {
     public interface IDatos
     {
-        public List<Persona> GetPersonasAll();
+     
         public bool SaveMesaExamen(MesaExamen mesaExamen);
 
         public List<Materia> GetMateriaAll();
+
+        public List<Provincia> GetProvinciasAll();
+
+        public List<Ciudad> GetCiudadesAll();
+
+        public List<Barrio> GetBarriosaLL();
+
+
+
+
+
+
 
 
     }
