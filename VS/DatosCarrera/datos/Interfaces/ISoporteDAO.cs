@@ -7,23 +7,11 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.datos.Interfaces
 {
-    public interface ICarrerasDAO
+    public interface ISoporteDAO
     {
-     
-
-
-
-
-
-
-        int ObtenerProximoId();
-
-     
-
-
-        public List<Materia> GetMateriaAll();
-
-
+        List<Barrio> ObtenerBarrios();
+        List<Ciudad> ObtenerCiudades();
+        List<Provincia> ObtenerProvincias();
 
 
 

@@ -7,21 +7,14 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.datos.Interfaces
 {
-    public interface ICarrerasDAO
+    public interface IAlumnosDAO
     {
-     
+        bool InsertarAlumno(Alumno alumno);
+        bool ActualizarAlumno(Alumno alumno);
+        bool BorrarAlumno(Alumno alumno);
 
+        List<Alumno> GetAlumnosAll();
 
-
-
-
-
-        int ObtenerProximoId();
-
-     
-
-
-        public List<Materia> GetMateriaAll();
 
 
 
