@@ -11,9 +11,9 @@ Insert into Habitacionalidad (descripcion) values ('Propia')
 Insert into Habitacionalidad (descripcion) values ('Alquilada')
 Insert into Habitacionalidad (descripcion) values ('Otra')
 
-Insert into Sexo(descripcion) values ('Masculino')
-Insert into Sexo(descripcion) values ('Femenino')
-Insert into Sexo(descripcion) values ('Desconocido')
+Insert into Sexos(descripcion) values ('Masculino')
+Insert into Sexos(descripcion) values ('Femenino')
+Insert into Sexos(descripcion) values ('Desconocido')
 
 --Provincias
 
@@ -115,15 +115,15 @@ insert into Barrios ( nombre, id_ciudades) values ( 'San Alfonso', 15)
 insert into Barrios ( nombre, id_ciudades) values ( 'Villa Allende
 Parque', 15)
 
-Insert into estados_civiles (nombre) values ('Soltero/a')
-Insert into estados_civiles (nombre) values ('Casado/a')
-Insert into estados_civiles (nombre) values ('Divorciado/a')
-Insert into estados_civiles (nombre) values ('Viudo/a')
+Insert into estados_civiles (descripcion) values ('Soltero/a')
+Insert into estados_civiles (descripcion) values ('Casado/a')
+Insert into estados_civiles (descripcion) values ('Divorciado/a')
+Insert into estados_civiles (descripcion) values ('Viudo/a')
 
 
-Insert into turnos (nombre) values ('Mañana')
-Insert into turnos (nombre) values ('Tarde')
-Insert into turnos (nombre) values ('Noche')
+Insert into turnos (descripcion) values ('Mañana')
+Insert into turnos (descripcion) values ('Tarde')
+Insert into turnos (descripcion) values ('Noche')
 
 Insert into cursos (nombre) values ('1W4')
 Insert into cursos (nombre) values ('1W3')
