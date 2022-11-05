@@ -13,9 +13,9 @@ namespace DatosCarrera.facade
     {
         private ICarrerasDAO dao;
 
-        public DatosLib(ICarrerasDAO dao)
+        public DatosLib()
         {
-            this.dao = dao;
+            dao = new CarrerasDAO();
         }
 
        

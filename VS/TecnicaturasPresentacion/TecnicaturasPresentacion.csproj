@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="MaterialSkin" Version="0.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,11 @@
   <ItemGroup>
     <Folder Include="Principal\Consultas\" />
     <Folder Include="Principal\Reportes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarrerasApp\TecnicaturasAPI\TecnicaturasAPI.csproj" />
+    <ProjectReference Include="..\DatosCarrera\DatosCarrera.csproj" />
   </ItemGroup>
 
 </Project>

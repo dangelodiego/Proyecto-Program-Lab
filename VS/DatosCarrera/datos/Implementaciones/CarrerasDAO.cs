@@ -2,7 +2,7 @@
 using DatosCarrera.datos.Interfaces;
 using DatosCarrera.dominio;
 using DatosCarrera.dominio.auxiliares;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +22,7 @@ namespace DatosCarrera.datos.Implementaciones
 
 
 
-
+        
 
 
 

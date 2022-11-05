@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;
+using System.Data.SqlClient;
 
 
 
@@ -18,7 +18,7 @@ namespace DatosCarrera.datos
 
         private DBHelper()
         {
-            cnn = new SqlConnection(@"Data Source=DESKTOP-74QHVRO\SQLEXPRESS;Initial Catalog=TECNICATURAS_UTN_FRC;Integrated Security=True");
+            cnn = new SqlConnection(@"Data Source=DESKTOP-74QHVRO\SQLEXPRESS;Initial Catalog=TECNICATURAS_FRC_UTN;Integrated Security=True");
 
         }
 

@@ -60,7 +60,7 @@
             this.lblProvincia = new MaterialSkin.Controls.MaterialLabel();
             this.lblCiudad = new MaterialSkin.Controls.MaterialLabel();
             this.lblBarrio = new MaterialSkin.Controls.MaterialLabel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboProvincias = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -492,13 +492,13 @@
             this.lblBarrio.TabIndex = 31;
             this.lblBarrio.Text = "Barrio";
             // 
-            // comboBox1
+            // cboProvincias
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(201, 395);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(162, 23);
-            this.comboBox1.TabIndex = 32;
+            this.cboProvincias.FormattingEnabled = true;
+            this.cboProvincias.Location = new System.Drawing.Point(201, 395);
+            this.cboProvincias.Name = "cboProvincias";
+            this.cboProvincias.Size = new System.Drawing.Size(162, 23);
+            this.cboProvincias.TabIndex = 32;
             // 
             // comboBox2
             // 
@@ -563,7 +563,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboProvincias);
             this.Controls.Add(this.lblBarrio);
             this.Controls.Add(this.lblCiudad);
             this.Controls.Add(this.lblProvincia);
@@ -599,6 +599,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAlumnos";
             this.Text = "frmAlumnos";
+            this.Load += new System.EventHandler(this.frmAlumnos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -639,7 +640,7 @@
         private MaterialSkin.Controls.MaterialLabel lblProvincia;
         private MaterialSkin.Controls.MaterialLabel lblCiudad;
         private MaterialSkin.Controls.MaterialLabel lblBarrio;
-        private ComboBox comboBox1;
+        private ComboBox cboProvincias;
         private ComboBox comboBox2;
         private ComboBox comboBox3;
         private DataGridView dataGridView1;

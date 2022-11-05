@@ -1,31 +1,42 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using DatosCarrera.facade;
+using DatosCarrera.dominio;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TecnicaturasAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[Controller]")]
     [ApiController]
     public class LocalizacionesController : ControllerBase
     {
-        // GET: api/<LocalizacionesController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private IDatos _datos;
+
+        public LocalizacionesController()
         {
-            return new string[] { "value1", "value2" };
+            _datos = new DatosLib();
         }
 
+
         // GET api/<LocalizacionesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("Provincias")]
+        public IActionResult Get()
         {
-            return "value";
+            if (_datos.GetProvinciasAll() != null)
+            {
+                return Ok(_datos.GetProvinciasAll());
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
         // POST api/<LocalizacionesController>
         [HttpPost]
         public void Post([FromBody] string value)
         {
+            
         }
 
         // PUT api/<LocalizacionesController>/5
