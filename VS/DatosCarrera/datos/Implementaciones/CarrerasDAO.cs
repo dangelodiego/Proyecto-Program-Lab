@@ -14,7 +14,7 @@ using static DatosCarrera.dominio.auxiliares.Sexo;
 
 namespace DatosCarrera.datos.Implementaciones
 {
-    public class CarrerasDAO : ICarrerasDAO, IConsultasComplejas
+    public class CarrerasDAO : ICarrerasDAO, IConsultasComplejas, IAlumnosDAO, IProfesoresDAO, IMesasExamenDAO, ISoporteDAO
     {
 
 
@@ -36,256 +36,35 @@ namespace DatosCarrera.datos.Implementaciones
 
 
 
-        public int ObtenerProximoId()
+     
+
+        public bool CrearMesa(MesaExamen mesa)
         {
-            string sp = "SP_PROXIMO_ID";
-            return DBHelper.ObtenerInstancia().ConsultaEscalarSQL("SP_PROXIMO_ID", "@next");
+            return DBHelper.ObtenerInstancia().CrearMesa(mesa);
         }
 
-
-        public bool CrearMesa(MesaExamen mesaExamen)
+        public bool RectificarMesa(MesaExamen mesa)
         {
-            bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
-            SqlTransaction t = null;
-            SqlCommand cmd = new SqlCommand();
-
-            try
-            {
-                cnn.Open();
-                t = cnn.BeginTransaction();
-                cmd.Connection = cnn;
-                cmd.Transaction = t;
-                cmd.CommandText = "SP_INSERTAR_MAESTRO";
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@fecha", mesaExamen.Fecha);
-                 cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno);
-                cmd.Parameters.AddWithValue("@id_materia", mesaExamen.Materia.Id);
-                cmd.Parameters.AddWithValue("@id_profesores", mesaExamen.Profesor.Id);
-
-                SqlParameter pOut = new SqlParameter();
-                pOut.ParameterName = "@id_mesa";
-                pOut.DbType = DbType.Int32;
-                pOut.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(pOut);
-
-
-
-                cmd.ExecuteNonQuery();
-                int idMesa = Convert.ToInt32(pOut.Value);
-
-                SqlCommand cmdDetalle;
-                
-                foreach (Examen item in mesaExamen.Examenes)
-                {
-                    cmdDetalle = new SqlCommand("SP_INSERTAR_DETALLE", cnn, t);
-                    cmdDetalle.CommandType = CommandType.StoredProcedure;
-
-                    cmdDetalle.Parameters.AddWithValue("@id_mesa",idMesa);
-                    cmdDetalle.Parameters.AddWithValue("@legajo", item.Alumno.Legajo);
-                    cmdDetalle.Parameters.AddWithValue("@nota", item.Nota);
-                    cmdDetalle.ExecuteNonQuery();
-
-                    
-                }
-                t.Commit();
-            }
-
-            catch (Exception)
-            {
-                if (t != null)
-                    t.Rollback();
-                ok = false;
-            }
-
-            finally
-            {
-                if (cnn != null && cnn.State == ConnectionState.Open)
-                    cnn.Close();
-            }
-
-            return ok;
+            return DBHelper.ObtenerInstancia().RectificarMesa(mesa);
         }
 
-        public bool RectificarMesa(MesaExamen mesaExamen)
+        public MesaExamen ObtenerMesasPorId(int id)
         {
-            bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
-            SqlTransaction t = null;
-            SqlCommand cmd = new SqlCommand();
-
-            try
-            {
-                cnn.Open();
-                t = cnn.BeginTransaction();
-                cmd.Connection = cnn;
-                cmd.Transaction = t;
-                cmd.CommandText = "SP_MODIFICAR_MESA"; ///DELETE FROM examenes WHERE id_mesa=@id_mesa
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@id_mesa", mesaExamen.Id);
-            
-
-
-                SqlParameter pOut = new SqlParameter();
-                pOut.ParameterName = "@id_mesa";
-                pOut.DbType = DbType.Int32;
-                pOut.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(pOut);
-
-
-
-
-                cmd.ExecuteNonQuery();
-                int idMesa = Convert.ToInt32(pOut.Value);
-                SqlCommand cmdDetalle;
-                int detalleNro = 1;
-                foreach (Examen item in mesaExamen.Examenes)
-                {
-                    cmdDetalle = new SqlCommand("SP_INSERTAR_DETALLE", cnn, t);
-                    cmdDetalle.CommandType = CommandType.StoredProcedure;
-
-                    cmdDetalle.Parameters.AddWithValue("@id_mesa", idMesa);
-                    cmdDetalle.Parameters.AddWithValue("@legajo", item.Alumno.Legajo);
-                    cmdDetalle.Parameters.AddWithValue("@nota", item.Nota);
-                    cmdDetalle.ExecuteNonQuery();
-
-                    detalleNro++;
-                }
-                t.Commit();
-            }
-
-            catch (Exception)
-            {
-                if (t != null)
-                    t.Rollback();
-                ok = false;
-            }
-
-            finally
-            {
-                if (cnn != null && cnn.State == ConnectionState.Open)
-                    cnn.Close();
-            }
-
-            return ok;
-
+            throw new NotImplementedException();
         }
-
-
-
-
-
-
-
-
-
 
 
 
         public bool InsertarAlumno(Alumno alumno)
         {
-            bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
-            SqlTransaction t = null;
-            SqlCommand cmd = new SqlCommand();
-
-            try
-            {
-                cnn.Open();
-                t = cnn.BeginTransaction();
-                cmd.Connection = cnn;
-                cmd.Transaction = t;
-                cmd.CommandText = "SP_INSERTAR_ALUMNO";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nombre", alumno.Nombre);
-                cmd.Parameters.AddWithValue("@apellido", alumno.Apellido);
-                cmd.Parameters.AddWithValue("@fecha_nac", alumno.FechaNacimiento);
-                cmd.Parameters.AddWithValue("@dni", alumno.Dni);
-                cmd.Parameters.AddWithValue("@e_mail", alumno.Email);
-                cmd.Parameters.AddWithValue("@telefono", alumno.Telefono);
-                cmd.Parameters.AddWithValue("@calle", alumno.Calle);
-                cmd.Parameters.AddWithValue("@altura", alumno.Altura);
-                cmd.Parameters.AddWithValue("@sexo", alumno.Sexo);
-                cmd.Parameters.AddWithValue("@id_curso", alumno.Curso.Id);
-                cmd.Parameters.AddWithValue("@id_carrera", alumno.Carrera.Id);
-                cmd.Parameters.AddWithValue("@fecha_insc", alumno.FechaInscripcion);
-                cmd.Parameters.AddWithValue("@id_estado_civil", alumno.EstadoCivil);
-                cmd.Parameters.AddWithValue("@id_laboralidad", alumno.Laboralidad);
-                cmd.Parameters.AddWithValue("@id_habitacionalidad", alumno.Habitacionalidad);
-                cmd.Parameters.AddWithValue("@id_barrio", alumno.Barrio.Id);
-                cmd.ExecuteNonQuery();
-                t.Commit();
-
-            }
-            catch (Exception)
-            {
-
-                if (t != null)
-                    t.Rollback();
-                ok = false;
-            }
-            finally
-            {
-                if (cnn != null && cnn.State == ConnectionState.Open)
-                    cnn.Close();
-            }
-
-            return ok;
-
-
+            return DBHelper.ObtenerInstancia().InsertarAlumno(alumno);
         }
+
 
 
         public bool ActualizarAlumno(Alumno alumno)
         {
-            bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
-            SqlTransaction t = null;
-            SqlCommand cmd = new SqlCommand();
-
-            try
-            {
-                cnn.Open();
-                t = cnn.BeginTransaction();
-                cmd.Connection = cnn;
-                cmd.Transaction = t;
-                cmd.CommandText = "SP_MODIFICAR_ALUMNO";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nombre", alumno.Nombre);
-                cmd.Parameters.AddWithValue("@apellido", alumno.Apellido);
-                cmd.Parameters.AddWithValue("@fecha_nac", alumno.FechaNacimiento);
-                cmd.Parameters.AddWithValue("@dni", alumno.Dni);
-                cmd.Parameters.AddWithValue("@e_mail", alumno.Email);
-                cmd.Parameters.AddWithValue("@telefono", alumno.Telefono);
-                cmd.Parameters.AddWithValue("@calle", alumno.Calle);
-                cmd.Parameters.AddWithValue("@altura", alumno.Altura);
-                cmd.Parameters.AddWithValue("@sexo", alumno.Sexo);
-                cmd.Parameters.AddWithValue("@id_curso", alumno.Curso.Id);
-                cmd.Parameters.AddWithValue("@id_carrera", alumno.Carrera.Id);
-                cmd.Parameters.AddWithValue("@fecha_insc", alumno.FechaInscripcion);
-                cmd.Parameters.AddWithValue("@id_estado_civil", alumno.EstadoCivil);
-                cmd.Parameters.AddWithValue("@id_laboralidad", alumno.Laboralidad);
-                cmd.Parameters.AddWithValue("@id_habitacionalidad", alumno.Habitacionalidad);
-                cmd.Parameters.AddWithValue("@id_barrio", alumno.Barrio.Id);
-                cmd.ExecuteNonQuery();
-                t.Commit();
-            }
-            catch (Exception)
-            {
-                if (t != null)
-                    t.Rollback();
-                ok = false;
-
-            }
-            finally
-            {
-                if (cnn != null && cnn.State == ConnectionState.Open)
-                    cnn.Close();
-            }
-
-            return ok;
+            return DBHelper.ObtenerInstancia().ActualizarAlumno(alumno);
         }
 
 
@@ -298,6 +77,9 @@ namespace DatosCarrera.datos.Implementaciones
             return afectadas > 0;
 
         }
+
+
+
 
 
         public List<Alumno> GetAlumnosAll()
@@ -356,19 +138,82 @@ namespace DatosCarrera.datos.Implementaciones
 
 
 
+        /// <summary>
+        /// CRUD DE PROFESORES
+        /// </summary>
+        /// <returns></returns>
+
+
+        public bool InsertarProfesor(Profesor profesor)
+        {
+            return DBHelper.ObtenerInstancia().InsertarProfesor(profesor);
+        }
+
+        public bool ActualizarProfesor(Profesor profesor)
+        {
+            return DBHelper.ObtenerInstancia().InsertarProfesor(profesor);
+        }
+
+        public bool BorrarProfesor(Profesor profesor)
+        {
+            string sp = "SP_BORRAR_PROFESOR";
+            List<Parametro> lst = new List<Parametro>();
+            lst.Add(new Parametro("@id_profesor", profesor.Id));
+            int afectadas = DBHelper.ObtenerInstancia().EjecutarSQL(sp, lst);
+            return afectadas > 0;
+
+        }
 
 
 
-        
+        public List<Profesor> GetProfesoresAll()
+        {
+            string sp = "SP_CONSULTAR_PROFESOR";
+            List<Profesor> list = new List<Profesor>();
+            DataTable table = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            foreach (DataRow r in table.Rows)
+            {
+                Profesor p = new Profesor();
 
-  
+                p.Id = Convert.ToInt32(r["id_profesor"]);
+                if (r["nombre"] != DBNull.Value)
+                    p.Nombre = Convert.ToString(r["nombre"]);
+                if (r["apellido"] != DBNull.Value)
+                    p.Apellido = Convert.ToString(r["apellido"]);
+                if (r["fecha_nac"] != DBNull.Value)
+                    p.FechaNacimiento = Convert.ToDateTime(r["fecha_nac"]);
+                if (r["dni"] != DBNull.Value)
+                    p.Dni = Convert.ToInt32(r["dni"]);
+                if (r["e_mail"] != DBNull.Value)
+                    p.Email = Convert.ToString(r["e_mail"]);
+                if (r["telefono"] != DBNull.Value)
+                    p.Telefono = Convert.ToInt32(r["telefono"]);
+                if (r["calle"] != DBNull.Value)
+                    p.Calle = Convert.ToString(r["calle"]);
+                if (r["altura"] != DBNull.Value)
+                    p.Altura = Convert.ToInt32(r["altura"]);
+                if (r["sexo"] != DBNull.Value)
+                    p.Sexo = (Sexo)(r["sexo"]);
+                if (r["id_barrio"] != DBNull.Value)
+                    p.Barrio = (Barrio)r["id_barrio"];
+
+                list.Add(p);
+
+            }
+            return list;
+
+
+
+
+
+        }
 
 
 
 
 
 
-       
+
 
         public List<Materia> GetMateriaAll()
         {
@@ -624,10 +469,7 @@ namespace DatosCarrera.datos.Implementaciones
         ///METODOS AUXILIARES///
 
 
-        public MesaExamen ObtenerMesasPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
+  
 
         //public List<Persona> ObtenerPersonas()
         //{
@@ -731,6 +573,26 @@ namespace DatosCarrera.datos.Implementaciones
 
 
         }
+        
+
+    
+
+        public int ObtenerProximoId()
+        {
+            string sp = "SP_PROXIMO_ID";
+            return DBHelper.ObtenerInstancia().ConsultaEscalarSQL("SP_PROXIMO_ID", "@next");
+        }
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

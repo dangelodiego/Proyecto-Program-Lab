@@ -7,24 +7,17 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.datos.Interfaces
 {
-    public interface ICarrerasDAO
+    public interface IMesasExamenDAO
     {
-     
+        bool CrearMesa(MesaExamen mesa);
+
+  
+
+        bool RectificarMesa(MesaExamen mesa);
 
 
 
-
-
-
-        int ObtenerProximoId();
-
-     
-
-
-        public List<Materia> GetMateriaAll();
-
-
-
+        MesaExamen ObtenerMesasPorId(int id);
 
 
 

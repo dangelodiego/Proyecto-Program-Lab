@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj": {}
+    "E:\\universidad\\Proyecto LAB_PROG\\Proyecto-Program-Lab\\VS\\DatosCarrera\\DatosCarrera.csproj": {}
   },
   "projects": {
-    "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj": {
+    "E:\\universidad\\Proyecto LAB_PROG\\Proyecto-Program-Lab\\VS\\DatosCarrera\\DatosCarrera.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj",
+        "projectUniqueName": "E:\\universidad\\Proyecto LAB_PROG\\Proyecto-Program-Lab\\VS\\DatosCarrera\\DatosCarrera.csproj",
         "projectName": "DatosCarrera",
-        "projectPath": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\DatosCarrera.csproj",
-        "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
-        "outputPath": "D:\\Proyecto Labo_ProgII\\VS\\DatosCarrera\\obj\\",
+        "projectPath": "E:\\universidad\\Proyecto LAB_PROG\\Proyecto-Program-Lab\\VS\\DatosCarrera\\DatosCarrera.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "E:\\universidad\\Proyecto LAB_PROG\\Proyecto-Program-Lab\\VS\\DatosCarrera\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -51,8 +51,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -61,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

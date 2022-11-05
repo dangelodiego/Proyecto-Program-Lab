@@ -50,7 +50,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.redondeo1 = new TecnicaturasPresentacion.Components.Redondeo();
             this.panelAlumnos.SuspendLayout();
             this.panelProfesor.SuspendLayout();
             this.panelTecnicaturas.SuspendLayout();
@@ -175,7 +174,7 @@
             this.panelProfesor.Location = new System.Drawing.Point(335, 12);
             this.panelProfesor.Name = "panelProfesor";
             this.panelProfesor.Size = new System.Drawing.Size(280, 292);
-            this.panelProfesor.TabIndex = 8;
+            this.panelProfesor.TabIndex = 1;
             // 
             // lblCantProfesoresNumero
             // 
@@ -208,7 +207,7 @@
             this.panelTecnicaturas.Location = new System.Drawing.Point(12, 325);
             this.panelTecnicaturas.Name = "panelTecnicaturas";
             this.panelTecnicaturas.Size = new System.Drawing.Size(370, 115);
-            this.panelTecnicaturas.TabIndex = 9;
+            this.panelTecnicaturas.TabIndex = 2;
             // 
             // lblCantTecnicaturas
             // 
@@ -242,7 +241,7 @@
             this.lnkPaginaUTN.Location = new System.Drawing.Point(412, 325);
             this.lnkPaginaUTN.Name = "lnkPaginaUTN";
             this.lnkPaginaUTN.Size = new System.Drawing.Size(91, 21);
-            this.lnkPaginaUTN.TabIndex = 10;
+            this.lnkPaginaUTN.TabIndex = 3;
             this.lnkPaginaUTN.TabStop = true;
             this.lnkPaginaUTN.Text = "Página UTN";
             this.lnkPaginaUTN.VisitedLinkColor = System.Drawing.Color.Blue;
@@ -256,7 +255,7 @@
             this.lnkCorreoUTN.Location = new System.Drawing.Point(412, 364);
             this.lnkCorreoUTN.Name = "lnkCorreoUTN";
             this.lnkCorreoUTN.Size = new System.Drawing.Size(93, 21);
-            this.lnkCorreoUTN.TabIndex = 11;
+            this.lnkCorreoUTN.TabIndex = 4;
             this.lnkCorreoUTN.TabStop = true;
             this.lnkCorreoUTN.Text = "Correo UTN";
             this.lnkCorreoUTN.VisitedLinkColor = System.Drawing.Color.Blue;
@@ -270,7 +269,7 @@
             this.lnkCalendario.Location = new System.Drawing.Point(410, 411);
             this.lnkCalendario.Name = "lnkCalendario";
             this.lnkCalendario.Size = new System.Drawing.Size(205, 21);
-            this.lnkCalendario.TabIndex = 12;
+            this.lnkCalendario.TabIndex = 5;
             this.lnkCalendario.TabStop = true;
             this.lnkCalendario.Text = "Calendario Academico 2022";
             this.lnkCalendario.VisitedLinkColor = System.Drawing.Color.Blue;
@@ -281,8 +280,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(509, 327);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(29, 21);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Size = new System.Drawing.Size(29, 30);
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
@@ -292,7 +290,6 @@
             this.pictureBox2.Location = new System.Drawing.Point(509, 364);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(29, 21);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
             // 
@@ -301,15 +298,10 @@
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(621, 411);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(29, 21);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox3.TabIndex = 15;
             this.pictureBox3.TabStop = false;
-            // 
-            // redondeo1
-            // 
-            this.redondeo1.CornerRadius = 20;
-            this.redondeo1.TargetControl = this.panelAlumnos;
             // 
             // frmHome
             // 
@@ -367,6 +359,5 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
-        private Components.Redondeo redondeo1;
     }
 }
