@@ -20,7 +20,7 @@ namespace TecnicaturasAPI.Controllers
 
         // GET api/<LocalizacionesController>/5
         [HttpGet("Provincias")]
-        public IActionResult Get()
+        public IActionResult GetProvincias()
         {
             if (_datos.GetProvinciasAll() != null)
             {
@@ -32,23 +32,32 @@ namespace TecnicaturasAPI.Controllers
             }
         }
 
-        // POST api/<LocalizacionesController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpGet("Ciudades")]
+        public IActionResult GetCiudades()
         {
-            
+            if (_datos.GetProvinciasAll() != null)
+            {
+                return Ok(_datos.GetCiudadesAll());
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
-        // PUT api/<LocalizacionesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet("Barrios")]
+        public IActionResult GetBarrios()
         {
+            if (_datos.GetBarriosaLL() != null)
+            {
+                return Ok(_datos.GetBarriosaLL());
+            }
+            else
+            {
+                return NotFound();
+            }
+
         }
 
-        // DELETE api/<LocalizacionesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

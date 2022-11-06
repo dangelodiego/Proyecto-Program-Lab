@@ -535,7 +535,7 @@ namespace DatosCarrera.datos.Implementaciones
             foreach (DataRow r in tabla.Rows)
             {
                 Ciudad c = new Ciudad();
-                c.Id = Convert.ToInt32(r["id_ciudad"]);
+                c.Id = Convert.ToInt32(r["id_ciudades"]);
                 c.Nombre = r["nombre"].ToString();
                 c.Provincia = (Provincias)r["id_provincia"];
 
@@ -558,9 +558,11 @@ namespace DatosCarrera.datos.Implementaciones
             foreach(DataRow r in tabla.Rows)
             {
                 Barrio b = new Barrio();
+                Ciudad c = new Ciudad();
+                c.Id = Convert.ToInt32(r["id_ciudades"]);
                 b.Id = Convert.ToInt32(r["id_barrio"]);
                 b.Nombre = r["nombre"].ToString();
-                b.Ciudad.Id = Convert.ToInt32(r["id_ciudad"]);
+                b.Ciudad = c;
                 lst.Add(b);
 
 
