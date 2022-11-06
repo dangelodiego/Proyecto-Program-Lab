@@ -24,8 +24,7 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
 
         private void frmAlumnos_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-            CargarCombo(cboProvincias);
+            CargarCombo(cboProvincia);
         }
 
         private async void CargarCombo(ComboBox cbo)
@@ -36,9 +35,6 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             cbo.DisplayMember = "Nombre";
             cbo.ValueMember = "Id";
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
-=======
-
->>>>>>> 60af94e129e0cda72d9896bfb06066f792d1da15
         }
     }
 }

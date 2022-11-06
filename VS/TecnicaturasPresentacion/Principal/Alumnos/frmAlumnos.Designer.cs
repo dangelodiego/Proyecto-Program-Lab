@@ -55,28 +55,17 @@
             this.cboCurso = new System.Windows.Forms.ComboBox();
             this.lblFechaIncripcion = new MaterialSkin.Controls.MaterialLabel();
             this.dtpFechaInscripcion = new System.Windows.Forms.DateTimePicker();
-<<<<<<< HEAD
             this.lblEstadoCivil = new MaterialSkin.Controls.MaterialLabel();
             this.txtEstadoCivil = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblProvincia = new MaterialSkin.Controls.MaterialLabel();
             this.lblCiudad = new MaterialSkin.Controls.MaterialLabel();
             this.lblBarrio = new MaterialSkin.Controls.MaterialLabel();
-            this.cboProvincias = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-=======
->>>>>>> 60af94e129e0cda72d9896bfb06066f792d1da15
             this.btmAgregar = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnGuardar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.cboEstadoCivil = new System.Windows.Forms.ComboBox();
             this.cboBarrio = new System.Windows.Forms.ComboBox();
             this.cboCiudad = new System.Windows.Forms.ComboBox();
             this.cboProvincia = new System.Windows.Forms.ComboBox();
-            this.lblBarrio = new MaterialSkin.Controls.MaterialLabel();
-            this.lblCiudad = new MaterialSkin.Controls.MaterialLabel();
-            this.lblProvincia = new MaterialSkin.Controls.MaterialLabel();
-            this.lblEstadoCivil = new MaterialSkin.Controls.MaterialLabel();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
             this.colIDALU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombreAlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -457,8 +446,7 @@
             this.dtpFechaInscripcion.Location = new System.Drawing.Point(475, 392);
             this.dtpFechaInscripcion.Name = "dtpFechaInscripcion";
             this.dtpFechaInscripcion.Size = new System.Drawing.Size(200, 23);
-<<<<<<< HEAD
-            this.dtpFechaInscripcion.TabIndex = 26;
+            this.dtpFechaInscripcion.TabIndex = 18;
             // 
             // lblEstadoCivil
             // 
@@ -466,11 +454,11 @@
             this.lblEstadoCivil.Depth = 0;
             this.lblEstadoCivil.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblEstadoCivil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblEstadoCivil.Location = new System.Drawing.Point(24, 373);
+            this.lblEstadoCivil.Location = new System.Drawing.Point(24, 288);
             this.lblEstadoCivil.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblEstadoCivil.Name = "lblEstadoCivil";
             this.lblEstadoCivil.Size = new System.Drawing.Size(89, 19);
-            this.lblEstadoCivil.TabIndex = 27;
+            this.lblEstadoCivil.TabIndex = 39;
             this.lblEstadoCivil.Text = "Estado Civil";
             // 
             // txtEstadoCivil
@@ -494,11 +482,11 @@
             this.lblProvincia.Depth = 0;
             this.lblProvincia.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblProvincia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblProvincia.Location = new System.Drawing.Point(201, 373);
+            this.lblProvincia.Location = new System.Drawing.Point(201, 288);
             this.lblProvincia.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblProvincia.Name = "lblProvincia";
             this.lblProvincia.Size = new System.Drawing.Size(71, 19);
-            this.lblProvincia.TabIndex = 29;
+            this.lblProvincia.TabIndex = 40;
             this.lblProvincia.Text = "Provincia";
             // 
             // lblCiudad
@@ -507,11 +495,11 @@
             this.lblCiudad.Depth = 0;
             this.lblCiudad.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCiudad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCiudad.Location = new System.Drawing.Point(403, 373);
+            this.lblCiudad.Location = new System.Drawing.Point(403, 288);
             this.lblCiudad.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCiudad.Name = "lblCiudad";
             this.lblCiudad.Size = new System.Drawing.Size(55, 19);
-            this.lblCiudad.TabIndex = 30;
+            this.lblCiudad.TabIndex = 41;
             this.lblCiudad.Text = "Ciudad";
             // 
             // lblBarrio
@@ -520,48 +508,12 @@
             this.lblBarrio.Depth = 0;
             this.lblBarrio.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblBarrio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblBarrio.Location = new System.Drawing.Point(575, 373);
+            this.lblBarrio.Location = new System.Drawing.Point(575, 288);
             this.lblBarrio.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblBarrio.Name = "lblBarrio";
             this.lblBarrio.Size = new System.Drawing.Size(49, 19);
-            this.lblBarrio.TabIndex = 31;
+            this.lblBarrio.TabIndex = 42;
             this.lblBarrio.Text = "Barrio";
-            // 
-            // cboProvincias
-            // 
-            this.cboProvincias.FormattingEnabled = true;
-            this.cboProvincias.Location = new System.Drawing.Point(201, 395);
-            this.cboProvincias.Name = "cboProvincias";
-            this.cboProvincias.Size = new System.Drawing.Size(162, 23);
-            this.cboProvincias.TabIndex = 32;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(403, 395);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(145, 23);
-            this.comboBox2.TabIndex = 33;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(578, 395);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(141, 23);
-            this.comboBox3.TabIndex = 34;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 438);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 134);
-            this.dataGridView1.TabIndex = 35;
-=======
-            this.dtpFechaInscripcion.TabIndex = 18;
->>>>>>> 60af94e129e0cda72d9896bfb06066f792d1da15
             // 
             // btmAgregar
             // 
@@ -625,58 +577,6 @@
             this.cboProvincia.Name = "cboProvincia";
             this.cboProvincia.Size = new System.Drawing.Size(162, 23);
             this.cboProvincia.TabIndex = 13;
-            // 
-            // lblBarrio
-            // 
-            this.lblBarrio.AutoSize = true;
-            this.lblBarrio.Depth = 0;
-            this.lblBarrio.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblBarrio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblBarrio.Location = new System.Drawing.Point(575, 288);
-            this.lblBarrio.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblBarrio.Name = "lblBarrio";
-            this.lblBarrio.Size = new System.Drawing.Size(49, 19);
-            this.lblBarrio.TabIndex = 42;
-            this.lblBarrio.Text = "Barrio";
-            // 
-            // lblCiudad
-            // 
-            this.lblCiudad.AutoSize = true;
-            this.lblCiudad.Depth = 0;
-            this.lblCiudad.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCiudad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCiudad.Location = new System.Drawing.Point(403, 288);
-            this.lblCiudad.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblCiudad.Name = "lblCiudad";
-            this.lblCiudad.Size = new System.Drawing.Size(55, 19);
-            this.lblCiudad.TabIndex = 41;
-            this.lblCiudad.Text = "Ciudad";
-            // 
-            // lblProvincia
-            // 
-            this.lblProvincia.AutoSize = true;
-            this.lblProvincia.Depth = 0;
-            this.lblProvincia.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblProvincia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblProvincia.Location = new System.Drawing.Point(201, 288);
-            this.lblProvincia.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblProvincia.Name = "lblProvincia";
-            this.lblProvincia.Size = new System.Drawing.Size(71, 19);
-            this.lblProvincia.TabIndex = 40;
-            this.lblProvincia.Text = "Provincia";
-            // 
-            // lblEstadoCivil
-            // 
-            this.lblEstadoCivil.AutoSize = true;
-            this.lblEstadoCivil.Depth = 0;
-            this.lblEstadoCivil.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEstadoCivil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblEstadoCivil.Location = new System.Drawing.Point(24, 288);
-            this.lblEstadoCivil.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblEstadoCivil.Name = "lblEstadoCivil";
-            this.lblEstadoCivil.Size = new System.Drawing.Size(89, 19);
-            this.lblEstadoCivil.TabIndex = 39;
-            this.lblEstadoCivil.Text = "Estado Civil";
             // 
             // dgvAlumnos
             // 
@@ -803,20 +703,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(821, 621);
-<<<<<<< HEAD
-            this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btmAgregar);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.cboProvincias);
-=======
             this.Controls.Add(this.dgvAlumnos);
             this.Controls.Add(this.cboEstadoCivil);
             this.Controls.Add(this.cboBarrio);
             this.Controls.Add(this.cboCiudad);
             this.Controls.Add(this.cboProvincia);
->>>>>>> 60af94e129e0cda72d9896bfb06066f792d1da15
             this.Controls.Add(this.lblBarrio);
             this.Controls.Add(this.lblCiudad);
             this.Controls.Add(this.lblProvincia);
@@ -854,11 +745,7 @@
             this.Name = "frmAlumnos";
             this.Text = "frmAlumnos";
             this.Load += new System.EventHandler(this.frmAlumnos_Load);
-<<<<<<< HEAD
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-=======
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
->>>>>>> 60af94e129e0cda72d9896bfb06066f792d1da15
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -893,18 +780,11 @@
         private ComboBox cboCurso;
         private MaterialSkin.Controls.MaterialLabel lblFechaIncripcion;
         private DateTimePicker dtpFechaInscripcion;
-<<<<<<< HEAD
-        private MaterialSkin.Controls.MaterialLabel lblEstadoCivil;
+        private MaterialSkin.Controls.MaterialLabel lblEstadoCivil1;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtEstadoCivil;
-        private MaterialSkin.Controls.MaterialLabel lblProvincia;
-        private MaterialSkin.Controls.MaterialLabel lblCiudad;
-        private MaterialSkin.Controls.MaterialLabel lblBarrio;
-        private ComboBox cboProvincias;
-        private ComboBox comboBox2;
-        private ComboBox comboBox3;
-        private DataGridView dataGridView1;
-=======
->>>>>>> 60af94e129e0cda72d9896bfb06066f792d1da15
+        private MaterialSkin.Controls.MaterialLabel lblProvincia1;
+        private MaterialSkin.Controls.MaterialLabel lblCiudad1;
+        private MaterialSkin.Controls.MaterialLabel lblBarrio1;
         private MaterialSkin.Controls.MaterialFlatButton btmAgregar;
         private MaterialSkin.Controls.MaterialRaisedButton btnGuardar;
         private ComboBox cboEstadoCivil;
