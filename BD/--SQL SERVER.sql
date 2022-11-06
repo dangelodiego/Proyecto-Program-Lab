@@ -15,8 +15,6 @@ Insert into Sexos(descripcion) values ('Masculino')
 Insert into Sexos(descripcion) values ('Femenino')
 Insert into Sexos(descripcion) values ('Desconocido')
 
---Provincias
-
 insert into provincias (nombre) values ('Buenos Aires')
 insert into provincias (nombre) values ('CABA')
 insert into provincias (nombre) values ('Catamarca')
@@ -45,47 +43,45 @@ insert into provincias (nombre) values ('Tucumán')
 --Ciudades
 
 insert into Ciudades(nombre, id_provincia ) values (
-'Córdoba', 5)
+'Córdoba', 6)
 insert into Ciudades( nombre, id_provincia ) values ( 'Agua de
-Oro', 5)
+Oro', 6)
 insert into Ciudades( nombre, id_provincia ) values ( 'Alta
-Gracia', 5)
+Gracia', 6)
 insert into Ciudades( nombre, id_provincia ) values (
-'Anisacate', 5)
+'Anisacate', 6)
 insert into Ciudades( nombre, id_provincia ) values ( 'Bell
-Ville', 5)
+Ville', 6)
 insert into Ciudades( nombre, id_provincia ) values ( 'Bialet
-Massé', 5)
+Massé', 6)
 insert into Ciudades( nombre, id_provincia ) values ( 'Capilla
-del Monte', 5)
+del Monte', 6)
 insert into Ciudades( nombre, id_provincia ) values ( 'Colonia
-Caroya', 5)
+Caroya', 6)
 insert into Ciudades( nombre, id_provincia ) values ( 'Cosquín',
-5)
+6)
 insert into Ciudades( nombre, id_provincia ) values ( 'Cruz
-del Eje', 5)
+del Eje', 6)
 insert into Ciudades( nombre, id_provincia ) values ( 'Deán
-Funes', 5)
+Funes', 6)
 insert into Ciudades( nombre, id_provincia ) values ( 'Jesús
-María', 5)
+María', 6)
 insert into Ciudades( nombre, id_provincia ) values ( 'La
-Calera', 5)
+Calera', 6)
 insert into Ciudades( nombre, id_provincia ) values ( 'Saldan',
-5)
+6)
 insert into Ciudades( nombre, id_provincia ) values ( 'Villa
-Allende', 5)
+Allende', 6)
 insert into Ciudades( nombre, id_provincia ) values (
 'Avellaneda', 1)
 insert into Ciudades( nombre, id_provincia ) values (
 'Cañuelas', 1)
-insert into Ciudades( nombre, id_provincia ) values ( 'CABA',
-1)
 insert into Ciudades( nombre, id_provincia ) values ( 'La
 Matanza', 1)
 insert into Ciudades( nombre, id_provincia ) values (
 'Quilmes', 1)
 insert into Ciudades(nombre, id_provincia ) values ( 'Carlos
-Paz', 5)
+Paz', 6)
 
 --Barrios--
 insert into Barrios ( nombre, id_ciudades) values ( 'Alta Cordoba', 1)
