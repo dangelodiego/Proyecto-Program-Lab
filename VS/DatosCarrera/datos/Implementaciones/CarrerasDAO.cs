@@ -536,10 +536,12 @@ namespace DatosCarrera.datos.Implementaciones
             List<Ciudad> lst = new List<Ciudad>();
             foreach (DataRow r in tabla.Rows)
             {
+                Provincia p = new Provincia();
+                p.Id = Convert.ToInt32(r["id_provincia"]);
                 Ciudad c = new Ciudad();
                 c.Id = Convert.ToInt32(r["id_ciudades"]);
                 c.Nombre = r["nombre"].ToString();
-                c.Provincia = (Provincias)r["id_provincia"];
+                c.Provincia = p;
 
                 lst.Add(c);
             }

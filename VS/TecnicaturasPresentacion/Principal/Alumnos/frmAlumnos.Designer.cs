@@ -577,6 +577,7 @@
             this.cboProvincia.Name = "cboProvincia";
             this.cboProvincia.Size = new System.Drawing.Size(162, 23);
             this.cboProvincia.TabIndex = 13;
+            this.cboProvincia.SelectedIndexChanged += new System.EventHandler(this.cboProvincia_SelectedIndexChanged);
             // 
             // dgvAlumnos
             // 

@@ -26,17 +26,23 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
 
         private void frmAlumnos_Load(object sender, EventArgs e)
         {
-            cboCiudad.Enabled = false;
+            
             cboBarrio.Enabled = false;
-            Combo.CargarComboCiudad(cboCiudad, "https://localhost:7148/api/Localizaciones/Ciudades/5");
+            cboCiudad.Enabled = false;
+            //Combo.CargarComboCiudad(cboCiudad, "https://localhost:7148/api/Localizaciones/Ciudades/5");
             Combo.CargarComboEstadosCiviles(cboEstadoCivil, "https://localhost:7148/api/EstadosCiviles");
             Combo.CargarComboProvincia(cboProvincia, "https://localhost:7148/api/Localizaciones/Provincias");
+            
         }
 
-        
-
-
-
+        private void cboProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboProvincia.SelectedItem != null)
+            {
+                cboCiudad.Enabled = true;
+                Combo.CargarComboCiudad(cboCiudad, "https://localhost:7148/api/Localizaciones/Ciudades/" + cboProvincia.SelectedValue);
+            }
+        }
     }
 
 } 
