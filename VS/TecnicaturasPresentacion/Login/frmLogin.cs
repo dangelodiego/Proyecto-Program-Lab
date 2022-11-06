@@ -1,10 +1,12 @@
 using TecnicaturasPresentacion.PantallaDeCarga;
 using TecnicaturasPresentacion.Principal;
 
+
 namespace TecnicaturasPresentacion
 {
     public partial class frmLogin : Form
     {
+        
         public frmLogin()
         {
             InitializeComponent();
@@ -39,6 +41,11 @@ namespace TecnicaturasPresentacion
         {
             pictureBoxVisible.BringToFront();
             txtContraseña.PasswordChar = '*';
+        }
+
+        private void login()
+        {
+        
         }
     }
 }

@@ -202,3 +202,11 @@ Insert into Profesores (nombre, apellido, fecha_nac, dni, e_mail, telefono, call
     values ('Eduardo', 'Gomez', '1967-08-25', 29345456,'edugomez@hotmail.com', 351787456, 'Jose H Porto', 195, 1, 11)
 Insert into Profesores (nombre, apellido, fecha_nac, dni, e_mail, telefono, calle, altura, id_sexo, id_barrio)
     values ('Lisandro', 'Jackson', '1987-08-25', 29845456,'jacksondestripador@gmail.com', 351789956, 'Echeverria', 1995, 1, 3)
+
+	--Inserts Tabla Administradores
+	insert into Administradores (usuario, contrasenia)
+		values ('robertogomezUTNFRC', 'administrador2022')
+	insert into Administradores (usuario, contrasenia)
+		values ('rosaliarosalesUTNFRC', 'administradora2022')
+
+	

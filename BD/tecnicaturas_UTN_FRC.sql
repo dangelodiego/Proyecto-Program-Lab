@@ -1,4 +1,4 @@
-
+create database tecnicaturas_UTN_FRC
 Create table Administradores
 (id_user int identity(1,1),
 usuario varchar(20),
