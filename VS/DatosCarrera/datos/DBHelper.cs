@@ -5,12 +5,9 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< HEAD
 using System.Data.SqlClient;
-=======
 using DatosCarrera.dominio;
-using Microsoft.Data.SqlClient;
->>>>>>> 60af94e129e0cda72d9896bfb06066f792d1da15
+
 
 
 
