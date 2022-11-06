@@ -45,6 +45,8 @@ namespace TecnicaturasAPI.Controllers
             }
         }
 
+        
+
         [HttpGet("Barrios")]
         public IActionResult GetBarrios()
         {

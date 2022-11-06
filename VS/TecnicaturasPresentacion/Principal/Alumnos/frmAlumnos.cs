@@ -24,17 +24,23 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
 
         private void frmAlumnos_Load(object sender, EventArgs e)
         {
-            CargarCombo(cboProvincia);
+            CargarCombo(cboProvincia, "https://localhost:7148/api/Localizaciones/Provincias");
+            cboCiudad.Enabled = false;
+            cboBarrio.Enabled = false;
+
         }
 
-        private async void CargarCombo(ComboBox cbo)
+        private async void CargarCombo(ComboBox cbo, string url)
         {
-            var response = await SingletonHttpClient.ObtenerInstancia().GetAsync("https://localhost:7148/api/Localizaciones/Provincias");
-            var provincias = JsonConvert.DeserializeObject<List<Provincia>>(response);
-            cbo.DataSource = provincias;
+            var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
+            var objeto = JsonConvert.DeserializeObject<List<Provincia>>(response);
+            cbo.DataSource = objeto;
             cbo.DisplayMember = "Nombre";
             cbo.ValueMember = "Id";
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+
+
     }
-}
+
+} 
