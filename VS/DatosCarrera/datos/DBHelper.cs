@@ -16,13 +16,14 @@ namespace DatosCarrera.datos
     internal class DBHelper
     {
         private static DBHelper instancia;
-        private SqlConnection cnn;
+        private string cadenaConexion;
 
         private DBHelper()
         {
-            cnn = new SqlConnection(@"Data Source=DESKTOP-74QHVRO\SQLEXPRESS;Initial Catalog=TECNICATURAS_FRC_UTN;Integrated Security=True");
-
+            cadenaConexion = @"Data Source=DESKTOP-74QHVRO\SQLEXPRESS;Initial Catalog=TECNICATURAS_FRC_UTN;Integrated Security=True";
         }
+
+        
 
         public static DBHelper ObtenerInstancia()
         {
@@ -33,6 +34,7 @@ namespace DatosCarrera.datos
 
         internal DataTable ConsultaSQL(string spNombre, List<Parametro> values)
         {
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
             DataTable tabla = new DataTable();
             if (cnn.State != ConnectionState.Open)
                 cnn.Open();
@@ -47,12 +49,13 @@ namespace DatosCarrera.datos
             }
             tabla.Load(cmd.ExecuteReader());
             cnn.Close();
-
+            
             return tabla;
         }
 
         internal int ConsultaEscalarSQL(string spNombre, string pOutNombre)
         {
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
             cnn.Open();
             SqlCommand cmd = new SqlCommand(spNombre, cnn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -71,9 +74,10 @@ namespace DatosCarrera.datos
         {
             int afectadas = 0;
             SqlTransaction t = null;
-
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
             try
             {
+                
                 SqlCommand cmd = new SqlCommand();
                 cnn.Open();
                 t = cnn.BeginTransaction();
@@ -109,12 +113,14 @@ namespace DatosCarrera.datos
 
         internal SqlConnection ObtenerConexion()
         {
-            return this.cnn;
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
+            return cnn;
         }
 
 
         internal DataTable ConsultaSQL(string spNombre)
         {
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
             DataTable dt = new DataTable();
             if(cnn.State != ConnectionState.Open)
             cnn.Open();
@@ -128,7 +134,7 @@ namespace DatosCarrera.datos
         public bool CrearMesa(MesaExamen mesaExamen)
         {
             bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
             SqlTransaction t = null;
             SqlCommand cmd = new SqlCommand();
 
@@ -195,7 +201,7 @@ namespace DatosCarrera.datos
         public bool RectificarMesa(MesaExamen mesaExamen)
         {
             bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
             SqlTransaction t = null;
             SqlCommand cmd = new SqlCommand();
 
@@ -257,7 +263,7 @@ namespace DatosCarrera.datos
         public bool InsertarAlumno(Alumno alumno)
         {
             bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
             SqlTransaction t = null;
             SqlCommand cmd = new SqlCommand();
 
@@ -313,7 +319,7 @@ namespace DatosCarrera.datos
         public bool ActualizarAlumno(Alumno alumno)
         {
             bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
             SqlTransaction t = null;
             SqlCommand cmd = new SqlCommand();
 
@@ -367,7 +373,7 @@ namespace DatosCarrera.datos
         public bool InsertarProfesor(Profesor profesor)
         {
             bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
             SqlTransaction t = null;
             SqlCommand cmd = new SqlCommand();
 
@@ -420,7 +426,7 @@ namespace DatosCarrera.datos
         public bool ActualizarProfesor(Profesor profesor)
         {
             bool ok = true;
-            SqlConnection cnn = DBHelper.ObtenerInstancia().ObtenerConexion();
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
             SqlTransaction t = null;
             SqlCommand cmd = new SqlCommand();
 

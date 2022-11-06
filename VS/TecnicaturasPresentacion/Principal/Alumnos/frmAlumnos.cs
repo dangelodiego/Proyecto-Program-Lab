@@ -27,7 +27,7 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             cboCiudad.Enabled = false;
             cboBarrio.Enabled = false;
             CargarCombo(cboProvincia, "https://localhost:7148/api/Localizaciones/Provincias");
-            //CargarComboCiudad(cboCiudad, "https://localhost:7148/api/Localizaciones/Ciudades/5");
+            CargarComboCiudad(cboCiudad, "https://localhost:7148/api/Localizaciones/Ciudades/5");
         }
 
         private async void CargarCombo(ComboBox cbo, string url)
