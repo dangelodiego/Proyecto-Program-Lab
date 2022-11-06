@@ -225,7 +225,7 @@ namespace DatosCarrera.datos.Implementaciones
                 Materia m = new Materia();
                 m.Id = Convert.ToInt32(r["id_materia"]);
                 m.Nombre = r["nombre"].ToString();
-                m.Promocionable = Convert.ToBoolean(r["promocionalbe"]);
+                m.Promocionable = Convert.ToBoolean(r["promocionable"]);
                 lst.Add(m);
             }
             return lst;
@@ -576,8 +576,6 @@ namespace DatosCarrera.datos.Implementaciones
 
         }
         
-
-    
 
         public int ObtenerProximoId()
         {
