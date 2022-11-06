@@ -1,4 +1,5 @@
 ﻿using DatosCarrera.dominio;
+using DatosCarrera.dominio.auxiliares;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace DatosCarrera.datos.Interfaces
         List<Ciudad> ObtenerCiudadxProvincia(int id);
         List<Provincia> ObtenerProvincias();
 
+        List<EstadosCiviles> ObtenerEstadosCiviles();
 
 
 

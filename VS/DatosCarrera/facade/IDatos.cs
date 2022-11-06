@@ -1,4 +1,5 @@
 ﻿using DatosCarrera.dominio;
+using DatosCarrera.dominio.auxiliares;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace DatosCarrera.facade
 
         public List<Barrio> GetBarriosaLL();
 
+        public List<EstadosCiviles> GetEstadosCivilesAll();
 
 
 

@@ -12,6 +12,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using TecnicaturasPresentacion.Cliente;
 using DatosCarrera.dominio;
+using DatosCarrera.dominio.auxiliares;
+
 
 namespace TecnicaturasPresentacion.Principal.Alumnos
 {
@@ -26,29 +28,12 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
         {
             cboCiudad.Enabled = false;
             cboBarrio.Enabled = false;
-            CargarCombo(cboProvincia, "https://localhost:7148/api/Localizaciones/Provincias");
-            CargarComboCiudad(cboCiudad, "https://localhost:7148/api/Localizaciones/Ciudades/5");
+            Combo.CargarComboCiudad(cboCiudad, "https://localhost:7148/api/Localizaciones/Ciudades/5");
+            Combo.CargarComboEstadosCiviles(cboEstadoCivil, "https://localhost:7148/api/EstadosCiviles");
+            Combo.CargarComboProvincia(cboProvincia, "https://localhost:7148/api/Localizaciones/Provincias");
         }
 
-        private async void CargarCombo(ComboBox cbo, string url)
-        {
-            var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
-            var objeto = JsonConvert.DeserializeObject<List<Provincia>>(response);
-            cbo.DataSource = objeto;
-            cbo.DisplayMember = "Nombre";
-            cbo.ValueMember = "Id";
-            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
-        }
-        private async void CargarComboCiudad(ComboBox cbo, string url)
-        {
-            var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
-            var objeto = JsonConvert.DeserializeObject<List<Ciudad>>(response);
-            cbo.DataSource = objeto;
-            cbo.DisplayMember = "Nombre";
-            cbo.ValueMember = "Id";
-            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
-        }
-
+        
 
 
 

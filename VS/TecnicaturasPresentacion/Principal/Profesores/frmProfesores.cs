@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TecnicaturasPresentacion.Cliente;
 
 namespace TecnicaturasPresentacion.Principal.Profesores
 {
@@ -15,6 +16,15 @@ namespace TecnicaturasPresentacion.Principal.Profesores
         public frmProfesores()
         {
             InitializeComponent();
+        }
+
+        private void frmProfesores_Load(object sender, EventArgs e)
+        {
+            cboCiudad.Enabled = false;
+            cboBarrio.Enabled = false;
+            Combo.CargarComboCiudad(cboCiudad, "https://localhost:7148/api/Localizaciones/Ciudades/5");
+            Combo.CargarComboEstadosCiviles(cboEstadoCivil, "https://localhost:7148/api/EstadosCiviles");
+            Combo.CargarComboProvincia(cboProvincia, "https://localhost:7148/api/Localizaciones/Provincias");
         }
     }
 }

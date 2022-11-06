@@ -582,19 +582,21 @@ namespace DatosCarrera.datos.Implementaciones
         public int ObtenerProximoId()
         {
             string sp = "SP_PROXIMO_ID";
-            return DBHelper.ObtenerInstancia().ConsultaEscalarSQL("SP_PROXIMO_ID", "@next");
+            return DBHelper.ObtenerInstancia().ConsultaEscalarSQL(sp, "@next");
         }
 
-
-
-
-
-
-
-
-
-
-
-
+        public List<EstadosCiviles> ObtenerEstadosCiviles()
+        {
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL("SP_OBTENER_ESTADOCIVIL");
+            List<EstadosCiviles> lst = new List<EstadosCiviles>();
+            foreach (DataRow r in tabla.Rows)
+            {
+                EstadosCiviles e = new EstadosCiviles();
+                e.Id = Convert.ToInt32(r["id_estado_civil"]);
+                e.Descripcion = r["descripcion"].ToString();
+                lst.Add(e);
+            }
+            return lst;
+        }
     }
 }

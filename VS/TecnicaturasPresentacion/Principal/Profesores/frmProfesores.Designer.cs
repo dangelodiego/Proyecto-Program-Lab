@@ -723,6 +723,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProfesores";
             this.Text = "frmProfesores";
+            this.Load += new System.EventHandler(this.frmProfesores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

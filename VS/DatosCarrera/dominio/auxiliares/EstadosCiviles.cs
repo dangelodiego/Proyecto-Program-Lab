@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.dominio.auxiliares
 {
-    public enum EstadosCiviles
+    public class EstadosCiviles
     {
-        Soltero,
-        Casado,
-        Divorciado,
-        Viudo
-         
-
-
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
     }
+
 }

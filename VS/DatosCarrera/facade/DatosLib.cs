@@ -1,6 +1,7 @@
 ﻿using DatosCarrera.datos.Implementaciones;
 using DatosCarrera.datos.Interfaces;
 using DatosCarrera.dominio;
+using DatosCarrera.dominio.auxiliares;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,19 +50,10 @@ namespace DatosCarrera.facade
             return dao.GetMateriaAll();
         }
 
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public List<EstadosCiviles> GetEstadosCivilesAll()
+        {
+            return soporteDAO.ObtenerEstadosCiviles();
+        }
     }
+    
 }

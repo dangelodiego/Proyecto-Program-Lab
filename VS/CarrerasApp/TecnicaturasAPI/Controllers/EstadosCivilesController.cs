@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DatosCarrera.facade;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -6,20 +7,35 @@ namespace TecnicaturasAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class EstadosCivilesController : ControllerBase
     {
-        // GET: api/<ValuesController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private IDatos datos;
+
+        public EstadosCivilesController()
         {
-            return new string[] { "value1", "value2" };
+            datos = new DatosLib();
         }
 
+        // GET: api/<ValuesController>
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
+
         // GET api/<ValuesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        public IActionResult GetEstadosCiviles()
         {
-            return "value";
+            if (datos.GetEstadosCivilesAll() != null)
+            {
+                return Ok(datos.GetEstadosCivilesAll());
+            }
+            else
+            {
+                return NotFound();
+            }
+
         }
 
         // POST api/<ValuesController>
