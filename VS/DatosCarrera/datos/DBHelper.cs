@@ -34,8 +34,8 @@ namespace DatosCarrera.datos
         internal DataTable ConsultaSQL(string spNombre, List<Parametro> values)
         {
             DataTable tabla = new DataTable();
-
-            cnn.Open();
+            if (cnn.State != ConnectionState.Open)
+                cnn.Open();
             SqlCommand cmd = new SqlCommand(spNombre, cnn);
             cmd.CommandType = CommandType.StoredProcedure;
             if (values != null)
@@ -116,6 +116,7 @@ namespace DatosCarrera.datos
         internal DataTable ConsultaSQL(string spNombre)
         {
             DataTable dt = new DataTable();
+            if(cnn.State != ConnectionState.Open)
             cnn.Open();
             SqlCommand cmd = new SqlCommand(spNombre, cnn);
             cmd.CommandType = CommandType.StoredProcedure;

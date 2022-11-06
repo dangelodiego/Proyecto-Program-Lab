@@ -32,12 +32,12 @@ namespace TecnicaturasAPI.Controllers
             }
         }
 
-        [HttpGet("Ciudades")]
-        public IActionResult GetCiudades()
+        [HttpGet("Ciudades/{id}")]
+        public IActionResult GetCiudades(int id)
         {
-            if (_datos.GetProvinciasAll() != null)
+            if (_datos.GetCiudadxProvincia(id) != null)
             {
-                return Ok(_datos.GetCiudadesAll());
+                return Ok(_datos.GetCiudadxProvincia(id));
             }
             else
             {

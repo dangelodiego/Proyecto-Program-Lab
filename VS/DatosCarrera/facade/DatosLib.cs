@@ -35,15 +35,15 @@ namespace DatosCarrera.facade
             return soporteDAO.ObtenerBarrios();
         }
 
-        public List<Ciudad> GetCiudadesAll()
+        public List<Ciudad> GetCiudadxProvincia(int id)
         {
-            return soporteDAO.ObtenerCiudades();
+            return soporteDAO.ObtenerCiudadxProvincia(id);
         }
         public List<Provincia> GetProvinciasAll()
         {
             return soporteDAO.ObtenerProvincias();
         }
-
+        
         public List<Materia> GetMateriaAll()
         {
             return dao.GetMateriaAll();

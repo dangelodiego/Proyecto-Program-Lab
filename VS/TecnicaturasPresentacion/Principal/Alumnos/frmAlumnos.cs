@@ -24,10 +24,10 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
 
         private void frmAlumnos_Load(object sender, EventArgs e)
         {
-            CargarCombo(cboProvincia, "https://localhost:7148/api/Localizaciones/Provincias");
             cboCiudad.Enabled = false;
             cboBarrio.Enabled = false;
-
+            CargarCombo(cboProvincia, "https://localhost:7148/api/Localizaciones/Provincias");
+            //CargarComboCiudad(cboCiudad, "https://localhost:7148/api/Localizaciones/Ciudades/5");
         }
 
         private async void CargarCombo(ComboBox cbo, string url)
@@ -39,6 +39,17 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             cbo.ValueMember = "Id";
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+        private async void CargarComboCiudad(ComboBox cbo, string url)
+        {
+            var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
+            var objeto = JsonConvert.DeserializeObject<List<Ciudad>>(response);
+            cbo.DataSource = objeto;
+            cbo.DisplayMember = "Nombre";
+            cbo.ValueMember = "Id";
+            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+
 
 
     }

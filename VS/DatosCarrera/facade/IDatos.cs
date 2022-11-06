@@ -16,7 +16,7 @@ namespace DatosCarrera.facade
 
         public List<Provincia> GetProvinciasAll();
 
-        public List<Ciudad> GetCiudadesAll();
+        public List<Ciudad> GetCiudadxProvincia(int id);
 
         public List<Barrio> GetBarriosaLL();
 

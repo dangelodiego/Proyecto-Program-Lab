@@ -10,7 +10,7 @@ namespace DatosCarrera.datos.Interfaces
     public interface ISoporteDAO
     {
         List<Barrio> ObtenerBarrios();
-        List<Ciudad> ObtenerCiudades();
+        List<Ciudad> ObtenerCiudadxProvincia(int id);
         List<Provincia> ObtenerProvincias();
 
 

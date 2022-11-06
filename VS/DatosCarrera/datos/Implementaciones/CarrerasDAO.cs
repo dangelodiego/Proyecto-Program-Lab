@@ -527,10 +527,12 @@ namespace DatosCarrera.datos.Implementaciones
 
         }
 
-        public List<Ciudad> ObtenerCiudades()
+        public List<Ciudad> ObtenerCiudadxProvincia(int id)
         {
-            string sp = "SP_OBTENER_CIUDADES";
-            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp);
+            string sp = "SP_CIUDADES_X_PCIA";
+            List<Parametro> lstParam = new List<Parametro>();
+            lstParam.Add(new Parametro("@id_provincia", id));
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lstParam);
             List<Ciudad> lst = new List<Ciudad>();
             foreach (DataRow r in tabla.Rows)
             {
