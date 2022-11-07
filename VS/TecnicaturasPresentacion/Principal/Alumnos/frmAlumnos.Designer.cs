@@ -87,6 +87,10 @@
             this.colFechaInscAlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cboLaboralidad = new System.Windows.Forms.ComboBox();
+            this.lblLaboralidad = new MaterialSkin.Controls.MaterialLabel();
+            this.cboHabitacionalidad = new System.Windows.Forms.ComboBox();
+            this.lblHabitacionalidad = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -201,7 +205,7 @@
             this.lblEmail.Depth = 0;
             this.lblEmail.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblEmail.Location = new System.Drawing.Point(24, 146);
+            this.lblEmail.Location = new System.Drawing.Point(24, 129);
             this.lblEmail.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(61, 19);
@@ -212,7 +216,7 @@
             // 
             this.txtEmail.Depth = 0;
             this.txtEmail.Hint = "";
-            this.txtEmail.Location = new System.Drawing.Point(91, 142);
+            this.txtEmail.Location = new System.Drawing.Point(91, 125);
             this.txtEmail.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
@@ -233,7 +237,7 @@
             "@yahoo.com",
             "@outlock.com",
             "@hotmail.com"});
-            this.cboEmails.Location = new System.Drawing.Point(318, 142);
+            this.cboEmails.Location = new System.Drawing.Point(318, 125);
             this.cboEmails.Name = "cboEmails";
             this.cboEmails.Size = new System.Drawing.Size(121, 23);
             this.cboEmails.TabIndex = 5;
@@ -244,7 +248,7 @@
             this.lblTelefono.Depth = 0;
             this.lblTelefono.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTelefono.Location = new System.Drawing.Point(24, 183);
+            this.lblTelefono.Location = new System.Drawing.Point(24, 169);
             this.lblTelefono.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(73, 19);
@@ -255,7 +259,7 @@
             // 
             this.txtTel.Depth = 0;
             this.txtTel.Hint = "";
-            this.txtTel.Location = new System.Drawing.Point(100, 179);
+            this.txtTel.Location = new System.Drawing.Point(100, 165);
             this.txtTel.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTel.Name = "txtTel";
             this.txtTel.PasswordChar = '\0';
@@ -272,7 +276,7 @@
             this.lblAltura.Depth = 0;
             this.lblAltura.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblAltura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblAltura.Location = new System.Drawing.Point(280, 220);
+            this.lblAltura.Location = new System.Drawing.Point(314, 209);
             this.lblAltura.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblAltura.Name = "lblAltura";
             this.lblAltura.Size = new System.Drawing.Size(49, 19);
@@ -283,7 +287,7 @@
             // 
             this.txtAltura.Depth = 0;
             this.txtAltura.Hint = "";
-            this.txtAltura.Location = new System.Drawing.Point(280, 242);
+            this.txtAltura.Location = new System.Drawing.Point(361, 205);
             this.txtAltura.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtAltura.Name = "txtAltura";
             this.txtAltura.PasswordChar = '\0';
@@ -300,7 +304,7 @@
             this.lblCalle.Depth = 0;
             this.lblCalle.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCalle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCalle.Location = new System.Drawing.Point(24, 220);
+            this.lblCalle.Location = new System.Drawing.Point(24, 209);
             this.lblCalle.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCalle.Name = "lblCalle";
             this.lblCalle.Size = new System.Drawing.Size(43, 19);
@@ -311,7 +315,7 @@
             // 
             this.txtCalle.Depth = 0;
             this.txtCalle.Hint = "";
-            this.txtCalle.Location = new System.Drawing.Point(24, 242);
+            this.txtCalle.Location = new System.Drawing.Point(73, 205);
             this.txtCalle.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.PasswordChar = '\0';
@@ -328,7 +332,7 @@
             this.lblSexo.Depth = 0;
             this.lblSexo.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSexo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblSexo.Location = new System.Drawing.Point(615, 146);
+            this.lblSexo.Location = new System.Drawing.Point(615, 133);
             this.lblSexo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblSexo.Name = "lblSexo";
             this.lblSexo.Size = new System.Drawing.Size(42, 19);
@@ -340,7 +344,7 @@
             this.rbMasculino.AutoSize = true;
             this.rbMasculino.Depth = 0;
             this.rbMasculino.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbMasculino.Location = new System.Drawing.Point(474, 177);
+            this.rbMasculino.Location = new System.Drawing.Point(474, 164);
             this.rbMasculino.Margin = new System.Windows.Forms.Padding(0);
             this.rbMasculino.MouseLocation = new System.Drawing.Point(-1, -1);
             this.rbMasculino.MouseState = MaterialSkin.MouseState.HOVER;
@@ -357,7 +361,7 @@
             this.rbFemenino.AutoSize = true;
             this.rbFemenino.Depth = 0;
             this.rbFemenino.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbFemenino.Location = new System.Drawing.Point(582, 177);
+            this.rbFemenino.Location = new System.Drawing.Point(582, 164);
             this.rbFemenino.Margin = new System.Windows.Forms.Padding(0);
             this.rbFemenino.MouseLocation = new System.Drawing.Point(-1, -1);
             this.rbFemenino.MouseState = MaterialSkin.MouseState.HOVER;
@@ -374,7 +378,7 @@
             this.rbDesconocido.AutoSize = true;
             this.rbDesconocido.Depth = 0;
             this.rbDesconocido.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbDesconocido.Location = new System.Drawing.Point(687, 177);
+            this.rbDesconocido.Location = new System.Drawing.Point(687, 164);
             this.rbDesconocido.Margin = new System.Windows.Forms.Padding(0);
             this.rbDesconocido.MouseLocation = new System.Drawing.Point(-1, -1);
             this.rbDesconocido.MouseState = MaterialSkin.MouseState.HOVER;
@@ -392,7 +396,7 @@
             this.lblTecnicatura.Depth = 0;
             this.lblTecnicatura.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTecnicatura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTecnicatura.Location = new System.Drawing.Point(24, 361);
+            this.lblTecnicatura.Location = new System.Drawing.Point(25, 361);
             this.lblTecnicatura.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTecnicatura.Name = "lblTecnicatura";
             this.lblTecnicatura.Size = new System.Drawing.Size(88, 19);
@@ -404,9 +408,9 @@
             this.cboTecnicatura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.cboTecnicatura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTecnicatura.FormattingEnabled = true;
-            this.cboTecnicatura.Location = new System.Drawing.Point(24, 392);
+            this.cboTecnicatura.Location = new System.Drawing.Point(24, 383);
             this.cboTecnicatura.Name = "cboTecnicatura";
-            this.cboTecnicatura.Size = new System.Drawing.Size(162, 23);
+            this.cboTecnicatura.Size = new System.Drawing.Size(139, 23);
             this.cboTecnicatura.TabIndex = 16;
             // 
             // lblCurso
@@ -415,7 +419,7 @@
             this.lblCurso.Depth = 0;
             this.lblCurso.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCurso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCurso.Location = new System.Drawing.Point(256, 361);
+            this.lblCurso.Location = new System.Drawing.Point(201, 361);
             this.lblCurso.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCurso.Name = "lblCurso";
             this.lblCurso.Size = new System.Drawing.Size(49, 19);
@@ -426,7 +430,7 @@
             // 
             this.cboCurso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCurso.FormattingEnabled = true;
-            this.cboCurso.Location = new System.Drawing.Point(256, 392);
+            this.cboCurso.Location = new System.Drawing.Point(201, 383);
             this.cboCurso.Name = "cboCurso";
             this.cboCurso.Size = new System.Drawing.Size(162, 23);
             this.cboCurso.TabIndex = 17;
@@ -437,7 +441,7 @@
             this.lblFechaIncripcion.Depth = 0;
             this.lblFechaIncripcion.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFechaIncripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFechaIncripcion.Location = new System.Drawing.Point(475, 361);
+            this.lblFechaIncripcion.Location = new System.Drawing.Point(403, 350);
             this.lblFechaIncripcion.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFechaIncripcion.Name = "lblFechaIncripcion";
             this.lblFechaIncripcion.Size = new System.Drawing.Size(151, 19);
@@ -446,7 +450,7 @@
             // 
             // dtpFechaInscripcion
             // 
-            this.dtpFechaInscripcion.Location = new System.Drawing.Point(475, 392);
+            this.dtpFechaInscripcion.Location = new System.Drawing.Point(403, 381);
             this.dtpFechaInscripcion.Name = "dtpFechaInscripcion";
             this.dtpFechaInscripcion.Size = new System.Drawing.Size(200, 23);
             this.dtpFechaInscripcion.TabIndex = 18;
@@ -457,7 +461,7 @@
             this.lblEstadoCivil.Depth = 0;
             this.lblEstadoCivil.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblEstadoCivil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblEstadoCivil.Location = new System.Drawing.Point(24, 288);
+            this.lblEstadoCivil.Location = new System.Drawing.Point(24, 243);
             this.lblEstadoCivil.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblEstadoCivil.Name = "lblEstadoCivil";
             this.lblEstadoCivil.Size = new System.Drawing.Size(89, 19);
@@ -485,7 +489,7 @@
             this.lblProvincia.Depth = 0;
             this.lblProvincia.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblProvincia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblProvincia.Location = new System.Drawing.Point(201, 288);
+            this.lblProvincia.Location = new System.Drawing.Point(201, 243);
             this.lblProvincia.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblProvincia.Name = "lblProvincia";
             this.lblProvincia.Size = new System.Drawing.Size(71, 19);
@@ -498,7 +502,7 @@
             this.lblCiudad.Depth = 0;
             this.lblCiudad.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCiudad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCiudad.Location = new System.Drawing.Point(403, 288);
+            this.lblCiudad.Location = new System.Drawing.Point(403, 243);
             this.lblCiudad.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCiudad.Name = "lblCiudad";
             this.lblCiudad.Size = new System.Drawing.Size(55, 19);
@@ -511,7 +515,7 @@
             this.lblBarrio.Depth = 0;
             this.lblBarrio.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblBarrio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblBarrio.Location = new System.Drawing.Point(575, 288);
+            this.lblBarrio.Location = new System.Drawing.Point(575, 243);
             this.lblBarrio.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblBarrio.Name = "lblBarrio";
             this.lblBarrio.Size = new System.Drawing.Size(49, 19);
@@ -523,7 +527,7 @@
             this.btmAgregar.AutoSize = true;
             this.btmAgregar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btmAgregar.Depth = 0;
-            this.btmAgregar.Location = new System.Drawing.Point(738, 387);
+            this.btmAgregar.Location = new System.Drawing.Point(734, 367);
             this.btmAgregar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btmAgregar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btmAgregar.Name = "btmAgregar";
@@ -532,6 +536,7 @@
             this.btmAgregar.TabIndex = 19;
             this.btmAgregar.Text = "AGREGAR";
             this.btmAgregar.UseVisualStyleBackColor = true;
+            this.btmAgregar.Click += new System.EventHandler(this.btmAgregar_Click);
             // 
             // btnGuardar
             // 
@@ -549,7 +554,7 @@
             // 
             this.cboEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstadoCivil.FormattingEnabled = true;
-            this.cboEstadoCivil.Location = new System.Drawing.Point(24, 310);
+            this.cboEstadoCivil.Location = new System.Drawing.Point(24, 265);
             this.cboEstadoCivil.Name = "cboEstadoCivil";
             this.cboEstadoCivil.Size = new System.Drawing.Size(139, 23);
             this.cboEstadoCivil.TabIndex = 12;
@@ -558,7 +563,7 @@
             // 
             this.cboBarrio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBarrio.FormattingEnabled = true;
-            this.cboBarrio.Location = new System.Drawing.Point(578, 310);
+            this.cboBarrio.Location = new System.Drawing.Point(578, 265);
             this.cboBarrio.Name = "cboBarrio";
             this.cboBarrio.Size = new System.Drawing.Size(141, 23);
             this.cboBarrio.TabIndex = 15;
@@ -567,7 +572,7 @@
             // 
             this.cboCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCiudad.FormattingEnabled = true;
-            this.cboCiudad.Location = new System.Drawing.Point(403, 310);
+            this.cboCiudad.Location = new System.Drawing.Point(403, 265);
             this.cboCiudad.Name = "cboCiudad";
             this.cboCiudad.Size = new System.Drawing.Size(145, 23);
             this.cboCiudad.TabIndex = 14;
@@ -577,7 +582,7 @@
             // 
             this.cboProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProvincia.FormattingEnabled = true;
-            this.cboProvincia.Location = new System.Drawing.Point(201, 310);
+            this.cboProvincia.Location = new System.Drawing.Point(201, 265);
             this.cboProvincia.Name = "cboProvincia";
             this.cboProvincia.Size = new System.Drawing.Size(162, 23);
             this.cboProvincia.TabIndex = 13;
@@ -585,6 +590,8 @@
             // 
             // dgvAlumnos
             // 
+            this.dgvAlumnos.AllowUserToAddRows = false;
+            this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colIDALU,
@@ -605,101 +612,121 @@
             this.colCursoAlu,
             this.colFechaInscAlu,
             this.colEliminar});
-            this.dgvAlumnos.Location = new System.Drawing.Point(12, 432);
+            this.dgvAlumnos.Location = new System.Drawing.Point(12, 412);
             this.dgvAlumnos.Name = "dgvAlumnos";
+            this.dgvAlumnos.ReadOnly = true;
             this.dgvAlumnos.RowTemplate.Height = 25;
-            this.dgvAlumnos.Size = new System.Drawing.Size(800, 134);
+            this.dgvAlumnos.Size = new System.Drawing.Size(800, 160);
             this.dgvAlumnos.TabIndex = 20;
             // 
             // colIDALU
             // 
             this.colIDALU.HeaderText = "ID";
             this.colIDALU.Name = "colIDALU";
+            this.colIDALU.ReadOnly = true;
+            this.colIDALU.Visible = false;
             // 
             // colNombreAlu
             // 
             this.colNombreAlu.HeaderText = "Nombre";
             this.colNombreAlu.Name = "colNombreAlu";
+            this.colNombreAlu.ReadOnly = true;
             // 
             // colApellidoAlu
             // 
             this.colApellidoAlu.HeaderText = "Apellido";
             this.colApellidoAlu.Name = "colApellidoAlu";
+            this.colApellidoAlu.ReadOnly = true;
             // 
             // colFechaNacAlu
             // 
             this.colFechaNacAlu.HeaderText = "Fecha Nacimiento";
             this.colFechaNacAlu.Name = "colFechaNacAlu";
+            this.colFechaNacAlu.ReadOnly = true;
             // 
             // colDniAlu
             // 
             this.colDniAlu.HeaderText = "DNI";
             this.colDniAlu.Name = "colDniAlu";
+            this.colDniAlu.ReadOnly = true;
             // 
             // colEmailAlu
             // 
             this.colEmailAlu.HeaderText = "E-MAIL";
             this.colEmailAlu.Name = "colEmailAlu";
+            this.colEmailAlu.ReadOnly = true;
             // 
             // colTelAlu
             // 
             this.colTelAlu.HeaderText = "Teléfono";
             this.colTelAlu.Name = "colTelAlu";
+            this.colTelAlu.ReadOnly = true;
             // 
             // colSexoAlu
             // 
             this.colSexoAlu.HeaderText = "Sexo";
             this.colSexoAlu.Name = "colSexoAlu";
+            this.colSexoAlu.ReadOnly = true;
             // 
             // colCalleAlu
             // 
             this.colCalleAlu.HeaderText = "Calle";
             this.colCalleAlu.Name = "colCalleAlu";
+            this.colCalleAlu.ReadOnly = true;
             // 
             // colAlturaAlu
             // 
             this.colAlturaAlu.HeaderText = "Altura";
             this.colAlturaAlu.Name = "colAlturaAlu";
+            this.colAlturaAlu.ReadOnly = true;
             // 
             // colEstadoCivAlu
             // 
             this.colEstadoCivAlu.HeaderText = "Estado Civil";
             this.colEstadoCivAlu.Name = "colEstadoCivAlu";
+            this.colEstadoCivAlu.ReadOnly = true;
             // 
             // colProvAlu
             // 
             this.colProvAlu.HeaderText = "Provincia";
             this.colProvAlu.Name = "colProvAlu";
+            this.colProvAlu.ReadOnly = true;
             // 
             // colCiudadAlu
             // 
             this.colCiudadAlu.HeaderText = "Ciudad";
             this.colCiudadAlu.Name = "colCiudadAlu";
+            this.colCiudadAlu.ReadOnly = true;
             // 
             // colBarrioAlu
             // 
             this.colBarrioAlu.HeaderText = "Barrio";
             this.colBarrioAlu.Name = "colBarrioAlu";
+            this.colBarrioAlu.ReadOnly = true;
             // 
             // colTecnicaturaAlu
             // 
             this.colTecnicaturaAlu.HeaderText = "Tecnicatura";
             this.colTecnicaturaAlu.Name = "colTecnicaturaAlu";
+            this.colTecnicaturaAlu.ReadOnly = true;
             // 
             // colCursoAlu
             // 
             this.colCursoAlu.HeaderText = "Curso";
             this.colCursoAlu.Name = "colCursoAlu";
+            this.colCursoAlu.ReadOnly = true;
             // 
             // colFechaInscAlu
             // 
             this.colFechaInscAlu.HeaderText = "Fecha Inscripción";
             this.colFechaInscAlu.Name = "colFechaInscAlu";
+            this.colFechaInscAlu.ReadOnly = true;
             // 
             // colEliminar
             // 
             this.colEliminar.HeaderText = "Eliminar";
             this.colEliminar.Name = "colEliminar";
+            this.colEliminar.ReadOnly = true;
             this.colEliminar.Text = "ELIMINAR";
             // 
             // pictureBox1
@@ -713,12 +740,60 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // cboLaboralidad
+            // 
+            this.cboLaboralidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLaboralidad.FormattingEnabled = true;
+            this.cboLaboralidad.Location = new System.Drawing.Point(24, 322);
+            this.cboLaboralidad.Name = "cboLaboralidad";
+            this.cboLaboralidad.Size = new System.Drawing.Size(139, 23);
+            this.cboLaboralidad.TabIndex = 44;
+            // 
+            // lblLaboralidad
+            // 
+            this.lblLaboralidad.AutoSize = true;
+            this.lblLaboralidad.Depth = 0;
+            this.lblLaboralidad.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLaboralidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblLaboralidad.Location = new System.Drawing.Point(24, 300);
+            this.lblLaboralidad.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblLaboralidad.Name = "lblLaboralidad";
+            this.lblLaboralidad.Size = new System.Drawing.Size(87, 19);
+            this.lblLaboralidad.TabIndex = 45;
+            this.lblLaboralidad.Text = "Laboralidad";
+            // 
+            // cboHabitacionalidad
+            // 
+            this.cboHabitacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboHabitacionalidad.FormattingEnabled = true;
+            this.cboHabitacionalidad.Location = new System.Drawing.Point(201, 322);
+            this.cboHabitacionalidad.Name = "cboHabitacionalidad";
+            this.cboHabitacionalidad.Size = new System.Drawing.Size(162, 23);
+            this.cboHabitacionalidad.TabIndex = 46;
+            // 
+            // lblHabitacionalidad
+            // 
+            this.lblHabitacionalidad.AutoSize = true;
+            this.lblHabitacionalidad.Depth = 0;
+            this.lblHabitacionalidad.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHabitacionalidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblHabitacionalidad.Location = new System.Drawing.Point(201, 300);
+            this.lblHabitacionalidad.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblHabitacionalidad.Name = "lblHabitacionalidad";
+            this.lblHabitacionalidad.Size = new System.Drawing.Size(122, 19);
+            this.lblHabitacionalidad.TabIndex = 47;
+            this.lblHabitacionalidad.Text = "Habitacionalidad";
+            // 
             // frmAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(821, 621);
+            this.Controls.Add(this.cboHabitacionalidad);
+            this.Controls.Add(this.lblHabitacionalidad);
+            this.Controls.Add(this.cboLaboralidad);
+            this.Controls.Add(this.lblLaboralidad);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dgvAlumnos);
             this.Controls.Add(this.cboEstadoCivil);
@@ -814,6 +889,7 @@
         private MaterialSkin.Controls.MaterialLabel lblProvincia;
         private MaterialSkin.Controls.MaterialLabel lblEstadoCivil;
         private DataGridView dgvAlumnos;
+        private PictureBox pictureBox1;
         private DataGridViewTextBoxColumn colIDALU;
         private DataGridViewTextBoxColumn colNombreAlu;
         private DataGridViewTextBoxColumn colApellidoAlu;
@@ -832,6 +908,9 @@
         private DataGridViewTextBoxColumn colCursoAlu;
         private DataGridViewTextBoxColumn colFechaInscAlu;
         private DataGridViewButtonColumn colEliminar;
-        private PictureBox pictureBox1;
+        private ComboBox cboLaboralidad;
+        private MaterialSkin.Controls.MaterialLabel lblLaboralidad;
+        private ComboBox cboHabitacionalidad;
+        private MaterialSkin.Controls.MaterialLabel lblHabitacionalidad;
     }
 }

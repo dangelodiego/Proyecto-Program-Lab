@@ -28,17 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblConsultar = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblConsultar
-            // 
-            this.lblConsultar.AutoSize = true;
-            this.lblConsultar.Location = new System.Drawing.Point(306, 214);
-            this.lblConsultar.Name = "lblConsultar";
-            this.lblConsultar.Size = new System.Drawing.Size(58, 15);
-            this.lblConsultar.TabIndex = 0;
-            this.lblConsultar.Text = "Consultar";
             // 
             // frmConsultarAlumno
             // 
@@ -46,17 +36,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblConsultar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmConsultarAlumno";
             this.Text = "frmConsultarAlumno";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Label lblConsultar;
     }
 }
