@@ -31,6 +31,23 @@ namespace DatosCarrera.facade
 
 
 
+ 
+
+        List<Carrera> GetTecnicaturasAll();
+
+        List<Curso> GetCursosAll();
+
+        List<Barrio> GetBarriosXCiudad(int id);
+
+
+
+
+
+
+
+
+
+
 
 
 

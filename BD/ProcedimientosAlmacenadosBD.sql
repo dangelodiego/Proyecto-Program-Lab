@@ -336,7 +336,8 @@ from alumnos a
 join Carreras c on c.id_carrera=a.id_carrera
 join cursos cu on cu.id_curso=a.id_curso
 Where a.id_carrera = 1 --TUP
-Group by a.id_cursoEND
+Group by a.id_curso
+END
 
 -- Sp LOGIN
 create proc SP_Login
@@ -366,6 +367,31 @@ SELECT id_provincia, id_ciudades, nombre from ciudades where id_provincia=@id_pr
 
 
 
+--SP_OBTENER_TECNICATURAS
+
+CREATE PROCEDURE "SP_OBTENER_TECNICATURAS"
+AS
+BEGIN
+SELECT id_carrera, nombre FROM CARRERAS
+END
+
+
+--SP_OBTENER_CURSOS
+
+CREATE PROCEDURE "SP_OBTENER_CURSOS"
+AS
+BEGIN
+SELECT id_curso, nombre FROM CURSOS
+END
+
+--SP_OBTENER_BARRIOS_POR_CIUDAD
+
+CREATE PROCEDURE "SP_OBTENER_BARRIOS_X_CIUDAD"
+@id_ciudades int
+AS
+BEGIN
+SELECT id_ciudades, id_barrio, nombre FROM barrios where id_ciudades=@id_ciudades
+END
 
 
 

@@ -16,6 +16,14 @@ namespace DatosCarrera.datos.Interfaces
 
         List<EstadosCiviles> ObtenerEstadosCiviles();
 
+        List<Carrera> ObtenerTecnicaturas();
+
+        List<Curso> ObtenerCursos();
+
+        List<Barrio> ObtenerBarriosXCiudad(int id);
+
+
+
 
 
 

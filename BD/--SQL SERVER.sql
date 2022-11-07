@@ -122,12 +122,14 @@ Insert into turnos (descripcion) values ('Mañana')
 Insert into turnos (descripcion) values ('Tarde')
 Insert into turnos (descripcion) values ('Noche')
 
-Insert into cursos (nombre) values ('1W4')
-Insert into cursos (nombre) values ('1W3')
-Insert into cursos (nombre) values ('2W3')
-Insert into cursos (nombre) values ('2W4')
-Insert into cursos (nombre) values ('3W3')
-Insert into cursos (nombre) values ('3W4')
+Insert into cursos (nombre) values ('1W4', 2)
+Insert into cursos (nombre) values ('1W3', 3)
+Insert into cursos (nombre) values ('2W3', 3)
+Insert into cursos (nombre) values ('2W4', 2)
+Insert into cursos (nombre) values ('3W3', 3)
+Insert into cursos (nombre) values ('3W4', 2)
+
+
 
 Insert into carreras (nombre) values ('Tec. Univ. Programación')
 Insert into carreras (nombre) values ('Tec. Univ. Industrias Alimentarias')

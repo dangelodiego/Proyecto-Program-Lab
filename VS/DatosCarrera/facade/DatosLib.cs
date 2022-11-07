@@ -76,6 +76,34 @@ namespace DatosCarrera.facade
         {
             return alumnosDAO.GetAlumnosAll();
         }
+
+        public List<Carrera> GetTecnicaturasAll()
+        {
+            return soporteDAO.ObtenerTecnicaturas();
+
+
+        }
+
+        public List<Curso> GetCursosAll()
+        {
+            return soporteDAO.ObtenerCursos();
+        }
+
+
+        public List<Barrio> GetBarriosXCiudad(int id)
+        {
+            return soporteDAO.ObtenerBarriosXCiudad(id);
+        }
+
+
+
+
+
+
+
+
+
+
     }
     
 }
