@@ -1,15 +1,18 @@
 using TecnicaturasPresentacion.PantallaDeCarga;
 using TecnicaturasPresentacion.Principal;
-
+using DatosCarrera.datos.Implementaciones;
+using DatosCarrera.datos.Interfaces;
 
 namespace TecnicaturasPresentacion
 {
     public partial class frmLogin : Form
     {
-        
+
+        private IloginUsuario loginDAO;
         public frmLogin()
         {
             InitializeComponent();
+            loginDAO = new LoginDAO();
         }
 
         private void pictureBoxCloseLogin_Click(object sender, EventArgs e)
@@ -26,9 +29,23 @@ namespace TecnicaturasPresentacion
 
         private void btnAcceder_Click(object sender, EventArgs e)
         {
-            frmPantallaCarga carga = new frmPantallaCarga();
-            carga.Show(); 
-            this.Hide();
+            int resultado = loginDAO.ChequearLogin(txtUsuario.Text, txtContraseña.Text);
+
+            if (resultado == 1)
+            {
+                frmPantallaCarga carga = new frmPantallaCarga();
+                this.Hide();
+                carga.ShowDialog();
+            }
+            else if (resultado == 0)
+            {
+                MessageBox.Show("Usuario o contraseña incorrecta");
+                Limpiar();
+            }
+
+            //frmPantallaCarga carga = new frmPantallaCarga();
+            //carga.Show();
+            //this.Hide();
         }
 
         private void pictureBoxVisible_Click(object sender, EventArgs e)
@@ -43,9 +60,11 @@ namespace TecnicaturasPresentacion
             txtContraseña.PasswordChar = '*';
         }
 
-        private void login()
+        private void Limpiar()
         {
-        
+            txtContraseña.Text = "";
+            txtUsuario.Text = "";
         }
+       
     }
 }

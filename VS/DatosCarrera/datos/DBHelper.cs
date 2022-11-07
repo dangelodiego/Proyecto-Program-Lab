@@ -20,7 +20,7 @@ namespace DatosCarrera.datos
 
         private DBHelper()
         {
-            cadenaConexion = @"Data Source=DESKTOP-74QHVRO\SQLEXPRESS;Initial Catalog=tecnicaturas_UTN_FRC;Integrated Security=True";
+            cadenaConexion = @"Data Source=DESKTOP-DH9BN0G\SQLEXPRESS;Initial Catalog=tecnicaturas_UTN_FRC;Integrated Security=True";
         }
 
         
@@ -469,14 +469,37 @@ namespace DatosCarrera.datos
             }
 
             return ok;
-
-
-
-
-
-
         }
 
+        public int login(string usuario, string pass)
+        {
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
+            SqlCommand cmd = new SqlCommand("SP_Login", cnn);
+            try
+            {
+                cnn.Open();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@usuario", usuario);
+                cmd.Parameters.AddWithValue("@pass", pass);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    return dr.GetInt32(0);
+                }
+            }
+            catch (Exception e)
+            {
+                
+            }
+            finally
+            {
+                cnn.Close();
+            }
+
+            return -1;
+        }
 
 
 

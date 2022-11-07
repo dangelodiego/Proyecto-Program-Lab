@@ -339,7 +339,17 @@ Where a.id_carrera = 1 --TUP
 Group by a.id_cursoEND
 
 
+create proc SP_Login
+ @usuario varchar(20),
+ @pass varchar(25)
+as
+begin 
 
+	Select top 1 COUNT(*) 
+	From Administradores a
+	Where a.usuario = @usuario and a.contrasenia = @pass
+end 
+go
 
 
 

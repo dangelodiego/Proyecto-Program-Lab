@@ -8,7 +8,7 @@ namespace DatosCarrera.datos.Interfaces
 {
     public interface IloginUsuario
     {
-        bool ChequearLogin(string usuario, string contrasenia);
+        int ChequearLogin(string usuario, string contrasenia);
 
 
     }
