@@ -204,5 +204,6 @@ Insert into Profesores (nombre, apellido, fecha_nac, dni, e_mail, telefono, call
 		values ('robertogomezUTNFRC', 'administrador2022')
 	insert into Administradores (usuario, contrasenia)
 		values ('rosaliarosalesUTNFRC', 'administradora2022')
+	insert into Administradores (usuario, contrasenia)
+		values ('pepe', 'pepe123')
 
-	

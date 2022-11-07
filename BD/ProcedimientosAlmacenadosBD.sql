@@ -338,7 +338,7 @@ join cursos cu on cu.id_curso=a.id_curso
 Where a.id_carrera = 1 --TUP
 Group by a.id_cursoEND
 
-
+-- Sp LOGIN
 create proc SP_Login
  @usuario varchar(20),
  @pass varchar(25)
@@ -351,6 +351,18 @@ begin
 end 
 go
 
+use 
+
+--Sp OBTENER ESTADO CIVIL
+CREATE PROCEDURE "SP_OBTENER_ESTADOCIVIL"
+AS
+SELECT id_estado_civil, descripcion FROM estados_civiles
+
+--SP CIUDADES POR PROVONCIA
+CREATE PROCEDURE "SP_CIUDADES_X_PCIA"
+@id_provincia int
+AS
+SELECT id_provincia, id_ciudades, nombre from ciudades where id_provincia=@id_provincia
 
 
 
