@@ -29,10 +29,11 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             
             cboBarrio.Enabled = false;
             cboCiudad.Enabled = false;
-            //Combo.CargarComboCiudad(cboCiudad, "https://localhost:7148/api/Localizaciones/Ciudades/5");
             Combo.CargarComboEstadosCiviles(cboEstadoCivil, "https://localhost:7148/api/EstadosCiviles");
             Combo.CargarComboProvincia(cboProvincia, "https://localhost:7148/api/Localizaciones/Provincias");
-            
+            Combo.CargarComboTecnicaturas(cboTecnicatura, "https://localhost:7148/api/Tecnicaturas");
+            Combo.CargarComboCurso(cboCurso, "https://localhost:7148/api/Tecnicaturas/Curso");
+
         }
 
         private void cboProvincia_SelectedIndexChanged(object sender, EventArgs e)
@@ -43,6 +44,9 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
                 Combo.CargarComboCiudad(cboCiudad, "https://localhost:7148/api/Localizaciones/Ciudades/" + cboProvincia.SelectedValue);
             }
         }
+
+
+        
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -69,6 +73,15 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             cboTecnicatura.SelectedValue = -1;
             cboCurso.SelectedValue = -1;
             dgvAlumnos.Rows.Clear();
+        }
+
+        private void cboCiudad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboCiudad.SelectedItem != null)
+            {
+                cboBarrio.Enabled = true;
+                Combo.CargarComboBarrio(cboBarrio, "https://localhost:7148/api/Localizaciones/Barrios/" + cboCiudad.SelectedValue);
+            }
         }
     }
 

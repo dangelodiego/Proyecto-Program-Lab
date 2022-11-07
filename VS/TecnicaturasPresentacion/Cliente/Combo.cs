@@ -32,12 +32,42 @@ namespace TecnicaturasPresentacion.Cliente
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        public static async void CargarComboBarrio(ComboBox cbo, string url)
+        {
+            var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
+            var objeto = JsonConvert.DeserializeObject<List<Barrio>>(response);
+            cbo.DataSource = objeto;
+            cbo.DisplayMember = "Nombre";
+            cbo.ValueMember = "Id";
+            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
         public static async void CargarComboEstadosCiviles(ComboBox cbo, string url)
         {
             var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
             var objeto = JsonConvert.DeserializeObject<List<EstadosCiviles>>(response);
             cbo.DataSource = objeto;
             cbo.DisplayMember = "Descripcion";
+            cbo.ValueMember = "Id";
+            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        public static async void CargarComboTecnicaturas(ComboBox cbo, string url)
+        {
+            var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
+            var objeto = JsonConvert.DeserializeObject<List<Carrera>>(response);
+            cbo.DataSource = objeto;
+            cbo.DisplayMember = "Nombre";
+            cbo.ValueMember = "Id";
+            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        public static async void CargarComboCurso(ComboBox cbo, string url)
+        {
+            var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
+            var objeto = JsonConvert.DeserializeObject<List<Curso>>(response);
+            cbo.DataSource = objeto;
+            cbo.DisplayMember = "Nombre";
             cbo.ValueMember = "Id";
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
         }

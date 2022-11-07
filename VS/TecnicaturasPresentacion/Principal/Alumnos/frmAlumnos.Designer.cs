@@ -571,6 +571,7 @@
             this.cboCiudad.Name = "cboCiudad";
             this.cboCiudad.Size = new System.Drawing.Size(145, 23);
             this.cboCiudad.TabIndex = 14;
+            this.cboCiudad.SelectedIndexChanged += new System.EventHandler(this.cboCiudad_SelectedIndexChanged);
             // 
             // cboProvincia
             // 

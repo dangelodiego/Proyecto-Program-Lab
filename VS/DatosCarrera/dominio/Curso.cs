@@ -13,9 +13,6 @@ namespace DatosCarrera.dominio
 
         public string Nombre { get; set; }
 
-        //public Turno Turno { get; set; }
-    
-        public DateTime añoIngreso { get; set; }
     
     
     }

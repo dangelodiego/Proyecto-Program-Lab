@@ -606,7 +606,7 @@ namespace DatosCarrera.datos.Implementaciones
 
         public List<Carrera> ObtenerTecnicaturas()
         {
-            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL("SP_OBTENER_CARRERAS");
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL("SP_OBTENER_TECNICATURAS");
             List<Carrera> lst = new List<Carrera>();
             foreach (DataRow r in tabla.Rows)
             {
