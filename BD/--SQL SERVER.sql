@@ -201,11 +201,19 @@ Insert into Profesores (nombre, apellido, fecha_nac, dni, e_mail, telefono, call
 Insert into Profesores (nombre, apellido, fecha_nac, dni, e_mail, telefono, calle, altura, id_sexo, id_barrio)
     values ('Lisandro', 'Jackson', '1987-08-25', 29845456,'jacksondestripador@gmail.com', 351789956, 'Echeverria', 1995, 1, 3)
 
-	--Inserts Tabla Administradores
-	insert into Administradores (usuario, contrasenia)
-		values ('robertogomezUTNFRC', 'administrador2022')
-	insert into Administradores (usuario, contrasenia)
-		values ('rosaliarosalesUTNFRC', 'administradora2022')
-	insert into Administradores (usuario, contrasenia)
-		values ('pepe', 'pepe123')
+--Inserts Tabla Administradores
+insert into Administradores (usuario, contrasenia)
+	values ('robertogomezUTNFRC', 'administrador2022')
+insert into Administradores (usuario, contrasenia)
+	values ('rosaliarosalesUTNFRC', 'administradora2022')
+insert into Administradores (usuario, contrasenia)
+	values ('pepe', 'pepe123')
+
+--Inserts Tabla Estados_Ac
+Insert into estados_ac
+	values ('Promocionado')
+Insert into estados_ac
+	values ('Libre')
+Insert into estados_ac
+	values ('Regular')
 

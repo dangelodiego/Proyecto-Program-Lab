@@ -393,6 +393,7 @@ BEGIN
 SELECT id_ciudades, id_barrio, nombre FROM barrios where id_ciudades=@id_ciudades
 END
 
+<<<<<<< HEAD
 
 
 CREATE PROCEDURE SP_OBTENER_LABORALIDADES
@@ -404,6 +405,45 @@ Create Procedure SP_OBTENER_HABITACIONALIDADES
 AS
 Select * from Habitacionalidad
 
+=======
+--SP_OBTENER_CANTIDAD_ALUMNOS
+
+CREATE PROCEDURE "SP_OBETENER_CANTIDAD_ALUMNOS"
+AS
+BEGIN
+SELECT COUNT(legajo) Cantidad
+FROM alumnos
+END
+
+--SP_OBTENER_CANTIDAD_PROMOCIONADOS
+
+CREATE PROCEDURE "SP_OBTENER_CANTIDAD_PROMOCIONADOS"
+AS
+BEGIN
+SELECT COUNT(legajo) Cantidad
+FROM estados_academicos e JOIN estados_ac es on e.id_estado_ac=es.id_estado_ac 
+WHERE descripcion = 'Promocionado'
+
+--SP_OBTENER_CANTIDAD_LIBRES
+
+CREATE PROCEDURE "SP_OBTENER_CANTIDAD_LIBRES"
+AS
+BEGIN
+SELECT COUNT(legajo) Cantidad
+FROM estados_academicos e JOIN estados_ac es on e.id_estado_ac=es.id_estado_ac 
+WHERE descripcion = 'Libre'
+END
+
+--SP_OBTENER_CANTIDAD_REGULARES
+
+CREATE PROCEDURE "SP_OBTENER_CANTIDAD_LIBRES"
+AS
+BEGIN
+SELECT COUNT(legajo) Cantidad
+FROM estados_academicos e JOIN estados_ac es on e.id_estado_ac=es.id_estado_ac 
+WHERE descripcion = 'Regular'
+END
+>>>>>>> b6d49473fc3da6dbde2dd5c160d663d010045899
 
 
 
