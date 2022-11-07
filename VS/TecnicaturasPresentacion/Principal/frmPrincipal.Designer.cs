@@ -37,10 +37,22 @@
             this.pbMenu = new System.Windows.Forms.PictureBox();
             this.pHome = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.AlumnosContainer = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.btnConsultarAlumno = new System.Windows.Forms.Button();
+            this.panel26 = new System.Windows.Forms.Panel();
             this.btnAlumnos = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnNuevoAlumno = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnProfesores = new System.Windows.Forms.Button();
+            this.MesasContainer = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.btnRetMesa = new System.Windows.Forms.Button();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.btnNuevaMesa = new System.Windows.Forms.Button();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.btnMesas = new System.Windows.Forms.Button();
             this.ConsultasContainer = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.btnConsulta8 = new System.Windows.Forms.Button();
@@ -55,6 +67,7 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnConsulta3 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnConsulta22 = new System.Windows.Forms.Button();
             this.btnConsulta2 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnConsulta1 = new System.Windows.Forms.Button();
@@ -70,12 +83,21 @@
             this.pbMaximizar = new System.Windows.Forms.PictureBox();
             this.pbMinimizar = new System.Windows.Forms.PictureBox();
             this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.MesasTimer = new System.Windows.Forms.Timer(this.components);
+            this.AlumnosTimer = new System.Windows.Forms.Timer(this.components);
             this.flpOpciones.SuspendLayout();
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).BeginInit();
             this.pHome.SuspendLayout();
+            this.AlumnosContainer.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel26.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.MesasContainer.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel23.SuspendLayout();
             this.ConsultasContainer.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -103,8 +125,9 @@
             this.flpOpciones.BackColor = System.Drawing.Color.Black;
             this.flpOpciones.Controls.Add(this.pMenu);
             this.flpOpciones.Controls.Add(this.pHome);
-            this.flpOpciones.Controls.Add(this.panel1);
+            this.flpOpciones.Controls.Add(this.AlumnosContainer);
             this.flpOpciones.Controls.Add(this.panel2);
+            this.flpOpciones.Controls.Add(this.MesasContainer);
             this.flpOpciones.Controls.Add(this.ConsultasContainer);
             this.flpOpciones.Controls.Add(this.panel4);
             this.flpOpciones.Controls.Add(this.panel5);
@@ -175,13 +198,52 @@
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // panel1
+            // AlumnosContainer
             // 
-            this.panel1.Controls.Add(this.btnAlumnos);
-            this.panel1.Location = new System.Drawing.Point(3, 159);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(223, 44);
-            this.panel1.TabIndex = 2;
+            this.AlumnosContainer.BackColor = System.Drawing.Color.Black;
+            this.AlumnosContainer.Controls.Add(this.panel15);
+            this.AlumnosContainer.Controls.Add(this.panel26);
+            this.AlumnosContainer.Controls.Add(this.panel1);
+            this.AlumnosContainer.Location = new System.Drawing.Point(3, 159);
+            this.AlumnosContainer.MaximumSize = new System.Drawing.Size(223, 150);
+            this.AlumnosContainer.MinimumSize = new System.Drawing.Size(223, 47);
+            this.AlumnosContainer.Name = "AlumnosContainer";
+            this.AlumnosContainer.Size = new System.Drawing.Size(223, 47);
+            this.AlumnosContainer.TabIndex = 14;
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.btnConsultarAlumno);
+            this.panel15.Location = new System.Drawing.Point(2, 95);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(223, 44);
+            this.panel15.TabIndex = 3;
+            // 
+            // btnConsultarAlumno
+            // 
+            this.btnConsultarAlumno.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultarAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultarAlumno.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsultarAlumno.ForeColor = System.Drawing.Color.White;
+            this.btnConsultarAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultarAlumno.Image")));
+            this.btnConsultarAlumno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultarAlumno.Location = new System.Drawing.Point(-21, -7);
+            this.btnConsultarAlumno.Name = "btnConsultarAlumno";
+            this.btnConsultarAlumno.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsultarAlumno.Size = new System.Drawing.Size(266, 56);
+            this.btnConsultarAlumno.TabIndex = 1;
+            this.btnConsultarAlumno.Text = "            Consultar Alumno";
+            this.btnConsultarAlumno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultarAlumno.UseVisualStyleBackColor = true;
+            this.btnConsultarAlumno.Click += new System.EventHandler(this.btnConsultarAlumno_Click);
+            // 
+            // panel26
+            // 
+            this.panel26.Controls.Add(this.btnAlumnos);
+            this.panel26.Location = new System.Drawing.Point(0, 3);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(223, 44);
+            this.panel26.TabIndex = 4;
             // 
             // btnAlumnos
             // 
@@ -191,7 +253,7 @@
             this.btnAlumnos.ForeColor = System.Drawing.Color.White;
             this.btnAlumnos.Image = ((System.Drawing.Image)(resources.GetObject("btnAlumnos.Image")));
             this.btnAlumnos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlumnos.Location = new System.Drawing.Point(-22, -7);
+            this.btnAlumnos.Location = new System.Drawing.Point(-22, -6);
             this.btnAlumnos.Name = "btnAlumnos";
             this.btnAlumnos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnAlumnos.Size = new System.Drawing.Size(266, 56);
@@ -199,12 +261,38 @@
             this.btnAlumnos.Text = "                   Alumnos";
             this.btnAlumnos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAlumnos.UseVisualStyleBackColor = true;
-            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click);
+            this.btnAlumnos.Click += new System.EventHandler(this.btnAlumnos_Click_1);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnNuevoAlumno);
+            this.panel1.Location = new System.Drawing.Point(3, 53);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(223, 44);
+            this.panel1.TabIndex = 2;
+            // 
+            // btnNuevoAlumno
+            // 
+            this.btnNuevoAlumno.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevoAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoAlumno.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnNuevoAlumno.ForeColor = System.Drawing.Color.White;
+            this.btnNuevoAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevoAlumno.Image")));
+            this.btnNuevoAlumno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoAlumno.Location = new System.Drawing.Point(-22, -7);
+            this.btnNuevoAlumno.Name = "btnNuevoAlumno";
+            this.btnNuevoAlumno.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnNuevoAlumno.Size = new System.Drawing.Size(266, 56);
+            this.btnNuevoAlumno.TabIndex = 1;
+            this.btnNuevoAlumno.Text = "               Nuevo Alumno";
+            this.btnNuevoAlumno.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoAlumno.UseVisualStyleBackColor = true;
+            this.btnNuevoAlumno.Click += new System.EventHandler(this.btnAlumnos_Click);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnProfesores);
-            this.panel2.Location = new System.Drawing.Point(3, 209);
+            this.panel2.Location = new System.Drawing.Point(3, 212);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(223, 44);
             this.panel2.TabIndex = 3;
@@ -227,6 +315,98 @@
             this.btnProfesores.UseVisualStyleBackColor = true;
             this.btnProfesores.Click += new System.EventHandler(this.btnProfesores_Click);
             // 
+            // MesasContainer
+            // 
+            this.MesasContainer.BackColor = System.Drawing.Color.Black;
+            this.MesasContainer.Controls.Add(this.panel21);
+            this.MesasContainer.Controls.Add(this.panel22);
+            this.MesasContainer.Controls.Add(this.panel23);
+            this.MesasContainer.Location = new System.Drawing.Point(3, 262);
+            this.MesasContainer.MaximumSize = new System.Drawing.Size(223, 124);
+            this.MesasContainer.MinimumSize = new System.Drawing.Size(223, 47);
+            this.MesasContainer.Name = "MesasContainer";
+            this.MesasContainer.Size = new System.Drawing.Size(223, 47);
+            this.MesasContainer.TabIndex = 14;
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.btnRetMesa);
+            this.panel21.Location = new System.Drawing.Point(0, 77);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(223, 44);
+            this.panel21.TabIndex = 6;
+            // 
+            // btnRetMesa
+            // 
+            this.btnRetMesa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRetMesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRetMesa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRetMesa.ForeColor = System.Drawing.Color.White;
+            this.btnRetMesa.Image = ((System.Drawing.Image)(resources.GetObject("btnRetMesa.Image")));
+            this.btnRetMesa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRetMesa.Location = new System.Drawing.Point(-22, -7);
+            this.btnRetMesa.Name = "btnRetMesa";
+            this.btnRetMesa.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnRetMesa.Size = new System.Drawing.Size(266, 56);
+            this.btnRetMesa.TabIndex = 1;
+            this.btnRetMesa.Text = "                   Retificar Mesa";
+            this.btnRetMesa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRetMesa.UseVisualStyleBackColor = true;
+            this.btnRetMesa.Click += new System.EventHandler(this.btnRetMesa_Click);
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.btnNuevaMesa);
+            this.panel22.Location = new System.Drawing.Point(0, 42);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(223, 44);
+            this.panel22.TabIndex = 5;
+            // 
+            // btnNuevaMesa
+            // 
+            this.btnNuevaMesa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevaMesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevaMesa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnNuevaMesa.ForeColor = System.Drawing.Color.White;
+            this.btnNuevaMesa.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevaMesa.Image")));
+            this.btnNuevaMesa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevaMesa.Location = new System.Drawing.Point(-22, -7);
+            this.btnNuevaMesa.Name = "btnNuevaMesa";
+            this.btnNuevaMesa.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnNuevaMesa.Size = new System.Drawing.Size(266, 56);
+            this.btnNuevaMesa.TabIndex = 1;
+            this.btnNuevaMesa.Text = "                   Nueva Mesa";
+            this.btnNuevaMesa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevaMesa.UseVisualStyleBackColor = true;
+            this.btnNuevaMesa.Click += new System.EventHandler(this.btnNuevaMesa_Click);
+            // 
+            // panel23
+            // 
+            this.panel23.Controls.Add(this.btnMesas);
+            this.panel23.Location = new System.Drawing.Point(0, 3);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(223, 44);
+            this.panel23.TabIndex = 4;
+            // 
+            // btnMesas
+            // 
+            this.btnMesas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMesas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMesas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnMesas.ForeColor = System.Drawing.Color.White;
+            this.btnMesas.Image = ((System.Drawing.Image)(resources.GetObject("btnMesas.Image")));
+            this.btnMesas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMesas.Location = new System.Drawing.Point(-22, -6);
+            this.btnMesas.Name = "btnMesas";
+            this.btnMesas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnMesas.Size = new System.Drawing.Size(266, 56);
+            this.btnMesas.TabIndex = 1;
+            this.btnMesas.TabStop = false;
+            this.btnMesas.Text = "             Mesa de Exámenes";
+            this.btnMesas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMesas.UseVisualStyleBackColor = true;
+            this.btnMesas.Click += new System.EventHandler(this.btnMesas_Click);
+            // 
             // ConsultasContainer
             // 
             this.ConsultasContainer.BackColor = System.Drawing.Color.Black;
@@ -239,7 +419,7 @@
             this.ConsultasContainer.Controls.Add(this.panel7);
             this.ConsultasContainer.Controls.Add(this.panel6);
             this.ConsultasContainer.Controls.Add(this.panel3);
-            this.ConsultasContainer.Location = new System.Drawing.Point(3, 259);
+            this.ConsultasContainer.Location = new System.Drawing.Point(3, 315);
             this.ConsultasContainer.MaximumSize = new System.Drawing.Size(223, 360);
             this.ConsultasContainer.MinimumSize = new System.Drawing.Size(223, 47);
             this.ConsultasContainer.Name = "ConsultasContainer";
@@ -399,11 +579,29 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.btnConsulta22);
             this.panel7.Controls.Add(this.btnConsulta2);
             this.panel7.Location = new System.Drawing.Point(0, 77);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(223, 44);
             this.panel7.TabIndex = 6;
+            // 
+            // btnConsulta22
+            // 
+            this.btnConsulta22.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsulta22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsulta22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsulta22.ForeColor = System.Drawing.Color.White;
+            this.btnConsulta22.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta22.Image")));
+            this.btnConsulta22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta22.Location = new System.Drawing.Point(-22, -7);
+            this.btnConsulta22.Name = "btnConsulta22";
+            this.btnConsulta22.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsulta22.Size = new System.Drawing.Size(266, 56);
+            this.btnConsulta22.TabIndex = 2;
+            this.btnConsulta22.Text = "                   Consulta 2";
+            this.btnConsulta22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta22.UseVisualStyleBackColor = true;
             // 
             // btnConsulta2
             // 
@@ -413,7 +611,7 @@
             this.btnConsulta2.ForeColor = System.Drawing.Color.White;
             this.btnConsulta2.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta2.Image")));
             this.btnConsulta2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta2.Location = new System.Drawing.Point(-22, -7);
+            this.btnConsulta2.Location = new System.Drawing.Point(3, 365);
             this.btnConsulta2.Name = "btnConsulta2";
             this.btnConsulta2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnConsulta2.Size = new System.Drawing.Size(266, 56);
@@ -476,7 +674,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.btnReportes);
-            this.panel4.Location = new System.Drawing.Point(3, 312);
+            this.panel4.Location = new System.Drawing.Point(3, 368);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(223, 44);
             this.panel4.TabIndex = 5;
@@ -501,7 +699,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.btnAbout);
-            this.panel5.Location = new System.Drawing.Point(3, 362);
+            this.panel5.Location = new System.Drawing.Point(3, 418);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(223, 44);
             this.panel5.TabIndex = 6;
@@ -576,6 +774,17 @@
             this.panelPrincipal.Name = "panelPrincipal";
             this.panelPrincipal.Size = new System.Drawing.Size(853, 618);
             this.panelPrincipal.TabIndex = 4;
+            this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
+            // 
+            // MesasTimer
+            // 
+            this.MesasTimer.Interval = 1;
+            this.MesasTimer.Tick += new System.EventHandler(this.MesasTimer_Tick);
+            // 
+            // AlumnosTimer
+            // 
+            this.AlumnosTimer.Interval = 1;
+            this.AlumnosTimer.Tick += new System.EventHandler(this.AlumnosTimer_Tick);
             // 
             // frmPrincipal
             // 
@@ -599,8 +808,15 @@
             this.pMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).EndInit();
             this.pHome.ResumeLayout(false);
+            this.AlumnosContainer.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.MesasContainer.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel23.ResumeLayout(false);
             this.ConsultasContainer.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -628,7 +844,7 @@
         private FlowLayoutPanel flpOpciones;
         private Panel pMenu;
         private Panel panel1;
-        private Button btnAlumnos;
+        private Button btnNuevoAlumno;
         private Panel panel2;
         private Button btnProfesores;
         private Panel panel3;
@@ -662,5 +878,20 @@
         private PictureBox pbMaximizar;
         private PictureBox pbClose;
         private Panel panelPrincipal;
+        private Panel MesasContainer;
+        private Panel panel21;
+        private Button btnRetMesa;
+        private Panel panel22;
+        private Button btnNuevaMesa;
+        private Panel panel23;
+        private Button btnMesas;
+        private System.Windows.Forms.Timer MesasTimer;
+        private Panel AlumnosContainer;
+        private Panel panel26;
+        private Button btnAlumnos;
+        private Button btnConsulta22;
+        private Panel panel15;
+        private Button btnConsultarAlumno;
+        private System.Windows.Forms.Timer AlumnosTimer;
     }
 }

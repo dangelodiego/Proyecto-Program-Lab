@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TecnicaturasPresentacion.MesasExamenes;
 using TecnicaturasPresentacion.Principal.About;
 using TecnicaturasPresentacion.Principal.Alumnos;
 using TecnicaturasPresentacion.Principal.Home;
@@ -18,6 +19,8 @@ namespace TecnicaturasPresentacion.Principal
     {
         bool sidebarExpand;
         bool consultaCollapsed;
+        bool mesaCollapsed;
+        bool aluCollapsed;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -34,10 +37,7 @@ namespace TecnicaturasPresentacion.Principal
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ConsultasTimer.Start();
-        }
+        
 
         private void sidebarTimer_Tick(object sender, EventArgs e)
         {
@@ -92,6 +92,62 @@ namespace TecnicaturasPresentacion.Principal
                 }
             }
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ConsultasTimer.Start();
+        }
+        private void MesasTimer_Tick(object sender, EventArgs e)
+        {
+            if (mesaCollapsed)
+            {
+                MesasContainer.Height += 10;
+                if (MesasContainer.Height == MesasContainer.MaximumSize.Height)
+                {
+                    mesaCollapsed = false;
+                    MesasTimer.Stop();
+                }
+            }
+            else
+            {
+                MesasContainer.Height -= 10;
+                if (MesasContainer.Height == MesasContainer.MinimumSize.Height)
+                {
+                    mesaCollapsed = true;
+                    MesasTimer.Stop();
+                }
+            }
+        }
+        private void btnMesas_Click(object sender, EventArgs e)
+        {
+            MesasTimer.Start();
+        }
+        private void AlumnosTimer_Tick(object sender, EventArgs e)
+        {
+            if (aluCollapsed)
+            {
+                AlumnosContainer.Height += 10;
+                if (AlumnosContainer.Height == AlumnosContainer.MaximumSize.Height)
+                {
+                    aluCollapsed = false;
+                    AlumnosTimer.Stop();
+                }
+            }
+            else
+            {
+                AlumnosContainer.Height -= 10;
+                if (AlumnosContainer.Height == AlumnosContainer.MinimumSize.Height)
+                {
+                    aluCollapsed = true;
+                    AlumnosTimer.Stop();
+                }
+            }
+        }
+
+
+        private void btnAlumnos_Click_1(object sender, EventArgs e)
+        {
+            AlumnosTimer.Start();
+        }
 
         private void pbMinimizar_Click(object sender, EventArgs e)
         {
@@ -145,5 +201,28 @@ namespace TecnicaturasPresentacion.Principal
         {
             AbrirFrom(new frmProfesores());
         }
+
+        private void btnConsultarAlumno_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmConsultarAlumno());
+        }
+
+        private void btnNuevaMesa_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmNuevaMesa());
+        }
+
+        private void btnRetMesa_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmRetificarMesa());
+        }
+       
+
+        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
     }
 }

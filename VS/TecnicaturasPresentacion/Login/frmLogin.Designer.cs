@@ -202,7 +202,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "UNT-FRC";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoUtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCloseLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinLogin)).EndInit();
