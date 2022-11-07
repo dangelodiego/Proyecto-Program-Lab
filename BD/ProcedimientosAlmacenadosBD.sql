@@ -395,7 +395,14 @@ END
 
 
 
+CREATE PROCEDURE SP_OBTENER_LABORALIDADES
+AS
+Select * from Laboralidad
 
+
+Create Procedure SP_OBTENER_HABITACIONALIDADES
+AS
+Select * from Habitacionalidad
 
 
 
