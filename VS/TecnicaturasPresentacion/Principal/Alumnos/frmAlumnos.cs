@@ -43,6 +43,33 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
                 Combo.CargarComboCiudad(cboCiudad, "https://localhost:7148/api/Localizaciones/Ciudades/" + cboProvincia.SelectedValue);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            limpiar();
+        }
+
+        private void limpiar()
+        {
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            dtpFechaNacimiento.Value = DateTime.Today;
+            txtDNI.Text = "";
+            txtEmail.Text = "";
+            txtTel.Text = ""; 
+            rbDesconocido.Checked = false;
+            rbFemenino.Checked = false;
+            rbMasculino.Checked = false;
+            txtAltura.Text = "";
+            txtCalle.Text = "";
+            cboEstadoCivil.SelectedValue = -1;
+            cboProvincia.SelectedValue = -1;
+            cboCiudad.SelectedValue = -1;
+            cboBarrio.SelectedValue = -1;
+            cboTecnicatura.SelectedValue = -1;
+            cboCurso.SelectedValue = -1;
+            dgvAlumnos.Rows.Clear();
+        }
     }
 
 } 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAlumnos));
             this.txtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblNombre = new MaterialSkin.Controls.MaterialLabel();
             this.lblApellido = new MaterialSkin.Controls.MaterialLabel();
@@ -35,12 +36,12 @@
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.lblFechaNacimiento = new MaterialSkin.Controls.MaterialLabel();
             this.lblDni = new MaterialSkin.Controls.MaterialLabel();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtDNI = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblEmail = new MaterialSkin.Controls.MaterialLabel();
             this.txtEmail = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.cboEmails = new System.Windows.Forms.ComboBox();
             this.lblTelefono = new MaterialSkin.Controls.MaterialLabel();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtTel = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblAltura = new MaterialSkin.Controls.MaterialLabel();
             this.txtAltura = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblCalle = new MaterialSkin.Controls.MaterialLabel();
@@ -85,7 +86,9 @@
             this.colCursoAlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFechaInscAlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -177,20 +180,20 @@
             this.lblDni.TabIndex = 7;
             this.lblDni.Text = "DNI:";
             // 
-            // materialSingleLineTextField1
+            // txtDNI
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(439, 84);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(221, 23);
-            this.materialSingleLineTextField1.TabIndex = 3;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.txtDNI.Depth = 0;
+            this.txtDNI.Hint = "";
+            this.txtDNI.Location = new System.Drawing.Point(439, 84);
+            this.txtDNI.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtDNI.Name = "txtDNI";
+            this.txtDNI.PasswordChar = '\0';
+            this.txtDNI.SelectedText = "";
+            this.txtDNI.SelectionLength = 0;
+            this.txtDNI.SelectionStart = 0;
+            this.txtDNI.Size = new System.Drawing.Size(221, 23);
+            this.txtDNI.TabIndex = 3;
+            this.txtDNI.UseSystemPasswordChar = false;
             // 
             // lblEmail
             // 
@@ -248,20 +251,20 @@
             this.lblTelefono.TabIndex = 12;
             this.lblTelefono.Text = "Teléfono:";
             // 
-            // materialSingleLineTextField2
+            // txtTel
             // 
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(100, 179);
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(221, 23);
-            this.materialSingleLineTextField2.TabIndex = 6;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.txtTel.Depth = 0;
+            this.txtTel.Hint = "";
+            this.txtTel.Location = new System.Drawing.Point(100, 179);
+            this.txtTel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtTel.Name = "txtTel";
+            this.txtTel.PasswordChar = '\0';
+            this.txtTel.SelectedText = "";
+            this.txtTel.SelectionLength = 0;
+            this.txtTel.SelectionStart = 0;
+            this.txtTel.Size = new System.Drawing.Size(221, 23);
+            this.txtTel.TabIndex = 6;
+            this.txtTel.UseSystemPasswordChar = false;
             // 
             // lblAltura
             // 
@@ -698,12 +701,24 @@
             this.colEliminar.Name = "colEliminar";
             this.colEliminar.Text = "ELIMINAR";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(760, 572);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 43;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // frmAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(821, 621);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dgvAlumnos);
             this.Controls.Add(this.cboEstadoCivil);
             this.Controls.Add(this.cboBarrio);
@@ -730,12 +745,12 @@
             this.Controls.Add(this.lblCalle);
             this.Controls.Add(this.txtCalle);
             this.Controls.Add(this.lblTelefono);
-            this.Controls.Add(this.materialSingleLineTextField2);
+            this.Controls.Add(this.txtTel);
             this.Controls.Add(this.cboEmails);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblDni);
-            this.Controls.Add(this.materialSingleLineTextField1);
+            this.Controls.Add(this.txtDNI);
             this.Controls.Add(this.lblFechaNacimiento);
             this.Controls.Add(this.dtpFechaNacimiento);
             this.Controls.Add(this.lblApellido);
@@ -747,6 +762,7 @@
             this.Text = "frmAlumnos";
             this.Load += new System.EventHandler(this.frmAlumnos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -761,12 +777,12 @@
         private DateTimePicker dtpFechaNacimiento;
         private MaterialSkin.Controls.MaterialLabel lblFechaNacimiento;
         private MaterialSkin.Controls.MaterialLabel lblDni;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtDNI;
         private MaterialSkin.Controls.MaterialLabel lblEmail;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtEmail;
         private ComboBox cboEmails;
         private MaterialSkin.Controls.MaterialLabel lblTelefono;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtTel;
         private MaterialSkin.Controls.MaterialLabel lblAltura;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtAltura;
         private MaterialSkin.Controls.MaterialLabel lblCalle;
@@ -815,5 +831,6 @@
         private DataGridViewTextBoxColumn colCursoAlu;
         private DataGridViewTextBoxColumn colFechaInscAlu;
         private DataGridViewButtonColumn colEliminar;
+        private PictureBox pictureBox1;
     }
 }
