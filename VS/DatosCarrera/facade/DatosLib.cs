@@ -15,12 +15,14 @@ namespace DatosCarrera.facade
         private ICarrerasDAO dao;
         private ISoporteDAO soporteDAO;
         private IMesasExamenDAO mesaExamenDAO;
+        private IAlumnosDAO alumnosDAO;
 
         public DatosLib()
         {
             dao = new CarrerasDAO();
             soporteDAO = new CarrerasDAO();
             mesaExamenDAO = new CarrerasDAO();
+            alumnosDAO = new CarrerasDAO();
         }
 
 
@@ -53,6 +55,26 @@ namespace DatosCarrera.facade
         public List<EstadosCiviles> GetEstadosCivilesAll()
         {
             return soporteDAO.ObtenerEstadosCiviles();
+        }
+
+        public bool InsertAlumno(Alumno alumno)
+        {
+            return alumnosDAO.InsertarAlumno(alumno);
+        }
+
+        public bool UpdateAlumno(Alumno alumno)
+        {
+            return alumnosDAO.ActualizarAlumno(alumno);
+        }
+
+        public bool DeleteAlumno(Alumno alumno)
+        {
+            return alumnosDAO.BorrarAlumno(alumno);
+        }
+
+        public List<Alumno> GetAlumnosAll()
+        {
+            return alumnosDAO.GetAlumnosAll();
         }
     }
     

@@ -23,6 +23,12 @@ namespace DatosCarrera.facade
 
         public List<EstadosCiviles> GetEstadosCivilesAll();
 
+        bool InsertAlumno(Alumno alumno);
+        bool UpdateAlumno(Alumno alumno);
+        bool DeleteAlumno(Alumno alumno);
+
+        List<Alumno> GetAlumnosAll();
+
 
 
 
