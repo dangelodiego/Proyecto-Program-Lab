@@ -46,13 +46,14 @@ namespace TecnicaturasAPI.Controllers
         }
 
         
+        
 
-        [HttpGet("Barrios")]
+        [HttpGet("Barrios/{id}")]
         public IActionResult GetBarrios()
         {
-            if (_datos.GetBarriosaLL() != null)
+            if (_datos.GetBarriosxCiudad() != null)
             {
-                return Ok(_datos.GetBarriosaLL());
+                return Ok(_datos.GetBarriosXCiudad());
             }
             else
             {
