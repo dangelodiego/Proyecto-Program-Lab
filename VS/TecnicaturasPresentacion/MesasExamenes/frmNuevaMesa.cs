@@ -16,5 +16,10 @@ namespace TecnicaturasPresentacion.MesasExamenes
         {
             InitializeComponent();
         }
+
+        private void frmNuevaMesa_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
