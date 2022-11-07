@@ -393,10 +393,43 @@ BEGIN
 SELECT id_ciudades, id_barrio, nombre FROM barrios where id_ciudades=@id_ciudades
 END
 
+--SP_OBTENER_CANTIDAD_ALUMNOS
 
+CREATE PROCEDURE "SP_OBETENER_CANTIDAD_ALUMNOS"
+AS
+BEGIN
+SELECT COUNT(legajo) Cantidad
+FROM alumnos
+END
 
+--SP_OBTENER_CANTIDAD_PROMOCIONADOS
 
+CREATE PROCEDURE "SP_OBTENER_CANTIDAD_PROMOCIONADOS"
+AS
+BEGIN
+SELECT COUNT(legajo) Cantidad
+FROM estados_academicos e JOIN estados_ac es on e.id_estado_ac=es.id_estado_ac 
+WHERE descripcion = 'Promocionado'
 
+--SP_OBTENER_CANTIDAD_LIBRES
+
+CREATE PROCEDURE "SP_OBTENER_CANTIDAD_LIBRES"
+AS
+BEGIN
+SELECT COUNT(legajo) Cantidad
+FROM estados_academicos e JOIN estados_ac es on e.id_estado_ac=es.id_estado_ac 
+WHERE descripcion = 'Libre'
+END
+
+--SP_OBTENER_CANTIDAD_REGULARES
+
+CREATE PROCEDURE "SP_OBTENER_CANTIDAD_LIBRES"
+AS
+BEGIN
+SELECT COUNT(legajo) Cantidad
+FROM estados_academicos e JOIN estados_ac es on e.id_estado_ac=es.id_estado_ac 
+WHERE descripcion = 'Regular'
+END
 
 
 
