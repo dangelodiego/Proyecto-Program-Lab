@@ -14,7 +14,8 @@ using TecnicaturasPresentacion.Cliente;
 using DatosCarrera.dominio;
 using DatosCarrera.dominio.auxiliares;
 using MaterialSkin.Controls;
-
+using DatosCarrera.datos.Interfaces;
+using DatosCarrera.datos.Implementaciones;
 
 namespace TecnicaturasPresentacion.Principal.Alumnos
 {
@@ -22,9 +23,12 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
     {
 
         public List<Alumno> alumnos = new List<Alumno>();
+        private IAlumnosDAO alumnosDAO; 
         public frmAlumnos()
         {
             InitializeComponent();
+            alumnosDAO = new CarrerasDAO();
+            
         }
 
         private void frmAlumnos_Load(object sender, EventArgs e)
@@ -87,8 +91,8 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             }
         }
 
-        //private async Task GuardarAlumnos()
-        //{
+        private async Task GuardarAlumnos()
+        {
 
 
 
@@ -97,7 +101,7 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
 
 
 
-        //}
+        }
 
 
 
@@ -127,7 +131,7 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
                 return;
             }
 
-            if (txtEmail.Text == "" || cboEmails.Text.Equals(String.Empty))
+            if (txtEmail.Text == "")
             {
                 MessageBox.Show("Debe ingresar un E-MAIL del alumno", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -218,6 +222,7 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             alumno.Apellido = txtApellido.Text;
             alumno.FechaNacimiento = dtpFechaNacimiento.Value;
             alumno.Dni = Convert.ToInt32(txtDNI.Text);
+            alumno.Email = txtEmail.Text;
             alumno.Telefono = Convert.ToInt32(txtTel.Text);
             string sexo = "";
             if (rbMasculino.Checked)
@@ -238,57 +243,54 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             }
             alumno.Calle = txtCalle.Text;
             alumno.Altura = Convert.ToInt32(txtAltura.Text);
+
             Barrio b = new Barrio();
-            b.Id = Convert.ToInt32(cboBarrio.SelectedValue); 
-            b.Nombre= (string)cboBarrio.SelectedText;
+            b.Id = Convert.ToInt32(cboBarrio.SelectedValue);
+            b.Nombre = cboBarrio.SelectedText;
+            alumno.Barrio = b;
+            Ciudad ciu = new Ciudad();
+            ciu.Id = Convert.ToInt32(cboCiudad.SelectedValue);
+            ciu.Nombre = cboCiudad.SelectedText;
+            alumno.Barrio.Ciudad = ciu;
+
+            Provincia prov = new Provincia();
+            prov.Id = Convert.ToInt32(cboProvincia.SelectedValue);
+            prov.Nombre = cboProvincia.SelectedText;
+            alumno.Barrio.Ciudad.Provincia = prov;
+
+         
+            
 
             //alumno.Barrio.Id = Convert.ToInt32(cboBarrio.SelectedValue);
             //alumno.Barrio.Nombre = (string)cboBarrio.SelectedItem;
 
-            alumno.Barrio = b;
+            //alumno.Barrio = b;
+
+            EstadosCiviles es = new EstadosCiviles();
+            es.Id = Convert.ToInt32(cboEstadoCivil.SelectedValue);
+            es.Descripcion = cboEstadoCivil.SelectedText;
+            alumno.EstadoCivil = es;
+
 
             Carrera c = new Carrera();
             c.Id= Convert.ToInt32(cboTecnicatura.SelectedValue);
-            c.Nombre= (string)cboTecnicatura.SelectedText;
+            c.Nombre= cboTecnicatura.SelectedText;
             alumno.Carrera=c;
 
             //alumno.Carrera.Id = Convert.ToInt32(cboTecnicatura.SelectedValue);
             //alumno.Carrera.Nombre = (string)cboTecnicatura.SelectedItem;
             Curso cu = new Curso();
-            cu.Id=Convert.ToInt32(cboTecnicatura.SelectedValue);
-            cu.Nombre = (string)cboTecnicatura.SelectedText;
+            cu.Id=Convert.ToInt32(cboCurso.SelectedValue);
+            cu.Nombre = cboCurso.SelectedText;
 
             //alumno.Curso.Id = Convert.ToInt32(cboCurso.SelectedValue);
             //alumno.Curso.Nombre = (string)cboTecnicatura.SelectedItem;
 
             alumno.Curso = cu;
             alumno.FechaInscripcion = dtpFechaInscripcion.Value;
+
             alumnos.Add(alumno);
             dgvAlumnos.Rows.Add(new object[] { alumno.Nombre, alumno.Apellido, alumno.FechaNacimiento, alumno.Dni, alumno.Email, alumno.Telefono, sexo, alumno.Calle, alumno.Altura, alumno.EstadoCivil.Descripcion, alumno.Barrio.Ciudad.Provincia.Nombre, alumno.Barrio.Ciudad, alumno.Barrio, alumno.Carrera.Nombre, alumno.Curso.Nombre, alumno.FechaInscripcion });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         }
 

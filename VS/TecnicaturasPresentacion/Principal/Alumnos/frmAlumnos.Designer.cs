@@ -39,7 +39,6 @@
             this.txtDNI = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblEmail = new MaterialSkin.Controls.MaterialLabel();
             this.txtEmail = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.cboEmails = new System.Windows.Forms.ComboBox();
             this.lblTelefono = new MaterialSkin.Controls.MaterialLabel();
             this.txtTel = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblAltura = new MaterialSkin.Controls.MaterialLabel();
@@ -226,21 +225,6 @@
             this.txtEmail.Size = new System.Drawing.Size(221, 23);
             this.txtEmail.TabIndex = 4;
             this.txtEmail.UseSystemPasswordChar = false;
-            // 
-            // cboEmails
-            // 
-            this.cboEmails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
-            this.cboEmails.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEmails.FormattingEnabled = true;
-            this.cboEmails.Items.AddRange(new object[] {
-            "@gmail.com",
-            "@yahoo.com",
-            "@outlock.com",
-            "@hotmail.com"});
-            this.cboEmails.Location = new System.Drawing.Point(318, 125);
-            this.cboEmails.Name = "cboEmails";
-            this.cboEmails.Size = new System.Drawing.Size(121, 23);
-            this.cboEmails.TabIndex = 5;
             // 
             // lblTelefono
             // 
@@ -822,7 +806,6 @@
             this.Controls.Add(this.txtCalle);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.txtTel);
-            this.Controls.Add(this.cboEmails);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblDni);
@@ -856,7 +839,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtDNI;
         private MaterialSkin.Controls.MaterialLabel lblEmail;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtEmail;
-        private ComboBox cboEmails;
         private MaterialSkin.Controls.MaterialLabel lblTelefono;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtTel;
         private MaterialSkin.Controls.MaterialLabel lblAltura;
