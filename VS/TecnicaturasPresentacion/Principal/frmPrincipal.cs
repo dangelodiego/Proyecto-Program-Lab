@@ -156,10 +156,7 @@ namespace TecnicaturasPresentacion.Principal
 
         private void pbMaximizar_Click(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
-                this.WindowState = FormWindowState.Normal;
-            else
-                this.WindowState = FormWindowState.Maximized;
+           
         }
 
         private void pbClose_Click(object sender, EventArgs e)

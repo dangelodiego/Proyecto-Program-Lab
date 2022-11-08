@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            this.redondeo1 = new TecnicaturasPresentacion.Components.Redondeo();
             this.flpOpciones = new System.Windows.Forms.FlowLayoutPanel();
             this.pMenu = new System.Windows.Forms.Panel();
             this.lblMenu = new System.Windows.Forms.Label();
@@ -80,7 +79,6 @@
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.ConsultasTimer = new System.Windows.Forms.Timer(this.components);
             this.pbClose = new System.Windows.Forms.PictureBox();
-            this.pbMaximizar = new System.Windows.Forms.PictureBox();
             this.pbMinimizar = new System.Windows.Forms.PictureBox();
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.MesasTimer = new System.Windows.Forms.Timer(this.components);
@@ -111,14 +109,8 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimizar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // redondeo1
-            // 
-            this.redondeo1.CornerRadius = 20;
-            this.redondeo1.TargetControl = this;
             // 
             // flpOpciones
             // 
@@ -744,23 +736,11 @@
             this.pbClose.TabStop = false;
             this.pbClose.Click += new System.EventHandler(this.pbClose_Click);
             // 
-            // pbMaximizar
-            // 
-            this.pbMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("pbMaximizar.Image")));
-            this.pbMaximizar.Location = new System.Drawing.Point(1040, 0);
-            this.pbMaximizar.Name = "pbMaximizar";
-            this.pbMaximizar.Size = new System.Drawing.Size(24, 23);
-            this.pbMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbMaximizar.TabIndex = 2;
-            this.pbMaximizar.TabStop = false;
-            this.pbMaximizar.Click += new System.EventHandler(this.pbMaximizar_Click);
-            // 
             // pbMinimizar
             // 
             this.pbMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("pbMinimizar.Image")));
-            this.pbMinimizar.Location = new System.Drawing.Point(1010, 0);
+            this.pbMinimizar.Location = new System.Drawing.Point(1040, 0);
             this.pbMinimizar.Name = "pbMinimizar";
             this.pbMinimizar.Size = new System.Drawing.Size(24, 23);
             this.pbMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -794,7 +774,6 @@
             this.ClientSize = new System.Drawing.Size(1097, 659);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.pbMinimizar);
-            this.Controls.Add(this.pbMaximizar);
             this.Controls.Add(this.pbClose);
             this.Controls.Add(this.flpOpciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -830,7 +809,6 @@
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMinimizar)).EndInit();
             this.ResumeLayout(false);
 
@@ -875,7 +853,6 @@
         private Button btnConsulta4;
         private System.Windows.Forms.Timer ConsultasTimer;
         private PictureBox pbMinimizar;
-        private PictureBox pbMaximizar;
         private PictureBox pbClose;
         private Panel panelPrincipal;
         private Panel MesasContainer;
