@@ -8,10 +8,11 @@ namespace DatosCarrera.dominio.auxiliares
 {
     public enum Laboralidades
     {
-        Desempleado=1,
-        BusquedaActiva,
-        Empleado,
-        Suspendido
+        Autonomo=1,
+        AsalariadoTiempoCompleto,
+        AsalariadoTiempoParcial,
+        Jubilado,
+        Desempleado
 
 
 

@@ -10,7 +10,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static DatosCarrera.dominio.auxiliares.Sexo;
+using static DatosCarrera.dominio.auxiliares.Sexos;
 
 namespace DatosCarrera.datos.Implementaciones
 {
@@ -109,7 +109,7 @@ namespace DatosCarrera.datos.Implementaciones
                 if (r["altura"] != DBNull.Value)
                     a.Altura = Convert.ToInt32(r["altura"]);
                 if (r["sexo"] != DBNull.Value)
-                    a.Sexo = (Sexo)(r["sexo"]);
+                    a.Sexo = (Sexos)(r["sexo"]);
                 if (r["id_curso"] != DBNull.Value)
                     a.Curso.Id = Convert.ToInt32(r["id_curso"]);
                 if (r["id_carrera"] != DBNull.Value)
@@ -193,7 +193,7 @@ namespace DatosCarrera.datos.Implementaciones
                 if (r["altura"] != DBNull.Value)
                     p.Altura = Convert.ToInt32(r["altura"]);
                 if (r["sexo"] != DBNull.Value)
-                    p.Sexo = (Sexo)(r["sexo"]);
+                    p.Sexo = (Sexos)(r["sexo"]);
                 if (r["id_barrio"] != DBNull.Value)
                     p.Barrio = (Barrio)r["id_barrio"];
 
@@ -400,7 +400,7 @@ namespace DatosCarrera.datos.Implementaciones
 
 
                 if (r["sexo"] != DBNull.Value)
-                    p.Sexo = (Sexo)r["sexo"];
+                    p.Sexo = (Sexos)r["sexo"];
 
                 list.Add(p);
             }

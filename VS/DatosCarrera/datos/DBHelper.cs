@@ -20,7 +20,7 @@ namespace DatosCarrera.datos
 
         private DBHelper()
         {
-            cadenaConexion = @"Data Source=DESKTOP-74QHVRO\SQLEXPRESS;Initial Catalog=tecnicaturas_UTN_FRC;Integrated Security=True";
+            cadenaConexion = @"Data Source=DESKTOP-DH9BN0G\SQLEXPRESS;Initial Catalog=tecnicaturas_UTN_FRC;Integrated Security=True";
         }
 
         
