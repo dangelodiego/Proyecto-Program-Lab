@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace DatosCarrera.dominio
 {
     public class Alumno {
+        
         public int Legajo { get; set; }
 
 

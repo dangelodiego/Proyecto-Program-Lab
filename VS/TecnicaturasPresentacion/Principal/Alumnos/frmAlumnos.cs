@@ -283,6 +283,18 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             alumno.Curso = cu;
             alumno.FechaInscripcion = dtpFechaInscripcion.Value;
 
+            Habitacionalidades hab = new Habitacionalidades();
+            hab.Id = Convert.ToInt32(cboHabitacionalidad.SelectedValue);
+            hab.Descripcion = cboHabitacionalidad.Text;
+            alumno.Habitacionalidad = hab;
+
+            Laboralidades lab = new Laboralidades();
+            lab.Id = Convert.ToInt32(cboLaboralidad.SelectedValue);
+            lab.Descripcion = cboLaboralidad.Text;
+            alumno.Laboralidad = lab;
+
+
+
             alumnos.Add(alumno);
             dgvAlumnos.Rows.Add(new object[] { alumno.Nombre, alumno.Apellido, alumno.FechaNacimiento, alumno.Dni, alumno.Email, alumno.Telefono, sexo, alumno.Calle, alumno.Altura, alumno.EstadoCivil.Descripcion, alumno.Barrio.Ciudad.Provincia.Nombre, alumno.Barrio.Ciudad.Nombre, alumno.Barrio.Nombre, alumno.Carrera.Nombre, alumno.Curso.Nombre, alumno.FechaInscripcion });
 
@@ -310,13 +322,21 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
 
         private async void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            for (int i = 0; i < alumnos.Count; i++)
+            try
             {
-                await GrabarAlumnoAsync(alumnos[i]);
+                foreach(Alumno a in alumnos)
+                {
+                    await GrabarAlumnoAsync(a);
+                }
+
+                MessageBox.Show("Alumnos guardados correctamente!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-    
-            MessageBox.Show("Alumnos guardados correctamente", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+           catch
+            {
+                MessageBox.Show("Error al guardar los alumnos!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
 
