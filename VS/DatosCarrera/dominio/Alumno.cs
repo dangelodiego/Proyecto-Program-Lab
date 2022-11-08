@@ -31,7 +31,7 @@ namespace DatosCarrera.dominio
 
         public int Altura { get; set; }
 
-        public Sexo Sexo { get; set; }
+        public Sexos Sexo { get; set; }
 
         public Barrio Barrio { get; set; }
 

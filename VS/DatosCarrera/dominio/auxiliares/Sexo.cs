@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.dominio.auxiliares
 {
-    public class Sexo
-    {
+
         public enum Sexos
         {
             Masculino,
-            Femenino
+            Femenino,
+            Desconocido
         }
 
 
 
 
-    }
+    
 }

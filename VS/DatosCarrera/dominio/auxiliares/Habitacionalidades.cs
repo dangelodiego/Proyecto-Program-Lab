@@ -9,9 +9,9 @@ namespace DatosCarrera.dominio.auxiliares
     public enum  Habitacionalidades
     {
 
-        Indigencia,
-        Hacinamiento,
-        Regular
+        Propia,
+        Alquilada,
+        Otra
 
 
 
