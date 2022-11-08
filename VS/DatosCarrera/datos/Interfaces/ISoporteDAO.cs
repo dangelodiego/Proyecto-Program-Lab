@@ -23,7 +23,9 @@ namespace DatosCarrera.datos.Interfaces
         List<Barrio> ObtenerBarriosXCiudad(int id);
 
 
+        List<Laboralidades> ObtenerLaboralidades();
 
+        List<Habitacionalidades> ObtenerHabitacionalidades();
 
 
 

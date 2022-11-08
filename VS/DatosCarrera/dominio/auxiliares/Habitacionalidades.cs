@@ -6,15 +6,9 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.dominio.auxiliares
 {
-    public enum  Habitacionalidades
+    public class  Habitacionalidades
     {
-
-        Propia,
-        Alquilada,
-        Otra
-
-
-
-
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
     }
 }

@@ -95,15 +95,15 @@ namespace DatosCarrera.facade
             return soporteDAO.ObtenerBarriosXCiudad(id);
         }
 
+        public List<Laboralidades> GetLaboralidadesAll()
+        {
+            return soporteDAO.ObtenerLaboralidades();
+        }
 
-
-
-
-
-
-
-
-
+        public List<Habitacionalidades> GetHabitacionalidadesAll()
+        {
+            return soporteDAO.ObtenerHabitacionalidades();
+        }
     }
     
 }

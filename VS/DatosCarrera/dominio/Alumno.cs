@@ -25,9 +25,9 @@ namespace DatosCarrera.dominio
 
         public int Dni { get; set; }
         public string Email { get; set; }
-        public int Telefono { get; set; }
+        public Int64 Telefono { get; set; }
 
-        public String Calle { get; set; }
+        public string Calle { get; set; }
 
         public int Altura { get; set; }
 

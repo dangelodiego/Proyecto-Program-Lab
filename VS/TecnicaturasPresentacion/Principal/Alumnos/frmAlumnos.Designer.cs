@@ -67,7 +67,6 @@
             this.cboCiudad = new System.Windows.Forms.ComboBox();
             this.cboProvincia = new System.Windows.Forms.ComboBox();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
-            this.colIDALU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombreAlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colApellidoAlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFechaNacAlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -533,6 +532,7 @@
             this.btnGuardar.TabIndex = 21;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
             // cboEstadoCivil
             // 
@@ -578,7 +578,6 @@
             this.dgvAlumnos.AllowUserToDeleteRows = false;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlumnos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colIDALU,
             this.colNombreAlu,
             this.colApellidoAlu,
             this.colFechaNacAlu,
@@ -602,13 +601,7 @@
             this.dgvAlumnos.RowTemplate.Height = 25;
             this.dgvAlumnos.Size = new System.Drawing.Size(800, 160);
             this.dgvAlumnos.TabIndex = 20;
-            // 
-            // colIDALU
-            // 
-            this.colIDALU.HeaderText = "ID";
-            this.colIDALU.Name = "colIDALU";
-            this.colIDALU.ReadOnly = true;
-            this.colIDALU.Visible = false;
+            this.dgvAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellContentClick);
             // 
             // colNombreAlu
             // 
@@ -872,7 +865,10 @@
         private MaterialSkin.Controls.MaterialLabel lblEstadoCivil;
         private DataGridView dgvAlumnos;
         private PictureBox pictureBox1;
-        private DataGridViewTextBoxColumn colIDALU;
+        private ComboBox cboLaboralidad;
+        private MaterialSkin.Controls.MaterialLabel lblLaboralidad;
+        private ComboBox cboHabitacionalidad;
+        private MaterialSkin.Controls.MaterialLabel lblHabitacionalidad;
         private DataGridViewTextBoxColumn colNombreAlu;
         private DataGridViewTextBoxColumn colApellidoAlu;
         private DataGridViewTextBoxColumn colFechaNacAlu;
@@ -890,9 +886,5 @@
         private DataGridViewTextBoxColumn colCursoAlu;
         private DataGridViewTextBoxColumn colFechaInscAlu;
         private DataGridViewButtonColumn colEliminar;
-        private ComboBox cboLaboralidad;
-        private MaterialSkin.Controls.MaterialLabel lblLaboralidad;
-        private ComboBox cboHabitacionalidad;
-        private MaterialSkin.Controls.MaterialLabel lblHabitacionalidad;
     }
 }

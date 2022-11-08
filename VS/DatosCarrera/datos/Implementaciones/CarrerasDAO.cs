@@ -16,28 +16,6 @@ namespace DatosCarrera.datos.Implementaciones
 {
     public class CarrerasDAO : ICarrerasDAO, IConsultasComplejas, IAlumnosDAO, IProfesoresDAO, IMesasExamenDAO, ISoporteDAO
     {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         public bool CrearMesa(MesaExamen mesa)
         {
             return DBHelper.ObtenerInstancia().CrearMesa(mesa);
@@ -663,6 +641,32 @@ namespace DatosCarrera.datos.Implementaciones
 
         }
 
+        public List<Laboralidades> ObtenerLaboralidades()
+        {
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL("SP_OBTENER_LABORALIDADES");
+            List<Laboralidades> lst = new List<Laboralidades>();
+            foreach (DataRow r in tabla.Rows)
+            {
+                Laboralidades l = new Laboralidades();
+                l.Id = Convert.ToInt32(r["id_laboralidad"]);
+                l.Descripcion = r["descripcion"].ToString();
+                lst.Add(l);
+            }
+            return lst;
+        }
 
+        public List<Habitacionalidades> ObtenerHabitacionalidades()
+        {
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL("SP_OBTENER_HABITACIONALIDADES");
+            List<Habitacionalidades> lst = new List<Habitacionalidades>();
+            foreach (DataRow r in tabla.Rows)
+            {
+                Habitacionalidades h = new Habitacionalidades();
+                h.Id = Convert.ToInt32(r["id_habitacionalidad"]);
+                h.Descripcion = r["descripcion"].ToString();
+                lst.Add(h);
+            }
+            return lst;
+        }
     }
 }

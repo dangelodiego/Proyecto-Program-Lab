@@ -12,7 +12,7 @@ namespace TecnicaturasPresentacion.Cliente
 {
     public static class Combo
     {
-        public static async void CargarComboProvincia(ComboBox cbo, string url)
+        public static async Task CargarComboProvincia(ComboBox cbo, string url)
         {
             var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
             var objeto = JsonConvert.DeserializeObject<List<Provincia>>(response);
@@ -22,7 +22,7 @@ namespace TecnicaturasPresentacion.Cliente
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        public static async void CargarComboCiudad(ComboBox cbo, string url)
+        public static async Task CargarComboCiudad(ComboBox cbo, string url)
         {
             var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
             var objeto = JsonConvert.DeserializeObject<List<Ciudad>>(response);
@@ -31,8 +31,8 @@ namespace TecnicaturasPresentacion.Cliente
             cbo.ValueMember = "Id";
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-
-        public static async void CargarComboBarrio(ComboBox cbo, string url)
+        
+        public static async Task CargarComboBarrio(ComboBox cbo, string url)
         {
             var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
             var objeto = JsonConvert.DeserializeObject<List<Barrio>>(response);
@@ -41,8 +41,8 @@ namespace TecnicaturasPresentacion.Cliente
             cbo.ValueMember = "Id";
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-
-        public static async void CargarComboEstadosCiviles(ComboBox cbo, string url)
+        
+        public static async Task CargarComboEstadosCiviles(ComboBox cbo, string url)
         {
             var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
             var objeto = JsonConvert.DeserializeObject<List<EstadosCiviles>>(response);
@@ -51,8 +51,8 @@ namespace TecnicaturasPresentacion.Cliente
             cbo.ValueMember = "Id";
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-
-        public static async void CargarComboTecnicaturas(ComboBox cbo, string url)
+        
+        public static async Task CargarComboTecnicaturas(ComboBox cbo, string url)
         {
             var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
             var objeto = JsonConvert.DeserializeObject<List<Carrera>>(response);
@@ -61,8 +61,8 @@ namespace TecnicaturasPresentacion.Cliente
             cbo.ValueMember = "Id";
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-
-        public static async void CargarComboCurso(ComboBox cbo, string url)
+        
+        public static async Task CargarComboCurso(ComboBox cbo, string url)
         {
             var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
             var objeto = JsonConvert.DeserializeObject<List<Curso>>(response);
@@ -71,6 +71,28 @@ namespace TecnicaturasPresentacion.Cliente
             cbo.ValueMember = "Id";
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+        
+        public static async Task CargarComboLaboralidades(ComboBox cbo, string url)
+        {
+            var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
+            var objeto = JsonConvert.DeserializeObject<List<Laboralidades>>(response);
+            cbo.DataSource = objeto;
+            cbo.DisplayMember = "Descripcion";
+            cbo.ValueMember = "Id";
+            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
+
+        }
+
+        public static async Task CargarComboHabitacionalidades(ComboBox cbo, string url)
+        {
+            var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
+            var objeto = JsonConvert.DeserializeObject<List<Habitacionalidades>>(response);
+            cbo.DataSource = objeto;
+            cbo.DisplayMember = "Descripcion";
+            cbo.ValueMember = "Id";
+            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
 
     }
 }

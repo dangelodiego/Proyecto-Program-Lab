@@ -6,16 +6,10 @@ using System.Threading.Tasks;
 
 namespace DatosCarrera.dominio.auxiliares
 {
-    public enum Laboralidades
+    public class Laboralidades
     {
-        Autonomo=1,
-        AsalariadoTiempoCompleto,
-        AsalariadoTiempoParcial,
-        Jubilado,
-        Desempleado
-
-
-
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
 
 
     }

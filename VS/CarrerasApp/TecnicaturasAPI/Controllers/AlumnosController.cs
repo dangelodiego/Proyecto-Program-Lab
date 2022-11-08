@@ -36,6 +36,35 @@ namespace TecnicaturasAPI.Controllers
             
         }
 
+        [HttpGet("Laboralidad")]
+
+        public IActionResult GetLaboralidad()
+        {
+            if (_datos.GetLaboralidadesAll() != null)
+            {
+                return Ok(_datos.GetLaboralidadesAll());
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet("Habitacionalidad")]
+
+        public IActionResult GetHabitacionalidad()
+        {
+            if (_datos.GetHabitacionalidadesAll() != null)
+            {
+                return Ok(_datos.GetHabitacionalidadesAll());
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+
 
 
 

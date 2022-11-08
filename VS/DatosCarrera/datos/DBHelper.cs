@@ -20,7 +20,7 @@ namespace DatosCarrera.datos
 
         private DBHelper()
         {
-            cadenaConexion = @"Data Source=DESKTOP-DH9BN0G\SQLEXPRESS;Initial Catalog=tecnicaturas_UTN_FRC;Integrated Security=True";
+            cadenaConexion = @"Data Source=DESKTOP-74QHVRO\SQLEXPRESS;Initial Catalog=tecnicaturas_UTN_FRC;Integrated Security=True";
         }
 
         
@@ -283,13 +283,13 @@ namespace DatosCarrera.datos
                 cmd.Parameters.AddWithValue("@telefono", alumno.Telefono);
                 cmd.Parameters.AddWithValue("@calle", alumno.Calle);
                 cmd.Parameters.AddWithValue("@altura", alumno.Altura);
-                cmd.Parameters.AddWithValue("@sexo", alumno.Sexo);
+                cmd.Parameters.AddWithValue("@id_sexo", alumno.Sexo);
                 cmd.Parameters.AddWithValue("@id_curso", alumno.Curso.Id);
                 cmd.Parameters.AddWithValue("@id_carrera", alumno.Carrera.Id);
                 cmd.Parameters.AddWithValue("@fecha_insc", alumno.FechaInscripcion);
-                cmd.Parameters.AddWithValue("@id_estado_civil", alumno.EstadoCivil);
-                cmd.Parameters.AddWithValue("@id_laboralidad", alumno.Laboralidad);
-                cmd.Parameters.AddWithValue("@id_habitacionalidad", alumno.Habitacionalidad);
+                cmd.Parameters.AddWithValue("@id_estado_civil", alumno.EstadoCivil.Id);
+                cmd.Parameters.AddWithValue("@id_laboralidad", alumno.Laboralidad.Id);
+                cmd.Parameters.AddWithValue("@id_habitacionalidad", alumno.Habitacionalidad.Id);
                 cmd.Parameters.AddWithValue("@id_barrio", alumno.Barrio.Id);
                 cmd.ExecuteNonQuery();
                 t.Commit();
