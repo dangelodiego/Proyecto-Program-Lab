@@ -2,6 +2,7 @@
 using DatosCarrera.datos.Interfaces;
 using DatosCarrera.dominio;
 using DatosCarrera.dominio.auxiliares;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,7 @@ namespace TecnicaturasPresentacion.MesasExamenes
         private async void frmNuevaMesa_Load(object sender, EventArgs e)
         {
             await Combo.CargarComboTecnicaturas(cboTecnicaturas, "https://localhost:7148/api/Tecnicaturas");
+            DeshabilitarCamposMaestro(true);
         }
 
         //private void btnAgregar_Click(object sender, EventArgs e)
@@ -168,17 +170,14 @@ namespace TecnicaturasPresentacion.MesasExamenes
 
         //}
 
-        private void DeshabilitarCamposMaestro()
+        private void DeshabilitarCamposMaestro(bool x)
         {
-
-            if (dataGridView1.Rows.Count > 0)
-            {
-                dtpFechaMesa.Enabled = false;
-                cboTurnoExamen.Enabled = false;
-                cboTecnicaturas.Enabled = false;
-                cboMateria.Enabled = false;
-                cboProfesor.Enabled = false;
-            }
+                dtpFechaMesa.Enabled = x;
+                cboTurnoExamen.Enabled = x;
+                cboTecnicaturas.Enabled = x;
+                cboMateria.Enabled = x;
+                cboProfesor.Enabled = x;
+            
         }
 
         private void limpiar()
@@ -238,34 +237,58 @@ namespace TecnicaturasPresentacion.MesasExamenes
                 dataGridView1.Rows.Add(new object[] { dtpFechaMesa.Value, turnoExamenParaGrilla, tecnicaturaParaGrila, materiaParaGrilla, profesorParaGrilla, legajoParaGrilla, notaParaGrilla });
 
             }
-
-            DeshabilitarCamposMaestro();
+            if (dataGridView1.Rows.Count > 0)
+            {
+                DeshabilitarCamposMaestro(false);
+            }
+                
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            Materia m = new Materia();
-            Profesor p = new Profesor();
-            m.Id = Convert.ToInt32(cboMateria.SelectedValue);
-            p.Id = Convert.ToInt32(cboProfesor.SelectedValue);
-
-
-            mesa.Fecha = dtpFechaMesa.Value;
-            if (cboTurnoExamen.SelectedIndex > -1)
-                mesa.TurnoExamen = (TurnosExamen)cboTurnoExamen.SelectedIndex + 1;
-            mesa.Fecha = dtpFechaMesa.Value;
-            mesa.Profesor = p;
-            mesa.Materia = m;
-            if (mesasExamenDAO.CrearMesa(mesa))
             {
-                MessageBox.Show("Se guardó la mesa de examen correctamente ", "Sistema", MessageBoxButtons.OK);
-            }
-            else
-            {
-                MessageBox.Show("No se pudo guardar la mesa de examen", "Sistema", MessageBoxButtons.OK);
-            }
-            limpiar();
+                Materia m = new Materia();
+                Profesor p = new Profesor();
+                m.Id = Convert.ToInt32(cboMateria.SelectedValue);
+                p.Id = Convert.ToInt32(cboProfesor.SelectedValue);
 
+
+                mesa.Fecha = dtpFechaMesa.Value;
+                if (cboTurnoExamen.SelectedIndex > -1)
+                    mesa.TurnoExamen = (TurnosExamen)cboTurnoExamen.SelectedIndex + 1;
+                mesa.Fecha = dtpFechaMesa.Value;
+                mesa.Profesor = p;
+                mesa.Materia = m;
+                if ( mesasExamenDAO.CrearMesa(mesa))
+                {
+                    MessageBox.Show("Se guardó la mesa de examen correctamente ", "Sistema", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo guardar la mesa de examen", "Sistema", MessageBoxButtons.OK);
+                }
+                limpiar();
+                
+                DeshabilitarCamposMaestro(true);
+                
+            }
+
+        }
+        private async Task<bool> GrabarMesaExamenAsync(MesaExamen mesa)
+        {
+            string url = "https://localhost:7148/api/Mesas";
+            string mesaJson = JsonConvert.SerializeObject(mesa);
+            var result = await SingletonHttpClient.ObtenerInstancia().PostAsync(url, mesaJson);
+            return result.Equals("true");
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.CurrentCell.ColumnIndex == 7)
+            {
+                mesa.Examenes.Remove(mesa.Examenes[dataGridView1.CurrentCell.RowIndex]);
+                dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+            }
         }
     }
 }

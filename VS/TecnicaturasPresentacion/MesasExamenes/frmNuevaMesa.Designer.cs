@@ -41,6 +41,11 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.lblNota = new MaterialSkin.Controls.MaterialLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnCargar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnAgregar = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.txtLegajoAlumno = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.dtpFechaMesa = new System.Windows.Forms.DateTimePicker();
             this.colFechaExamen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTurnoExamen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTecnincatua = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,11 +53,7 @@
             this.colProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLegajoAlumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNota = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCargar = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnAgregar = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.txtLegajoAlumno = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.dtpFechaMesa = new System.Windows.Forms.DateTimePicker();
+            this.colEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -212,55 +213,15 @@
             this.colMateria,
             this.colProfesor,
             this.colLegajoAlumno,
-            this.colNota});
+            this.colNota,
+            this.colEliminar});
             this.dataGridView1.Location = new System.Drawing.Point(12, 224);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(687, 308);
             this.dataGridView1.TabIndex = 14;
-            // 
-            // colFechaExamen
-            // 
-            this.colFechaExamen.HeaderText = "Fecha de Examen";
-            this.colFechaExamen.Name = "colFechaExamen";
-            this.colFechaExamen.ReadOnly = true;
-            // 
-            // colTurnoExamen
-            // 
-            this.colTurnoExamen.HeaderText = "Turno de Examen";
-            this.colTurnoExamen.Name = "colTurnoExamen";
-            this.colTurnoExamen.ReadOnly = true;
-            // 
-            // colTecnincatua
-            // 
-            this.colTecnincatua.HeaderText = "Tecnicatura";
-            this.colTecnincatua.Name = "colTecnincatua";
-            this.colTecnincatua.ReadOnly = true;
-            // 
-            // colMateria
-            // 
-            this.colMateria.HeaderText = "Materia";
-            this.colMateria.Name = "colMateria";
-            this.colMateria.ReadOnly = true;
-            // 
-            // colProfesor
-            // 
-            this.colProfesor.HeaderText = "Profesor";
-            this.colProfesor.Name = "colProfesor";
-            this.colProfesor.ReadOnly = true;
-            // 
-            // colLegajoAlumno
-            // 
-            this.colLegajoAlumno.HeaderText = "Legajo";
-            this.colLegajoAlumno.Name = "colLegajoAlumno";
-            this.colLegajoAlumno.ReadOnly = true;
-            // 
-            // colNota
-            // 
-            this.colNota.HeaderText = "Nota";
-            this.colNota.Name = "colNota";
-            this.colNota.ReadOnly = true;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnCargar
             // 
@@ -324,6 +285,58 @@
             this.dtpFechaMesa.Size = new System.Drawing.Size(234, 23);
             this.dtpFechaMesa.TabIndex = 19;
             // 
+            // colFechaExamen
+            // 
+            this.colFechaExamen.HeaderText = "Fecha de Examen";
+            this.colFechaExamen.Name = "colFechaExamen";
+            this.colFechaExamen.ReadOnly = true;
+            // 
+            // colTurnoExamen
+            // 
+            this.colTurnoExamen.HeaderText = "Turno de Examen";
+            this.colTurnoExamen.Name = "colTurnoExamen";
+            this.colTurnoExamen.ReadOnly = true;
+            // 
+            // colTecnincatua
+            // 
+            this.colTecnincatua.HeaderText = "Tecnicatura";
+            this.colTecnincatua.Name = "colTecnincatua";
+            this.colTecnincatua.ReadOnly = true;
+            // 
+            // colMateria
+            // 
+            this.colMateria.HeaderText = "Materia";
+            this.colMateria.Name = "colMateria";
+            this.colMateria.ReadOnly = true;
+            // 
+            // colProfesor
+            // 
+            this.colProfesor.HeaderText = "Profesor";
+            this.colProfesor.Name = "colProfesor";
+            this.colProfesor.ReadOnly = true;
+            // 
+            // colLegajoAlumno
+            // 
+            this.colLegajoAlumno.HeaderText = "Legajo";
+            this.colLegajoAlumno.Name = "colLegajoAlumno";
+            this.colLegajoAlumno.ReadOnly = true;
+            // 
+            // colNota
+            // 
+            this.colNota.HeaderText = "Nota";
+            this.colNota.Name = "colNota";
+            this.colNota.ReadOnly = true;
+            // 
+            // colEliminar
+            // 
+            this.colEliminar.HeaderText = "Eliminar";
+            this.colEliminar.Name = "colEliminar";
+            this.colEliminar.ReadOnly = true;
+            this.colEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colEliminar.Text = "ELIMINAR";
+            this.colEliminar.ToolTipText = "ELIMINAR";
+            // 
             // frmNuevaMesa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -386,5 +399,6 @@
         private DataGridViewTextBoxColumn colProfesor;
         private DataGridViewTextBoxColumn colLegajoAlumno;
         private DataGridViewTextBoxColumn colNota;
+        private DataGridViewButtonColumn colEliminar;
     }
 }

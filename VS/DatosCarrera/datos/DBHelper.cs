@@ -295,7 +295,7 @@ namespace DatosCarrera.datos
                 t.Commit();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 if (t != null)

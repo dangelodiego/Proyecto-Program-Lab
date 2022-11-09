@@ -332,7 +332,7 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
                 MessageBox.Show("Alumnos guardados correctamente!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
-           catch
+           catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar los alumnos!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -340,11 +340,5 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
         }
 
 
-        //private async Task<bool>GuardarAlumno(string url, string json)
-        //{
-        //    var response = await SingletonHttpClient.ObtenerInstancia().PostAsync(url, json);
-
-
-        //}
     }
 } 

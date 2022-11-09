@@ -9,7 +9,7 @@ namespace DatosCarrera.dominio.auxiliares
 
         public enum Sexos
         {
-            Masculino,
+            Masculino=1,
             Femenino,
             Desconocido
         }

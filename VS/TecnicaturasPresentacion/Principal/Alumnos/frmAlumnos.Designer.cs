@@ -67,6 +67,11 @@
             this.cboCiudad = new System.Windows.Forms.ComboBox();
             this.cboProvincia = new System.Windows.Forms.ComboBox();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cboLaboralidad = new System.Windows.Forms.ComboBox();
+            this.lblLaboralidad = new MaterialSkin.Controls.MaterialLabel();
+            this.cboHabitacionalidad = new System.Windows.Forms.ComboBox();
+            this.lblHabitacionalidad = new MaterialSkin.Controls.MaterialLabel();
             this.colNombreAlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colApellidoAlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFechaNacAlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,11 +89,6 @@
             this.colCursoAlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFechaInscAlu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cboLaboralidad = new System.Windows.Forms.ComboBox();
-            this.lblLaboralidad = new MaterialSkin.Controls.MaterialLabel();
-            this.cboHabitacionalidad = new System.Windows.Forms.ComboBox();
-            this.lblHabitacionalidad = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -270,7 +270,7 @@
             // 
             this.txtAltura.Depth = 0;
             this.txtAltura.Hint = "";
-            this.txtAltura.Location = new System.Drawing.Point(361, 205);
+            this.txtAltura.Location = new System.Drawing.Point(365, 205);
             this.txtAltura.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtAltura.Name = "txtAltura";
             this.txtAltura.PasswordChar = '\0';
@@ -604,6 +604,61 @@
             this.dgvAlumnos.TabIndex = 20;
             this.dgvAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAlumnos_CellContentClick);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(760, 572);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 43;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // cboLaboralidad
+            // 
+            this.cboLaboralidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboLaboralidad.FormattingEnabled = true;
+            this.cboLaboralidad.Location = new System.Drawing.Point(24, 322);
+            this.cboLaboralidad.Name = "cboLaboralidad";
+            this.cboLaboralidad.Size = new System.Drawing.Size(139, 23);
+            this.cboLaboralidad.TabIndex = 44;
+            // 
+            // lblLaboralidad
+            // 
+            this.lblLaboralidad.AutoSize = true;
+            this.lblLaboralidad.Depth = 0;
+            this.lblLaboralidad.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLaboralidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblLaboralidad.Location = new System.Drawing.Point(24, 300);
+            this.lblLaboralidad.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblLaboralidad.Name = "lblLaboralidad";
+            this.lblLaboralidad.Size = new System.Drawing.Size(87, 19);
+            this.lblLaboralidad.TabIndex = 45;
+            this.lblLaboralidad.Text = "Laboralidad";
+            // 
+            // cboHabitacionalidad
+            // 
+            this.cboHabitacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboHabitacionalidad.FormattingEnabled = true;
+            this.cboHabitacionalidad.Location = new System.Drawing.Point(201, 322);
+            this.cboHabitacionalidad.Name = "cboHabitacionalidad";
+            this.cboHabitacionalidad.Size = new System.Drawing.Size(162, 23);
+            this.cboHabitacionalidad.TabIndex = 46;
+            // 
+            // lblHabitacionalidad
+            // 
+            this.lblHabitacionalidad.AutoSize = true;
+            this.lblHabitacionalidad.Depth = 0;
+            this.lblHabitacionalidad.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHabitacionalidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblHabitacionalidad.Location = new System.Drawing.Point(201, 300);
+            this.lblHabitacionalidad.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblHabitacionalidad.Name = "lblHabitacionalidad";
+            this.lblHabitacionalidad.Size = new System.Drawing.Size(122, 19);
+            this.lblHabitacionalidad.TabIndex = 47;
+            this.lblHabitacionalidad.Text = "Habitacionalidad";
+            // 
             // colNombreAlu
             // 
             this.colNombreAlu.HeaderText = "Nombre";
@@ -705,62 +760,9 @@
             this.colEliminar.HeaderText = "Eliminar";
             this.colEliminar.Name = "colEliminar";
             this.colEliminar.ReadOnly = true;
+            this.colEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colEliminar.Text = "ELIMINAR";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(760, 572);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(49, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 43;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // cboLaboralidad
-            // 
-            this.cboLaboralidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboLaboralidad.FormattingEnabled = true;
-            this.cboLaboralidad.Location = new System.Drawing.Point(24, 322);
-            this.cboLaboralidad.Name = "cboLaboralidad";
-            this.cboLaboralidad.Size = new System.Drawing.Size(139, 23);
-            this.cboLaboralidad.TabIndex = 44;
-            // 
-            // lblLaboralidad
-            // 
-            this.lblLaboralidad.AutoSize = true;
-            this.lblLaboralidad.Depth = 0;
-            this.lblLaboralidad.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLaboralidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblLaboralidad.Location = new System.Drawing.Point(24, 300);
-            this.lblLaboralidad.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblLaboralidad.Name = "lblLaboralidad";
-            this.lblLaboralidad.Size = new System.Drawing.Size(87, 19);
-            this.lblLaboralidad.TabIndex = 45;
-            this.lblLaboralidad.Text = "Laboralidad";
-            // 
-            // cboHabitacionalidad
-            // 
-            this.cboHabitacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboHabitacionalidad.FormattingEnabled = true;
-            this.cboHabitacionalidad.Location = new System.Drawing.Point(201, 322);
-            this.cboHabitacionalidad.Name = "cboHabitacionalidad";
-            this.cboHabitacionalidad.Size = new System.Drawing.Size(162, 23);
-            this.cboHabitacionalidad.TabIndex = 46;
-            // 
-            // lblHabitacionalidad
-            // 
-            this.lblHabitacionalidad.AutoSize = true;
-            this.lblHabitacionalidad.Depth = 0;
-            this.lblHabitacionalidad.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblHabitacionalidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblHabitacionalidad.Location = new System.Drawing.Point(201, 300);
-            this.lblHabitacionalidad.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblHabitacionalidad.Name = "lblHabitacionalidad";
-            this.lblHabitacionalidad.Size = new System.Drawing.Size(122, 19);
-            this.lblHabitacionalidad.TabIndex = 47;
-            this.lblHabitacionalidad.Text = "Habitacionalidad";
             // 
             // frmAlumnos
             // 
