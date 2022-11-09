@@ -9,7 +9,12 @@ namespace DatosCarrera.datos.Interfaces
 {
     public interface ICarrerasDAO
     {
-     
+        int CantidadAlumnos();
+        int CantidadAlumnosRegulares();
+        int CantidadAlumnosPromocionados();
+        int CantidadAlumnosLibres();
+        int CantidadProfesores();
+        int CantidadTecnicaturas();
 
 
 

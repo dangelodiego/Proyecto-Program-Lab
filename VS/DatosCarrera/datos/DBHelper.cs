@@ -20,7 +20,7 @@ namespace DatosCarrera.datos
 
         private DBHelper()
         {
-            cadenaConexion = @"Data Source=DESKTOP-74QHVRO\SQLEXPRESS;Initial Catalog=tecnicaturas_UTN_FRC;Integrated Security=True";
+            cadenaConexion = @"Data Source=DESKTOP-DH9BN0G\SQLEXPRESS;Initial Catalog=tecnicaturas_UTN_FRC;Integrated Security=True";
         }
 
         
@@ -501,11 +501,103 @@ namespace DatosCarrera.datos
             return -1;
         }
 
+        public int CantidadAlumnos()
+        {
+            int cantidadAlumnos;
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
+            SqlCommand cmd = new SqlCommand();
+            
+               cnn.Open();
+               cmd.Connection = cnn;
+               cmd.CommandText = "SP_OBETENER_CANTIDAD_ALUMNOS";
+               cmd.CommandType = CommandType.StoredProcedure;
+               
+               return cantidadAlumnos = (int)cmd.ExecuteScalar();
 
+                cnn.Close();
 
+        }
 
+        public int CantidadAlumnosRegulares()
+        {
+            int cantidadAlumnosRegulares;
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
+            SqlCommand cmd = new SqlCommand();
 
+            cnn.Open();
+            cmd.Connection = cnn;
+            cmd.CommandText = "SP_OBTENER_CANTIDAD_REGULARES";
+            cmd.CommandType = CommandType.StoredProcedure;
 
+            return cantidadAlumnosRegulares = (int)cmd.ExecuteScalar();
+
+            cnn.Close();
+
+        }
+        public int CantidadAlumnosPromocionados()
+        {
+            int cantidadAlumnosPromocionados;
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
+            SqlCommand cmd = new SqlCommand();
+
+            cnn.Open();
+            cmd.Connection = cnn;
+            cmd.CommandText = "SP_OBTENER_CANTIDAD_PROMOCIONADOS";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            return cantidadAlumnosPromocionados = (int)cmd.ExecuteScalar();
+
+            cnn.Close();
+
+        }
+
+        public int CantidadAlumnosLibres()
+        {
+            int cantidadAlumnosLibres;
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
+            SqlCommand cmd = new SqlCommand();
+
+            cnn.Open();
+            cmd.Connection = cnn;
+            cmd.CommandText = "SP_OBTENER_CANTIDAD_LIBRES";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            return cantidadAlumnosLibres = (int)cmd.ExecuteScalar();
+
+            cnn.Close();
+        }
+
+        public int CantidadProfesores()
+        {
+            int cantProfesores;
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
+            SqlCommand cmd = new SqlCommand();
+
+            cnn.Open();
+            cmd.Connection = cnn;
+            cmd.CommandText = "SP_OBTENER_CANTIDAD_PROFESORES";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            return cantProfesores = (int)cmd.ExecuteScalar();
+
+            cnn.Close();
+        }
+
+        public int CantidadTecnicaturas()
+        {
+            int cantTecnicaturas;
+            SqlConnection cnn = new SqlConnection(cadenaConexion);
+            SqlCommand cmd = new SqlCommand();
+
+            cnn.Open();
+            cmd.Connection = cnn;
+            cmd.CommandText = "SP_OBTENER_CANTIDAD_TECNICATURAS";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            return cantTecnicaturas = (int)cmd.ExecuteScalar();
+
+            cnn.Close();
+        }
 
 
 

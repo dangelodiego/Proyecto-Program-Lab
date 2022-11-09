@@ -396,6 +396,7 @@ END
 <<<<<<< HEAD
 
 
+
 CREATE PROCEDURE SP_OBTENER_LABORALIDADES
 AS
 Select * from Laboralidad
@@ -415,6 +416,10 @@ SELECT COUNT(legajo) Cantidad
 FROM alumnos
 END
 
+
+
+exec SP_OBETENER_CANTIDAD_ALUMNOS
+
 --SP_OBTENER_CANTIDAD_PROMOCIONADOS
 
 CREATE PROCEDURE "SP_OBTENER_CANTIDAD_PROMOCIONADOS"
@@ -423,6 +428,7 @@ BEGIN
 SELECT COUNT(legajo) Cantidad
 FROM estados_academicos e JOIN estados_ac es on e.id_estado_ac=es.id_estado_ac 
 WHERE descripcion = 'Promocionado'
+end
 
 --SP_OBTENER_CANTIDAD_LIBRES
 
@@ -436,16 +442,56 @@ END
 
 --SP_OBTENER_CANTIDAD_REGULARES
 
-CREATE PROCEDURE "SP_OBTENER_CANTIDAD_LIBRES"
+CREATE PROCEDURE "SP_OBTENER_CANTIDAD_REGULARES"
 AS
 BEGIN
 SELECT COUNT(legajo) Cantidad
 FROM estados_academicos e JOIN estados_ac es on e.id_estado_ac=es.id_estado_ac 
 WHERE descripcion = 'Regular'
 END
->>>>>>> b6d49473fc3da6dbde2dd5c160d663d010045899
 
 
+--SP_OBTENER_CANTIDAD_PROFESORES
+
+CREATE PROCEDURE SP_OBTENER_CANTIDAD_PROFESORES
+AS
+BEGIN
+SELECT COUNT(id_profesor) Cantidad
+FROM profesores
+END
+
+exec SP_OBTENER_CANTIDAD_PROFESORES
+
+--SP_OBTENER_CANTIDAD_TECNICATURAS
+
+CREATE PROCEDURE SP_OBTENER_CANTIDAD_TECNICATURAS
+AS
+BEGIN
+SELECT COUNT(id_carrera) Cantidad
+FROM carreras
+END
+
+
+
+--SP_OBTENER_MATERIAS_X_CARRERA
+create PROCEDURE SP_OBTENER_MATERIAS_X_CARRERA
+@id_carrera int
+AS
+BEGIN
+SELECT id_carrera, id_materia, nombre, promocionable
+FROM materias
+WHERE id_carrera=@id_carrera
+END
+
+
+--SP_OBTENER_PROFESORES_X_MATERIA
+create PROCEDURE "SP_OBTENER_PROFESORES_X_MATERIA"
+@id_materia int
+AS
+BEGIN
+SELECT mxp.id_profesor, p.apellido+' '+p.nombre 'Profesor', mxp.id_materia FROM materia_x_profesores mxp JOIN profesores p on mxp.id_profesor=p.id_profesor
+WHERE mxp.id_materia=@id_materia
+END
 
 
 

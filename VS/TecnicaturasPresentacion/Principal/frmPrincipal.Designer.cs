@@ -83,6 +83,7 @@
             this.panelPrincipal = new System.Windows.Forms.Panel();
             this.MesasTimer = new System.Windows.Forms.Timer(this.components);
             this.AlumnosTimer = new System.Windows.Forms.Timer(this.components);
+            this.redondeo2 = new TecnicaturasPresentacion.Components.Redondeo();
             this.flpOpciones.SuspendLayout();
             this.pMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).BeginInit();
@@ -766,6 +767,11 @@
             this.AlumnosTimer.Interval = 1;
             this.AlumnosTimer.Tick += new System.EventHandler(this.AlumnosTimer_Tick);
             // 
+            // redondeo2
+            // 
+            this.redondeo2.CornerRadius = 20;
+            this.redondeo2.TargetControl = this;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -870,5 +876,6 @@
         private Panel panel15;
         private Button btnConsultarAlumno;
         private System.Windows.Forms.Timer AlumnosTimer;
+        private Components.Redondeo redondeo2;
     }
 }

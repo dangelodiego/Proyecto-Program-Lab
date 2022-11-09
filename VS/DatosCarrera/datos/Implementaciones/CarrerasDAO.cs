@@ -565,6 +565,8 @@ namespace DatosCarrera.datos.Implementaciones
             return DBHelper.ObtenerInstancia().ConsultaEscalarSQL(sp, "@next");
         }
 
+       
+
         public List<EstadosCiviles> ObtenerEstadosCiviles()
         {
             DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL("SP_OBTENER_ESTADOCIVIL");
@@ -667,6 +669,36 @@ namespace DatosCarrera.datos.Implementaciones
                 lst.Add(h);
             }
             return lst;
+        }
+
+        public int CantidadAlumnos()
+        {
+            return DBHelper.ObtenerInstancia().CantidadAlumnos();
+        }
+
+        public int CantidadAlumnosRegulares()
+        {
+            return DBHelper.ObtenerInstancia().CantidadAlumnosRegulares();
+        }
+
+        public int CantidadAlumnosPromocionados()
+        {
+            return DBHelper.ObtenerInstancia().CantidadAlumnosPromocionados();
+        }
+
+        public int CantidadAlumnosLibres()
+        {
+            return DBHelper.ObtenerInstancia().CantidadAlumnosLibres();
+        }
+
+        public int CantidadProfesores()
+        {
+            return DBHelper.ObtenerInstancia().CantidadProfesores();
+        }
+
+        public int CantidadTecnicaturas()
+        {
+            return DBHelper.ObtenerInstancia().CantidadTecnicaturas();
         }
     }
 }

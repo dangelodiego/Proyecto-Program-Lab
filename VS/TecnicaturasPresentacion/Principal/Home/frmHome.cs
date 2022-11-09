@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DatosCarrera.datos.Implementaciones;
+using DatosCarrera.datos.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +15,22 @@ namespace TecnicaturasPresentacion.Principal.Home
 {
     public partial class frmHome : Form
     {
+        private ICarrerasDAO carrerasDAO;
+
         public frmHome()
         {
             InitializeComponent();
+            carrerasDAO = new CarrerasDAO();
         }
 
         private void frmHome_Load(object sender, EventArgs e)
         {
-
+            lblCantAlumnNumero.Text = carrerasDAO.CantidadAlumnos().ToString();
+            lblCantRegularesNumero.Text = carrerasDAO.CantidadAlumnosRegulares().ToString();
+            lblCantLibres.Text = carrerasDAO.CantidadAlumnosLibres().ToString();
+            lblCantPromocionados.Text = carrerasDAO.CantidadAlumnosPromocionados().ToString();
+            lblCantProfesoresNumero.Text = carrerasDAO.CantidadProfesores().ToString();
+            lblCantTecnicaturas.Text = carrerasDAO.CantidadTecnicaturas().ToString();
         }
 
         private void lnkPaginaUTN_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -45,5 +55,13 @@ namespace TecnicaturasPresentacion.Principal.Home
         {
 
         }
+
+        private void panelAlumnos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+       
     }
 }

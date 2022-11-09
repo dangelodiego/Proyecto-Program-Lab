@@ -217,3 +217,20 @@ Insert into estados_ac
 Insert into estados_ac
 	values ('Regular')
 
+	--Inserts TURNOS
+INSERT INTO turnos_examenes VALUES ('Primer turno de Noviembre');
+INSERT INTO turnos_examenes VALUES ('Segundo turno de Noviembre');
+INSERT INTO turnos_examenes VALUES ('Primer turno de Noviembre');
+INSERT INTO turnos_examenes VALUES ('Segundo turno de Diciembre');
+INSERT INTO turnos_examenes VALUES ('Primer turno de Febrero');
+INSERT INTO turnos_examenes VALUES ('Segundo turno de Febrero');
+INSERT INTO turnos_examenes VALUES ('Primer turno de Marzo');
+INSERT INTO turnos_examenes VALUES ('Segundo turno de Marzo');
+INSERT INTO turnos_examenes VALUES ('Primer turno de Julio');
+INSERT INTO turnos_examenes VALUES ('Segundo turno de Julio');
+
+
+--Insert Alumno
+insert into Alumnos (nombre, apellido, fecha_nac, dni, e_mail, telefono, calle, altura, id_sexo, id_curso, id_carrera, fecha_insc, id_estado_civil, id_laboralidad, id_habitacionalidad, id_barrio)  	
+	values('Prueba', 'ApellidoPrueba', '8/11/2022', 444, 'prueba@gmail.com',333, 'Av. Prueba', 222, 1, 1, 1, '3/11/2022', 1, 1, 1, 1)
+

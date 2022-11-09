@@ -34,7 +34,7 @@
             this.lblPromocionados = new System.Windows.Forms.Label();
             this.lblCantLibres = new System.Windows.Forms.Label();
             this.lblLibres = new System.Windows.Forms.Label();
-            this.lblCantRegulares = new System.Windows.Forms.Label();
+            this.lblCantRegularesNumero = new System.Windows.Forms.Label();
             this.lblRegulares = new System.Windows.Forms.Label();
             this.lblCantAlumnNumero = new System.Windows.Forms.Label();
             this.lblCantAlumnos = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.panelAlumnos.Controls.Add(this.lblPromocionados);
             this.panelAlumnos.Controls.Add(this.lblCantLibres);
             this.panelAlumnos.Controls.Add(this.lblLibres);
-            this.panelAlumnos.Controls.Add(this.lblCantRegulares);
+            this.panelAlumnos.Controls.Add(this.lblCantRegularesNumero);
             this.panelAlumnos.Controls.Add(this.lblRegulares);
             this.panelAlumnos.Controls.Add(this.lblCantAlumnNumero);
             this.panelAlumnos.Controls.Add(this.lblCantAlumnos);
@@ -73,6 +73,7 @@
             this.panelAlumnos.Name = "panelAlumnos";
             this.panelAlumnos.Size = new System.Drawing.Size(280, 292);
             this.panelAlumnos.TabIndex = 0;
+            this.panelAlumnos.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAlumnos_Paint);
             // 
             // lblCantPromocionados
             // 
@@ -120,17 +121,17 @@
             this.lblLibres.TabIndex = 4;
             this.lblLibres.Text = "Libres";
             // 
-            // lblCantRegulares
+            // lblCantRegularesNumero
             // 
-            this.lblCantRegulares.AutoSize = true;
-            this.lblCantRegulares.BackColor = System.Drawing.Color.Black;
-            this.lblCantRegulares.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCantRegulares.ForeColor = System.Drawing.Color.White;
-            this.lblCantRegulares.Location = new System.Drawing.Point(6, 78);
-            this.lblCantRegulares.Name = "lblCantRegulares";
-            this.lblCantRegulares.Size = new System.Drawing.Size(34, 21);
-            this.lblCantRegulares.TabIndex = 3;
-            this.lblCantRegulares.Text = "300";
+            this.lblCantRegularesNumero.AutoSize = true;
+            this.lblCantRegularesNumero.BackColor = System.Drawing.Color.Black;
+            this.lblCantRegularesNumero.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCantRegularesNumero.ForeColor = System.Drawing.Color.White;
+            this.lblCantRegularesNumero.Location = new System.Drawing.Point(6, 78);
+            this.lblCantRegularesNumero.Name = "lblCantRegularesNumero";
+            this.lblCantRegularesNumero.Size = new System.Drawing.Size(34, 21);
+            this.lblCantRegularesNumero.TabIndex = 3;
+            this.lblCantRegularesNumero.Text = "300";
             // 
             // lblRegulares
             // 
@@ -345,7 +346,7 @@
         private Label lblPromocionados;
         private Label lblCantLibres;
         private Label lblLibres;
-        private Label lblCantRegulares;
+        private Label lblCantRegularesNumero;
         private Label lblRegulares;
         private Panel panelProfesor;
         private Label lblCantProfesoresNumero;
