@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsReporte" targetNamespace="http://tempuri.org/dsReporte.xsd" xmlns:mstns="http://tempuri.org/dsReporte.xsd" xmlns="http://tempuri.org/dsReporte.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=DESKTOP-DH9BN0G\SQLEXPRESS;Initial Catalog=tecnicaturas_UTN_FRC;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="desktop-dh9bn0g\sqlexpress.tecnicaturas_UTN_FRC.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="carrerasTableAdapter" GeneratorDataComponentClassName="carrerasTableAdapter" Name="carreras" UserDataComponentName="carrerasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="desktop-dh9bn0g\sqlexpress.tecnicaturas_UTN_FRC.dbo" DbObjectName="tecnicaturas_UTN_FRC.dbo.carreras" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        COUNT(a.legajo) AS CantidadAlumnos, c.nombre AS Tecnicatura
+FROM            alumnos AS a INNER JOIN
+                         carreras AS c ON a.id_carrera = c.id_carrera
+GROUP BY c.nombre</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CantidadAlumnos" DataSetColumn="CantidadAlumnos" />
+              <Mapping SourceColumn="Tecnicatura" DataSetColumn="Tecnicatura" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsReporte" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="dsReporte" msprop:Generator_DataSetName="dsReporte">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="carreras" msprop:Generator_RowEvHandlerName="carrerasRowChangeEventHandler" msprop:Generator_RowDeletedName="carrerasRowDeleted" msprop:Generator_RowDeletingName="carrerasRowDeleting" msprop:Generator_RowEvArgName="carrerasRowChangeEvent" msprop:Generator_TablePropName="carreras" msprop:Generator_RowChangedName="carrerasRowChanged" msprop:Generator_RowChangingName="carrerasRowChanging" msprop:Generator_TableClassName="carrerasDataTable" msprop:Generator_RowClassName="carrerasRow" msprop:Generator_TableVarName="tablecarreras" msprop:Generator_UserTableName="carreras">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CantidadAlumnos" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="CantidadAlumnos" msprop:Generator_ColumnPropNameInTable="CantidadAlumnosColumn" msprop:Generator_ColumnVarNameInTable="columnCantidadAlumnos" msprop:Generator_UserColumnName="CantidadAlumnos" type="xs:int" minOccurs="0" />
+              <xs:element name="Tecnicatura" msprop:Generator_ColumnPropNameInRow="Tecnicatura" msprop:Generator_ColumnPropNameInTable="TecnicaturaColumn" msprop:Generator_ColumnVarNameInTable="columnTecnicatura" msprop:Generator_UserColumnName="Tecnicatura" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

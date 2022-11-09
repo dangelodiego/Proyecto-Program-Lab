@@ -34,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CarrerasApp\ReportesTecnicatura\ReportesTecnicatura.csproj" />
     <ProjectReference Include="..\CarrerasApp\TecnicaturasAPI\TecnicaturasAPI.csproj" />
     <ProjectReference Include="..\DatosCarrera\DatosCarrera.csproj" />
   </ItemGroup>

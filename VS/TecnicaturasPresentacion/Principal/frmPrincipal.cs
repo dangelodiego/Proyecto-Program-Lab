@@ -13,8 +13,11 @@ using TecnicaturasPresentacion.Principal.Alumnos;
 using TecnicaturasPresentacion.Principal.Home;
 using TecnicaturasPresentacion.Principal.Profesores;
 
+
+
 namespace TecnicaturasPresentacion.Principal
 {
+    
     public partial class frmPrincipal : Form
     {
         bool sidebarExpand;
@@ -220,6 +223,10 @@ namespace TecnicaturasPresentacion.Principal
 
         }
 
-        
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            //AbrirFrom(new frmReporte());
+            new ReportesTecnicatura.frmReporte().Show();
+        }
     }
 }
