@@ -27,7 +27,7 @@ namespace DatosCarrera.datos.Interfaces
 
         List<Habitacionalidades> ObtenerHabitacionalidades();
 
-
+        List<Materia> ObtenerMateriasXCarrera(int id);
 
 
 

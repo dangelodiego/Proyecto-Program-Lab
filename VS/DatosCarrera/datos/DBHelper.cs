@@ -148,7 +148,7 @@ namespace DatosCarrera.datos
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@fecha", mesaExamen.Fecha);
-                cmd.Parameters.AddWithValue("@turno", mesaExamen.Turno);
+                cmd.Parameters.AddWithValue("@turno", mesaExamen.TurnoExamen);
                 cmd.Parameters.AddWithValue("@id_materia", mesaExamen.Materia.Id);
                 cmd.Parameters.AddWithValue("@id_profesores", mesaExamen.Profesor.Id);
 
@@ -215,7 +215,7 @@ namespace DatosCarrera.datos
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@fecha", mesaExamen.Fecha);
-                cmd.Parameters.AddWithValue("@turno_examen", mesaExamen.Turno);
+                cmd.Parameters.AddWithValue("@turno_examen", mesaExamen.TurnoExamen);
                 cmd.Parameters.AddWithValue("@id_materia", mesaExamen.Materia.Id);
                 cmd.Parameters.AddWithValue("@id_profesores", mesaExamen.Profesor.Id);
 

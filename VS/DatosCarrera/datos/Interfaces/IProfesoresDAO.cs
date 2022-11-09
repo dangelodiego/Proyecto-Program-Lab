@@ -17,6 +17,7 @@ namespace DatosCarrera.datos.Interfaces
 
         List<Profesor> GetProfesoresAll();
 
+        List<Profesor> GetProfesoresPorMateria(int id);
 
 
 

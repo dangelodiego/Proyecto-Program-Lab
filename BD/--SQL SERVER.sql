@@ -234,3 +234,16 @@ INSERT INTO turnos_examenes VALUES ('Segundo turno de Julio');
 insert into Alumnos (nombre, apellido, fecha_nac, dni, e_mail, telefono, calle, altura, id_sexo, id_curso, id_carrera, fecha_insc, id_estado_civil, id_laboralidad, id_habitacionalidad, id_barrio)  	
 	values('Prueba', 'ApellidoPrueba', '8/11/2022', 444, 'prueba@gmail.com',333, 'Av. Prueba', 222, 1, 1, 1, '3/11/2022', 1, 1, 1, 1)
 
+	--Inserts de Materias_x_Profesores para poder cargar Combo de profesores por materia
+INSERT INTO materia_x_profesores (id_profesor, id_materia) VALUES (10, 8)
+INSERT INTO materia_x_profesores (id_profesor, id_materia) VALUES (10, 9)
+INSERT INTO materia_x_profesores (id_profesor, id_materia) VALUES (10, 10)
+INSERT INTO materia_x_profesores (id_profesor, id_materia) VALUES (6, 9)
+INSERT INTO materia_x_profesores (id_profesor, id_materia) VALUES (9, 9)
+INSERT INTO materia_x_profesores (id_profesor, id_materia) VALUES (11, 4)
+INSERT INTO materia_x_profesores (id_profesor, id_materia) VALUES (11, 5)
+INSERT INTO materia_x_profesores (id_profesor, id_materia) VALUES (11, 6)
+INSERT INTO materia_x_profesores (id_profesor, id_materia) VALUES (11, 7)
+INSERT INTO materia_x_profesores (id_profesor, id_materia) VALUES (8, 1)
+INSERT INTO materia_x_profesores (id_profesor, id_materia) VALUES (7, 1)
+

@@ -39,8 +39,9 @@ namespace DatosCarrera.facade
 
         List<Habitacionalidades> GetHabitacionalidadesAll();
 
+        List<Profesor> GetProfesoresPorMateria(int id);
 
-
+        List<Materia> GetMateriasPorCarrera(int id);
 
 
 

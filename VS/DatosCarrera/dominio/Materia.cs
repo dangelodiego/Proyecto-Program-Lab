@@ -13,5 +13,8 @@ namespace DatosCarrera.dominio
         public string Nombre { get; set; }
 
         public bool Promocionable { get; set; }
+
+        public Carrera Carrera { get; set; }
+
     }
 }

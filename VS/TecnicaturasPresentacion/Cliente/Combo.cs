@@ -93,7 +93,25 @@ namespace TecnicaturasPresentacion.Cliente
             cbo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+        public static async Task CargarComboMateriasPorCarrera(ComboBox cbo, string url)
+        {
+            var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
+            var objeto = JsonConvert.DeserializeObject<List<Materia>>(response);
+            cbo.DataSource = objeto;
+            cbo.DisplayMember = "Nombre";
+            cbo.ValueMember = "Id";
+            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
 
+        public static async Task CargarComboProfesoresPorMateria(ComboBox cbo, string url)
+        {
+            var response = await SingletonHttpClient.ObtenerInstancia().GetAsync(url);
+            var objeto = JsonConvert.DeserializeObject<List<Profesor>>(response);
+            cbo.DataSource = objeto;
+            cbo.DisplayMember = "Nombre";
+            cbo.ValueMember = "Id";
+            cbo.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
     }
 }
 

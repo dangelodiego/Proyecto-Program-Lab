@@ -15,7 +15,7 @@ namespace DatosCarrera.dominio
 
         public int Id { get; set; } 
         public DateTime Fecha { get; set; }
-        public TurnosExamen Turno{ get; set; }
+        public TurnosExamen TurnoExamen { get; set; }
 
         public Materia Materia{ get; set; } 
 
@@ -37,6 +37,7 @@ namespace DatosCarrera.dominio
         {
             Examenes.RemoveAt(i);
         }
+
 
 
 

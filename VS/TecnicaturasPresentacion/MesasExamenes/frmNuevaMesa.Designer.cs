@@ -29,24 +29,18 @@
         private void InitializeComponent()
         {
             this.txtMesaFecha = new MaterialSkin.Controls.MaterialLabel();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.lblTurnoExamen = new MaterialSkin.Controls.MaterialLabel();
             this.cboTurnoExamen = new System.Windows.Forms.ComboBox();
             this.lblMateria = new MaterialSkin.Controls.MaterialLabel();
             this.cboMateria = new System.Windows.Forms.ComboBox();
             this.lblProfesor = new MaterialSkin.Controls.MaterialLabel();
             this.cboProfesor = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboTecnicaturas = new System.Windows.Forms.ComboBox();
             this.lblTecnicatura = new MaterialSkin.Controls.MaterialLabel();
             this.lblLegajoAlumno = new MaterialSkin.Controls.MaterialLabel();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.lblNota = new MaterialSkin.Controls.MaterialLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnCargar = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnAgregar = new MaterialSkin.Controls.MaterialFlatButton();
-            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.txtLegajoAlumno = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.colIdMesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFechaExamen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTurnoExamen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTecnincatua = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +48,11 @@
             this.colProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLegajoAlumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCargar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnAgregar = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.txtLegajoAlumno = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.dtpFechaMesa = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -64,18 +63,12 @@
             this.txtMesaFecha.Depth = 0;
             this.txtMesaFecha.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtMesaFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txtMesaFecha.Location = new System.Drawing.Point(75, 9);
+            this.txtMesaFecha.Location = new System.Drawing.Point(94, 37);
             this.txtMesaFecha.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtMesaFecha.Name = "txtMesaFecha";
             this.txtMesaFecha.Size = new System.Drawing.Size(126, 19);
             this.txtMesaFecha.TabIndex = 0;
             this.txtMesaFecha.Text = "Fecha de Exámen";
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(18, 37);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 1;
             // 
             // lblTurnoExamen
             // 
@@ -93,6 +86,17 @@
             // cboTurnoExamen
             // 
             this.cboTurnoExamen.FormattingEnabled = true;
+            this.cboTurnoExamen.Items.AddRange(new object[] {
+            "Primer turno de Noviembre",
+            "Segundo turno de Noviembre",
+            "Primer turno de Diciembre",
+            "Segundo turno de Diciembre",
+            "Primer turno de Febrero",
+            "Segundo turno de Febrero",
+            "Primer turno de Marzo",
+            "Segundo turno de Marzo",
+            "Primer turno de Julio",
+            "Segundo turno de Julio"});
             this.cboTurnoExamen.Location = new System.Drawing.Point(296, 59);
             this.cboTurnoExamen.Name = "cboTurnoExamen";
             this.cboTurnoExamen.Size = new System.Drawing.Size(173, 23);
@@ -118,6 +122,7 @@
             this.cboMateria.Name = "cboMateria";
             this.cboMateria.Size = new System.Drawing.Size(173, 23);
             this.cboMateria.TabIndex = 5;
+            this.cboMateria.SelectedIndexChanged += new System.EventHandler(this.cboMateria_SelectedIndexChanged_1);
             // 
             // lblProfesor
             // 
@@ -140,13 +145,14 @@
             this.cboProfesor.Size = new System.Drawing.Size(173, 23);
             this.cboProfesor.TabIndex = 7;
             // 
-            // comboBox1
+            // cboTecnicaturas
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(511, 59);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(173, 23);
-            this.comboBox1.TabIndex = 9;
+            this.cboTecnicaturas.FormattingEnabled = true;
+            this.cboTecnicaturas.Location = new System.Drawing.Point(511, 59);
+            this.cboTecnicaturas.Name = "cboTecnicaturas";
+            this.cboTecnicaturas.Size = new System.Drawing.Size(173, 23);
+            this.cboTecnicaturas.TabIndex = 9;
+            this.cboTecnicaturas.SelectedIndexChanged += new System.EventHandler(this.cboTecnicaturas_SelectedIndexChanged_1);
             // 
             // lblTecnicatura
             // 
@@ -196,9 +202,10 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colIdMesa,
             this.colFechaExamen,
             this.colTurnoExamen,
             this.colTecnincatua,
@@ -208,9 +215,52 @@
             this.colNota});
             this.dataGridView1.Location = new System.Drawing.Point(12, 224);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(687, 308);
             this.dataGridView1.TabIndex = 14;
+            // 
+            // colFechaExamen
+            // 
+            this.colFechaExamen.HeaderText = "Fecha de Examen";
+            this.colFechaExamen.Name = "colFechaExamen";
+            this.colFechaExamen.ReadOnly = true;
+            // 
+            // colTurnoExamen
+            // 
+            this.colTurnoExamen.HeaderText = "Turno de Examen";
+            this.colTurnoExamen.Name = "colTurnoExamen";
+            this.colTurnoExamen.ReadOnly = true;
+            // 
+            // colTecnincatua
+            // 
+            this.colTecnincatua.HeaderText = "Tecnicatura";
+            this.colTecnincatua.Name = "colTecnincatua";
+            this.colTecnincatua.ReadOnly = true;
+            // 
+            // colMateria
+            // 
+            this.colMateria.HeaderText = "Materia";
+            this.colMateria.Name = "colMateria";
+            this.colMateria.ReadOnly = true;
+            // 
+            // colProfesor
+            // 
+            this.colProfesor.HeaderText = "Profesor";
+            this.colProfesor.Name = "colProfesor";
+            this.colProfesor.ReadOnly = true;
+            // 
+            // colLegajoAlumno
+            // 
+            this.colLegajoAlumno.HeaderText = "Legajo";
+            this.colLegajoAlumno.Name = "colLegajoAlumno";
+            this.colLegajoAlumno.ReadOnly = true;
+            // 
+            // colNota
+            // 
+            this.colNota.HeaderText = "Nota";
+            this.colNota.Name = "colNota";
+            this.colNota.ReadOnly = true;
             // 
             // btnCargar
             // 
@@ -223,6 +273,7 @@
             this.btnCargar.TabIndex = 15;
             this.btnCargar.Text = "CARGAR";
             this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // btnAgregar
             // 
@@ -238,6 +289,7 @@
             this.btnAgregar.TabIndex = 16;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // materialDivider1
             // 
@@ -265,46 +317,12 @@
             this.txtLegajoAlumno.TabIndex = 18;
             this.txtLegajoAlumno.UseSystemPasswordChar = false;
             // 
-            // colIdMesa
+            // dtpFechaMesa
             // 
-            this.colIdMesa.HeaderText = "IdMesa";
-            this.colIdMesa.Name = "colIdMesa";
-            this.colIdMesa.Visible = false;
-            // 
-            // colFechaExamen
-            // 
-            this.colFechaExamen.HeaderText = "Fecha de Examen";
-            this.colFechaExamen.Name = "colFechaExamen";
-            // 
-            // colTurnoExamen
-            // 
-            this.colTurnoExamen.HeaderText = "Turno de Examen";
-            this.colTurnoExamen.Name = "colTurnoExamen";
-            // 
-            // colTecnincatua
-            // 
-            this.colTecnincatua.HeaderText = "Tecnicatura";
-            this.colTecnincatua.Name = "colTecnincatua";
-            // 
-            // colMateria
-            // 
-            this.colMateria.HeaderText = "Materia";
-            this.colMateria.Name = "colMateria";
-            // 
-            // colProfesor
-            // 
-            this.colProfesor.HeaderText = "Profesor";
-            this.colProfesor.Name = "colProfesor";
-            // 
-            // colLegajoAlumno
-            // 
-            this.colLegajoAlumno.HeaderText = "Legajo";
-            this.colLegajoAlumno.Name = "colLegajoAlumno";
-            // 
-            // colNota
-            // 
-            this.colNota.HeaderText = "Nota";
-            this.colNota.Name = "colNota";
+            this.dtpFechaMesa.Location = new System.Drawing.Point(31, 59);
+            this.dtpFechaMesa.Name = "dtpFechaMesa";
+            this.dtpFechaMesa.Size = new System.Drawing.Size(234, 23);
+            this.dtpFechaMesa.TabIndex = 19;
             // 
             // frmNuevaMesa
             // 
@@ -312,6 +330,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(711, 594);
+            this.Controls.Add(this.dtpFechaMesa);
             this.Controls.Add(this.txtLegajoAlumno);
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.btnAgregar);
@@ -320,7 +339,7 @@
             this.Controls.Add(this.lblNota);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.lblLegajoAlumno);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboTecnicaturas);
             this.Controls.Add(this.lblTecnicatura);
             this.Controls.Add(this.cboProfesor);
             this.Controls.Add(this.lblProfesor);
@@ -328,7 +347,6 @@
             this.Controls.Add(this.lblMateria);
             this.Controls.Add(this.cboTurnoExamen);
             this.Controls.Add(this.lblTurnoExamen);
-            this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.txtMesaFecha);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmNuevaMesa";
@@ -344,14 +362,13 @@
         #endregion
 
         private MaterialSkin.Controls.MaterialLabel txtMesaFecha;
-        private MonthCalendar monthCalendar1;
         private MaterialSkin.Controls.MaterialLabel lblTurnoExamen;
         private ComboBox cboTurnoExamen;
         private MaterialSkin.Controls.MaterialLabel lblMateria;
         private ComboBox cboMateria;
         private MaterialSkin.Controls.MaterialLabel lblProfesor;
         private ComboBox cboProfesor;
-        private ComboBox comboBox1;
+        private ComboBox cboTecnicaturas;
         private MaterialSkin.Controls.MaterialLabel lblTecnicatura;
         private MaterialSkin.Controls.MaterialLabel lblLegajoAlumno;
         private NumericUpDown numericUpDown1;
@@ -361,7 +378,7 @@
         private MaterialSkin.Controls.MaterialFlatButton btnAgregar;
         public MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtLegajoAlumno;
-        private DataGridViewTextBoxColumn colIdMesa;
+        private DateTimePicker dtpFechaMesa;
         private DataGridViewTextBoxColumn colFechaExamen;
         private DataGridViewTextBoxColumn colTurnoExamen;
         private DataGridViewTextBoxColumn colTecnincatua;

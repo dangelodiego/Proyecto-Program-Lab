@@ -32,6 +32,22 @@ namespace TecnicaturasAPI.Controllers
             }
         }
 
+        [HttpGet("Materias/{id}")]
+        public IActionResult GetMateriasPorCarrera(int id)
+        {
+            if (datos.GetMateriasPorCarrera(id) != null)
+            {
+                return Ok(datos.GetMateriasPorCarrera(id));
+            }
+            else
+            {
+                return NotFound();
+            }
+
+
+        }
+
+
         // POST api/<MateriasController>
         [HttpPost]
         public void Post([FromBody] string value)

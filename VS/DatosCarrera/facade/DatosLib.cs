@@ -16,6 +16,7 @@ namespace DatosCarrera.facade
         private ISoporteDAO soporteDAO;
         private IMesasExamenDAO mesaExamenDAO;
         private IAlumnosDAO alumnosDAO;
+        private IProfesoresDAO profesoresDAO;
 
         public DatosLib()
         {
@@ -23,6 +24,7 @@ namespace DatosCarrera.facade
             soporteDAO = new CarrerasDAO();
             mesaExamenDAO = new CarrerasDAO();
             alumnosDAO = new CarrerasDAO();
+            profesoresDAO = new CarrerasDAO();
         }
 
 
@@ -103,6 +105,16 @@ namespace DatosCarrera.facade
         public List<Habitacionalidades> GetHabitacionalidadesAll()
         {
             return soporteDAO.ObtenerHabitacionalidades();
+        }
+
+        public List<Profesor> GetProfesoresPorMateria(int id)
+        {
+            return profesoresDAO.GetProfesoresPorMateria(id);
+        }
+
+        public List<Materia> GetMateriasPorCarrera(int id)
+        {
+            return soporteDAO.ObtenerMateriasXCarrera(id);
         }
     }
     

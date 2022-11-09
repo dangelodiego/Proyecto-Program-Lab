@@ -8,17 +8,20 @@ namespace DatosCarrera.dominio.auxiliares
 {
     public enum TurnosExamen
     {
-  
- 
-       
-            PrimeroNoviembreDiciembre,
-            SegundoNoviembreDiciembre,
-            PrimeroFebreroMarzo,
-            SegundoFebreroMarzo,
-            PrimeroJulio,
-            SegundoJulio
 
-       
+
+        PrimerTurnoNoviembre = 1,
+        SegundoTurnoNoviembre,
+        PrimerTurnoDiciembre,
+        SegundoTurnoDiciembre,
+        PrimerTurnoFebrero,
+        SegundoTurnoFebrero,
+        PrimerTurnoMarzo,
+        SegundoTurnoMarzo,
+        PrimerTurnoJulio,
+        SegundoTurnoJulio
+
+
 
 
 

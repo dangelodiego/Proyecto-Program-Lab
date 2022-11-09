@@ -700,5 +700,48 @@ namespace DatosCarrera.datos.Implementaciones
         {
             return DBHelper.ObtenerInstancia().CantidadTecnicaturas();
         }
+
+        public List<Profesor> GetProfesoresPorMateria(int id)
+        {
+            string sp = "SP_OBTENER_PROFESORES_X_MATERIA";
+            List<Parametro> lstParam = new List<Parametro>();
+            lstParam.Add(new Parametro("@id_materia", id));
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lstParam);
+            List<Profesor> lst = new List<Profesor>();
+            foreach (DataRow r in tabla.Rows)
+            {
+                Profesor p = new Profesor();
+                p.Id = Convert.ToInt32(r["id_profesor"]);
+                p.Nombre = Convert.ToString(r["Profesor"]);
+                lst.Add(p);
+            }
+
+            return lst;
+
+        }
+
+        public List<Materia> ObtenerMateriasXCarrera(int id)
+        {
+            string sp = "SP_OBTENER_MATERIAS_X_CARRERA";
+            List<Parametro> lstParam = new List<Parametro>();
+            lstParam.Add(new Parametro("@id_carrera", id));
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lstParam);
+            List<Materia> lst = new List<Materia>();
+            foreach (DataRow r in tabla.Rows)
+            {
+                Carrera c = new Carrera();
+                c.Id = Convert.ToInt32(r["id_carrera"]);
+                Materia materia = new Materia();
+                materia.Id = Convert.ToInt32(r["id_materia"]);
+                materia.Nombre = Convert.ToString(r["nombre"]);
+                materia.Promocionable = Convert.ToBoolean(r["promocionable"]);
+                materia.Carrera = c;
+                lst.Add(materia);
+
+            }
+            return lst;
+
+        }
+
     }
 }
