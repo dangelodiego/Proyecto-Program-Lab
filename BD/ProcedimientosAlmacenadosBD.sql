@@ -231,100 +231,182 @@ FROM profesores
 END
 
 --SP_ALUMNOS_SEGUN_PROMEDIO_ANIOS_INGRESO
+--ALTER PROCEDURE [dbo].[SP_ALUMNOS_SEGUN_PROMEDIO_ANIOS_INGRESO]
+--@anio_ingreso1 int,
+--@anio_ingreso2 int
+--AS
+--BEGIN
+--Select a.legajo 'Legajo', nombre+ ', '+ apellido 'Nombre Alumno',
+--'Ingreso este Año' Observaciones
+--From Alumnos a 
+--Where 8 >= (select AVG(nota)
+--from Alumnos a join examenes e1 on e1.legajo = a.legajo
+--where e1.legajo = a.legajo)
+--and year(a.fecha_insc) = @anio_ingreso1
+--Union
+--Select a.legajo, nombre+ ', '+ apellido, 'Ingreso el Año Pasado'
+--From Alumnos a join examenes e1 on e1.legajo = a.legajo
+--Where year(a.fecha_insc) = @anio_ingreso2
+--Group by a.legajo, nombre+ ', '+ apellido
+--having AVG(nota) >= 8
+--Order By 2, 1
+--END
 
-CREATE PROCEDURE [dbo].[SP_ALUMNOS_SEGUN_PROMEDIO_ANIOS_INGRESO]
-@anio_ingreso1 int,
-@anio_ingreso2 int
-AS
-BEGIN
-Select a.legajo 'Legajo', nombre 'Nombre Alumno',
-'Ingreso este Año' Observaciones
-From Alumnos a 
-Where 8 >= (select AVG(nota)
-from Pruebas p1
-where p1.legajo = a.legajo)
-and year(fecha_insc) = @anio_ingreso1
-Union
-Select a.legajo, nombre, 'Ingreso el Año Pasado'
-From Alumnos a 
-join Pruebas p1 on p1.legajo = a.legajo
-Where year(fecha_insc) = @anio_ingreso2
-Group by a.legajo, nombre
-having AVG(nota) >= 8
-Order By 2, 1
-END
+create proc SP_CANTIDAD_INSCRIPTOS_X_AÑO --3 anda
+@año1 int,
+@año2 int
+as
+begin
+select count(a.legajo) Cantidad, @año1 'Año Ingreso'
+from alumnos a 
+where year(fecha_insc) = @año1
+union 
+select count(a.legajo) Cantidad, @año2
+from alumnos a
+where year(fecha_insc) = @año2
+end
+
+
+create proc SP_CANTIDAD_INSCRIPTOS_X_Materia --capaz anda
+@idMateria int
+as
+select count(distinct legajo) 'Cantidad Inscriptos', m.nombre Materia
+from estados_academicos ea join materias m on ea.id_materia = m.id_materia
+where ea.id_materia = @idMateria
+group by m.nombre
+
+
+
+
 
 --SP_CONSULTAR_ALUMNOS_SEGUN_MATERIAS_CURSADAS
 
-CREATE PROCEDURE [dbo].[SP_CONSULTAR_ALUMNOS_SEGUN_MATERIAS_CURSADAS]
+--alter PROCEDURE [dbo].[SP_CONSULTAR_ALUMNOS_SEGUN_MATERIAS_CURSADAS]
+--@cantidad int
+--AS
+--BEGIN
+--SELECT a.legajo 'Legajo',
+-- apellido+','+nombre 'alumno',
+-- dni 'documento',
+-- fecha_insc 'fecha de inscripcion'
+--FROM alumnos a join
+--estados_academicos ac on a.legajo=ac.legajo
+--where @cantidad <any (select id_materia
+--from estados_academicos ms 
+--)
+--END
+
+create PROCEDURE SP_CONSULTAR_ALUMNOS_SEGUN_MATERIAS_CURSADAS --anda
 @cantidad int
-AS
-BEGIN
-SELECT a.legajo 'Legajo',
- apellido+','+nombre 'alumno',
+as
+SELECT a.legajo 'Legajo', apellido+', '+nombre 'alumno',
  dni 'documento',
  fecha_insc 'fecha de inscripcion'
-FROM alumnos a join
-estados_academicos ac on a.legajo=ac.legajo
-where @cantidad <any (select id_materia
-from pruebas
-where year(fecha)=year(fecha)-1)
-END
+from alumnos a 
+where @cantidad <any (select count(id_materia)
+from mesa_examenes m join examenes e on m.id_mesa=e.id_mesa
+where  e.legajo = a.legajo)
+
 
 --SP_MATERIAS_PORCENTAJE_ALUMNOS_NOTAS_MENOR
 
-CREATE PROCEDURE [dbo].[SP_MATERIAS_PORCENTAJE_ALUMNOS_NOTAS_MENOR]
-@nota int
-AS
-BEGIN
-SELECT m.nombre, 100*(SELECT COUNT(a1.legajo)
-FROM materias m1 join pruebas p1
-on m1.id_materia = p1.id_materia
-join alumnos a1 on p1.legajo = a1.legajo
-WHERE  @nota > (SELECT p2.nota
-FROM materias m2 join pruebas p2 on m2.id_materia
-= p2.id_materia
-join alumnos a2 on p2.legajo = a2.legajo
-WHERE a1.legajo=a2.legajo)) /COUNT(a.legajo)
-FROM materias m join pruebas p on m.id_materia =
-p.id_materia join alumnos a on p.legajo = a.legajo
-GROUP BY m.nombre
-END
+--CREATE PROCEDURE [dbo].[SP_MATERIAS_PORCENTAJE_ALUMNOS_NOTAS_MENOR]
+--@nota int
+--AS
+--BEGIN
+--SELECT m.nombre, 100*(SELECT COUNT(a1.legajo)
+--FROM materias m1 join pruebas p1
+--on m1.id_materia = p1.id_materia
+--join alumnos a1 on p1.legajo = a1.legajo
+--WHERE  @nota > (SELECT p2.nota
+--FROM materias m2 join pruebas p2 on m2.id_materia
+--= p2.id_materia
+--join alumnos a2 on p2.legajo = a2.legajo
+--WHERE a1.legajo=a2.legajo)) /COUNT(a.legajo)
+--FROM materias m join pruebas p on m.id_materia =
+--p.id_materia join alumnos a on p.legajo = a.legajo
+--GROUP BY m.nombre
+--END
+
+--alter PROCEDURE [dbo].[SP_MATERIAS_PORCENTAJE_ALUMNOS_NOTAS_MENOR] --5
+--@nota int
+--AS
+--BEGIN
+--SELECT m.nombre, 100*(SELECT COUNT(a1.legajo)
+--FROM materias m1 join mesa_examenes mesa
+--on m1.id_materia = mesa.id_materia
+--join examenes e on e.id_mesa= mesa.id_mesa
+--join alumnos a1 on e.legajo = a1.legajo
+--WHERE  @nota > (SELECT e2.nota
+--FROM materias m1 join mesa_examenes mesa2
+--on m1.id_materia = mesa.id_materia
+--join examenes e2 on e2.id_mesa= mesa2.id_mesa
+--join alumnos a2 on e2.legajo = a2.legajo
+--WHERE a1.legajo=a2.legajo)) /COUNT(a.legajo)
+--FROM materias m join pruebas p on m.id_materia =
+--p.id_materia join alumnos a on p.legajo = a.legajo
+--GROUP BY m.nombre
+--END
 
 --SP_MATERIAS_SEGUN_PROMEDIO
 
-CREATE PROCEDURE [dbo].[SP_MATERIAS_SEGUN_PROMEDIO]
+--CREATE PROCEDURE [dbo].[SP_MATERIAS_SEGUN_PROMEDIO]
+--@promedio int
+--AS
+--BEGIN
+--SELECT m.id_materia, m.nombre, avg(nota)
+--FROM Materias M join Pruebas P on
+--M.id_materia=P.id_materia
+--GROUP BY m.id_materia, m.nombre
+--HAVING avg(nota)>@promedio
+--END
+
+alter PROCEDURE [dbo].[SP_MATERIAS_SEGUN_PROMEDIO] --1 anda
 @promedio int
 AS
 BEGIN
-SELECT m.id_materia, m.nombre, avg(nota)
-FROM Materias M join Pruebas P on
-M.id_materia=P.id_materia
+SELECT m.id_materia, m.nombre, avg(nota) Nota
+FROM Materias M join mesa_examenes mesa on
+M.id_materia=mesa.id_materia join examenes e on e.id_mesa=mesa.id_mesa
 GROUP BY m.id_materia, m.nombre
 HAVING avg(nota)>@promedio
 END
 
 --SP_NO_VAN_A_RENDIR_HACE_TANTOS_AÑOS
 
-CREATE PROCEDURE [dbo].[SP_NO_VAN_A_RENDIR_HACE_TANTOS_AÑOS]
-@legajo int,
-@años int
-AS
-BEGIN
-SELECT a.legajo, apellido+' '+nombre
-FROM alumnos a 
-join pruebas pr on a.legajo=pr.legajo
-WHERE @legajo NOT IN (
-select legajo from pruebas
-where year(fecha)=year(getdate())-@años)
-END
+--CREATE PROCEDURE [dbo].[SP_NO_VAN_A_RENDIR_HACE_TANTOS_AÑOS]
+--@legajo int,
+--@años int
+--AS
+--BEGIN
+--SELECT a.legajo, apellido+' '+nombre
+--FROM alumnos a 
+--join pruebas pr on a.legajo=pr.legajo
+--WHERE @legajo NOT IN (
+--select legajo from pruebas
+--where year(fecha)=year(getdate())-@años)
+--END
 
---SP_OBTENER_PROMEDIO_EDAD_CURSO
+--alter PROCEDURE [dbo].[SP_NO_VAN_A_RENDIR_HACE_TANTOS_AÑOS]
+--@legajo int,
+--@años int
+--AS
+--BEGIN
+--SELECT a.legajo, apellido+' '+nombre
+--FROM alumnos a 
+--join examenes e on a.legajo=e.legajo
+--join mesa_examenes mesa on mesa.id_mesa = e.id_mesa
+--WHERE @legajo NOT IN (
+--select legajo from examenes e join mesa_examenes mesa on mesa.id_mesa=e.id_mesa 
+--where year(fecha)=year(getdate())-@años)
+--END
 
-CREATE PROCEDURE [dbo].[SP_OBTENER_PROMEDIO_EDAD_CURSO]
+--SP_OBTENER_PROMEDIO_EDAD_CURSO ---anda 
+select * from cursos
+alter PROCEDURE [dbo].[SP_OBTENER_PROMEDIO_EDAD_CURSO]
 AS
 BEGIN 
-select a.id_curso 'CURSO',
+select cu.nombre 'Curso', 
 Avg(DATEDIFF(YEAR,Fecha_Nac,GETDATE())
 -(CASE WHEN DATEADD(YY,DATEDIFF(YEAR,Fecha_Nac,GETDATE()),
 Fecha_nac)>GETDATE() THEN
@@ -336,8 +418,25 @@ from alumnos a
 join Carreras c on c.id_carrera=a.id_carrera
 join cursos cu on cu.id_curso=a.id_curso
 Where a.id_carrera = 1 --TUP
-Group by a.id_curso
+Group by cu.nombre
 END
+
+select * from 
+
+create proc SP_PROXIMO_A_JUBILAR
+as
+SELECT pr.nombre+', '+ pr.apellido Profesor, datediff(year, fecha_nac, getdate()) 'Edad', s.descripcion 'Sexo'
+FROM profesores pr join sexos s on pr.id_sexo = s.id_sexo
+WHERE datediff(year, fecha_nac, getdate()) between 50 and 60
+and pr.id_sexo = 2
+union
+SELECT pr.nombre+', '+ pr.apellido Profesor, datediff(year, fecha_nac, getdate()) 'Edad', s.descripcion 'Sexo'
+FROM profesores pr join sexos s on pr.id_sexo = s.id_sexo
+WHERE  datediff(year, fecha_nac, getdate()) between 54 and  64
+and pr.id_sexo = 1
+order by 3
+
+
 
 -- Sp LOGIN
 create proc SP_Login
@@ -501,8 +600,124 @@ END
 
 
 
+--SP PARA CONSULTAS RECTIFICADOS
 
 
+create proc SP_CANTIDAD_INSCRIPTOS_X_AÑO --3 anda
+@año1 int,
+@año2 int
+as
+begin
+select count(a.legajo) Cantidad, @año1 'Año Ingreso'
+from alumnos a 
+where year(fecha_insc) = @año1
+union 
+select count(a.legajo) Cantidad, @año2
+from alumnos a
+where year(fecha_insc) = @año2
+end
 
+
+---
+
+create proc SP_CANTIDAD_INSCRIPTOS_X_MATERIA 
+@idMateria int
+as
+select count(distinct legajo) 'Cantidad Inscriptos', m.nombre Materia
+from estados_academicos ea join materias m on ea.id_materia = m.id_materia
+where ea.id_materia = @idMateria
+group by m.nombre
+
+---
+create PROCEDURE SP_CONSULTAR_ALUMNOS_SEGUN_MATERIAS_CURSADAS --anda
+@cantidad int
+as
+SELECT a.legajo 'Legajo', apellido+', '+nombre 'alumno',
+ dni 'documento',
+ fecha_insc 'fecha de inscripcion'
+from alumnos a 
+where @cantidad <any (select count(id_materia)
+from mesa_examenes m join examenes e on m.id_mesa=e.id_mesa
+where  e.legajo = a.legajo)
+
+---
+alter PROCEDURE [dbo].[SP_MATERIAS_SEGUN_PROMEDIO] --1 anda
+@promedio int
+AS
+BEGIN
+SELECT m.id_materia, m.nombre, avg(nota) Nota
+FROM Materias M join mesa_examenes mesa on
+M.id_materia=mesa.id_materia join examenes e on e.id_mesa=mesa.id_mesa
+GROUP BY m.id_materia, m.nombre
+HAVING avg(nota)>@promedio
+END
+
+--
+--SP_OBTENER_PROMEDIO_EDAD_CURSO ---anda 
+select * from cursos
+alter PROCEDURE [dbo].[SP_OBTENER_PROMEDIO_EDAD_CURSO]
+AS
+BEGIN 
+select cu.nombre 'Curso', 
+Avg(DATEDIFF(YEAR,Fecha_Nac,GETDATE())
+-(CASE WHEN DATEADD(YY,DATEDIFF(YEAR,Fecha_Nac,GETDATE()),
+Fecha_nac)>GETDATE() THEN
+ 1
+ ELSE
+ 0
+ END)) as 'Edad promedio'
+from alumnos a 
+join Carreras c on c.id_carrera=a.id_carrera
+join cursos cu on cu.id_curso=a.id_curso
+Where a.id_carrera = 1 --TUP
+Group by cu.nombre
+END
+
+create proc SP_PROXIMO_A_JUBILAR
+as
+SELECT pr.nombre+', '+ pr.apellido Profesor, datediff(year, fecha_nac, getdate()) 'Edad', s.descripcion 'Sexo'
+FROM profesores pr join sexos s on pr.id_sexo = s.id_sexo
+WHERE datediff(year, fecha_nac, getdate()) between 50 and 60
+and pr.id_sexo = 2
+union
+SELECT pr.nombre+', '+ pr.apellido Profesor, datediff(year, fecha_nac, getdate()) 'Edad', s.descripcion 'Sexo'
+FROM profesores pr join sexos s on pr.id_sexo = s.id_sexo
+WHERE  datediff(year, fecha_nac, getdate()) between 54 and  64
+and pr.id_sexo = 1
+order by 3
+
+
+alter proc SP_ALUMNOS_RINDIERON_ESTE_AÑO
+@año int
+as
+select distinct a.legajo Legajo, a.nombre+', '+ a.apellido 'Nombre Alumno', me.fecha
+from alumnos a join examenes ex on a.legajo = ex.legajo
+		join mesa_examenes me on ex.id_mesa  = me.id_mesa 
+where year(fecha) =@año and a.legajo in (select legajo	
+					from examenes ex join mesa_examenes me on ex.id_mesa = me.id_mesa 
+					where year(fecha) = @año)
+
+
+drop SP_ALUMNOS_NO_RINDIERON_ESTE_AÑO 2022
+create proc SP_ALUMNOS_NO_RINDIERON_ESTE_AÑO
+@año int
+as
+select distinct a.legajo Legajo, a.nombre+', '+ a.apellido 'Nombre Alumno', me.fecha
+from alumnos a join examenes ex on a.legajo = ex.legajo
+		join mesa_examenes me on ex.id_mesa  = me.id_mesa 
+where year(fecha) = year(getdate()) and a.legajo not in (select legajo	
+					from examenes ex join mesa_examenes me on ex.id_mesa = me.id_mesa 
+					where year(fecha) =  year(getdate()))
+
+create proc SP_DATOS
+@nota int 
+as
+select a.legajo Legajo, a.nombre+', '+ a.apellido 'Nombre Alumno', l.descripcion Laboralidad, h.descripcion Habitacionalidad,
+		AVG(nota) Nota
+from alumnos a join Laboralidad l on a.id_laboralidad = l.id_laboralidad	
+	join habitacionalidad h on a.id_habitacionalidad = h.id_habitacionalidad
+	join examenes e on a.legajo = e.legajo
+group by a.legajo , a.nombre+', '+ a.apellido , l.descripcion , h.descripcion
+having Avg(nota) > @nota
 
 
