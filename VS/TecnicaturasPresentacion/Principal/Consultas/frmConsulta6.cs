@@ -31,6 +31,8 @@ namespace TecnicaturasPresentacion.Principal.Consultas
         {
             List<ProximoAJubilar> list = consultasDAO.ObtenerJubilar();
             dgvConsulta6.DataSource = list;
+            dgvConsulta6.Columns[0].Width = 310;
+            dgvConsulta6.Columns[1].Width = 250;
         }
     }
 }

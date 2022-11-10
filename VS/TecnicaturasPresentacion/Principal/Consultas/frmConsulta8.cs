@@ -32,6 +32,7 @@ namespace TecnicaturasPresentacion.Principal.Consultas
         {
             List<DatosAlumnosDTO> list = consultasDAO.ObtenerDatosAlumnos(nota);
             dataGridView1.DataSource = list;
+            dataGridView1.Columns[1].Width = 200;
         }
     }
 }

@@ -36,6 +36,8 @@ namespace TecnicaturasPresentacion.Principal.Consultas
 
             List<CantidadInscriptosDTO> list = consultasDAO.ObtenerCantidadInscriptos(anio1, anio2);
             dgvCantidadInscriptos.DataSource = list;
+            dgvCantidadInscriptos.Columns[0].Width = 310;
+            dgvCantidadInscriptos.Columns[1].Width = 320;
 
         }
 

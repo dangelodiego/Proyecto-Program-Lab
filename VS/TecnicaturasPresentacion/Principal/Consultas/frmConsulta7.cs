@@ -32,6 +32,7 @@ namespace TecnicaturasPresentacion.Principal.Consultas
         {
             List<AlumnosRindieronEsteAñoDTO> list = consultasDAO.ObtenerAlumnosRindieronEsteAño(año);
             dgvConsulta7.DataSource = list;
+            dgvConsulta7.Columns[1].Width = 250;
         }
     }
 }

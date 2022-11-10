@@ -32,6 +32,7 @@ namespace TecnicaturasPresentacion.Principal.Consultas
         {
             List<AlumnosSegunMateriasCursadasDTO> list = consultasDAO.ObtenerAlumnosSegunMateriaCursada(cantidad);
             dgvConsulta3.DataSource = list;
+            dgvConsulta3.Columns[1].Width = 320;
         }
     }
 }

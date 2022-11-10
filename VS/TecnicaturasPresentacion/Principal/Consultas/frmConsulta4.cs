@@ -32,6 +32,14 @@ namespace TecnicaturasPresentacion.Principal.Consultas
         {
             List<MateriaSegunPromedioDTO> list = consultasDAO.ObtenerMateriaSegunPromedio(promedio);
             dataGridView1.DataSource = list;
+            dataGridView1.Columns[1].Width = 320;
+            dataGridView1.Columns[2].Width = 300;
+
+        }
+
+        private void frmConsulta4_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

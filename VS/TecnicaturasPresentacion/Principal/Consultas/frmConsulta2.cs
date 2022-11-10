@@ -49,6 +49,9 @@ namespace TecnicaturasPresentacion.Principal.Consultas
 
             List<CantidadInscriptosPorMateriaDTO> list = consultasDAO.ObtenerCantidadInscriptosPorMateria( idMateria);
             dgvCantidadmateria.DataSource = list;
+            dgvCantidadmateria.Columns[0].Width = 310;
+            dgvCantidadmateria.Columns[1].Width = 320;
+
 
         }
     }

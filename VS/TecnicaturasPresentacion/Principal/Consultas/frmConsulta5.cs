@@ -31,6 +31,8 @@ namespace TecnicaturasPresentacion.Principal.Consultas
         {
             List<EdadPromedioDTO> list = consultasDAO.ObtenerEdadPromedio();
             dgvConsulta5.DataSource = list;
+            dgvConsulta5.Columns[0].Width = 310;
+            dgvConsulta5.Columns[1].Width = 320;
         }
     }
 }

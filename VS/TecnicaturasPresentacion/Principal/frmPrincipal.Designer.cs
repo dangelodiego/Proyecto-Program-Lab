@@ -220,7 +220,7 @@
             this.btnConsultarAlumno.ForeColor = System.Drawing.Color.White;
             this.btnConsultarAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultarAlumno.Image")));
             this.btnConsultarAlumno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultarAlumno.Location = new System.Drawing.Point(-21, -7);
+            this.btnConsultarAlumno.Location = new System.Drawing.Point(3, 611);
             this.btnConsultarAlumno.Name = "btnConsultarAlumno";
             this.btnConsultarAlumno.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnConsultarAlumno.Size = new System.Drawing.Size(266, 56);
@@ -349,7 +349,7 @@
             this.btnConsulta8.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnConsulta8.Size = new System.Drawing.Size(266, 56);
             this.btnConsulta8.TabIndex = 1;
-            this.btnConsulta8.Text = "                   Consulta 8";
+            this.btnConsulta8.Text = "              Datos Alumno";
             this.btnConsulta8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsulta8.UseVisualStyleBackColor = true;
             this.btnConsulta8.Click += new System.EventHandler(this.btnConsulta8_Click);
@@ -375,7 +375,7 @@
             this.btnConsulta7.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnConsulta7.Size = new System.Drawing.Size(266, 56);
             this.btnConsulta7.TabIndex = 1;
-            this.btnConsulta7.Text = "                   Consulta 7";
+            this.btnConsulta7.Text = "            Rindieron este año";
             this.btnConsulta7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsulta7.UseVisualStyleBackColor = true;
             this.btnConsulta7.Click += new System.EventHandler(this.btnConsulta7_Click);
@@ -401,7 +401,7 @@
             this.btnConsulta6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnConsulta6.Size = new System.Drawing.Size(266, 56);
             this.btnConsulta6.TabIndex = 1;
-            this.btnConsulta6.Text = "                   Consulta 6";
+            this.btnConsulta6.Text = "                   Jubilación";
             this.btnConsulta6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsulta6.UseVisualStyleBackColor = true;
             this.btnConsulta6.Click += new System.EventHandler(this.btnConsulta6_Click);
@@ -427,7 +427,7 @@
             this.btnConsulta5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnConsulta5.Size = new System.Drawing.Size(266, 56);
             this.btnConsulta5.TabIndex = 1;
-            this.btnConsulta5.Text = "                   Consulta 5";
+            this.btnConsulta5.Text = "               Edad Promedio";
             this.btnConsulta5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsulta5.UseVisualStyleBackColor = true;
             this.btnConsulta5.Click += new System.EventHandler(this.btnConsulta5_Click);
@@ -453,7 +453,7 @@
             this.btnConsulta4.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnConsulta4.Size = new System.Drawing.Size(266, 56);
             this.btnConsulta4.TabIndex = 1;
-            this.btnConsulta4.Text = "                   Consulta 4";
+            this.btnConsulta4.Text = "                   Promedio";
             this.btnConsulta4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsulta4.UseVisualStyleBackColor = true;
             this.btnConsulta4.Click += new System.EventHandler(this.btnConsulta4_Click);
@@ -470,7 +470,7 @@
             // 
             this.btnConsulta3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConsulta3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsulta3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConsulta3.ForeColor = System.Drawing.Color.White;
             this.btnConsulta3.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta3.Image")));
             this.btnConsulta3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -479,7 +479,7 @@
             this.btnConsulta3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnConsulta3.Size = new System.Drawing.Size(266, 56);
             this.btnConsulta3.TabIndex = 1;
-            this.btnConsulta3.Text = "                   Consulta 3";
+            this.btnConsulta3.Text = "            Alumnos según materia";
             this.btnConsulta3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsulta3.UseVisualStyleBackColor = true;
             this.btnConsulta3.Click += new System.EventHandler(this.btnConsulta3_Click);
@@ -497,7 +497,7 @@
             // 
             this.btnConsulta22.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConsulta22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsulta22.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConsulta22.ForeColor = System.Drawing.Color.White;
             this.btnConsulta22.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta22.Image")));
             this.btnConsulta22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -506,7 +506,7 @@
             this.btnConsulta22.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnConsulta22.Size = new System.Drawing.Size(266, 56);
             this.btnConsulta22.TabIndex = 2;
-            this.btnConsulta22.Text = "                   Consulta 2";
+            this.btnConsulta22.Text = "        Cantidad de Inscriptos por Materia";
             this.btnConsulta22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsulta22.UseVisualStyleBackColor = true;
             this.btnConsulta22.Click += new System.EventHandler(this.btnConsulta22_Click);
@@ -549,7 +549,7 @@
             this.btnConsulta1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnConsulta1.Size = new System.Drawing.Size(266, 56);
             this.btnConsulta1.TabIndex = 1;
-            this.btnConsulta1.Text = "                   Consulta 1";
+            this.btnConsulta1.Text = "        Cantidad de Inscriptos";
             this.btnConsulta1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsulta1.UseVisualStyleBackColor = true;
             this.btnConsulta1.Click += new System.EventHandler(this.btnConsulta1_Click);
