@@ -603,12 +603,12 @@ END
 --SP PARA CONSULTAS RECTIFICADOS
 
 
-create proc SP_CANTIDAD_INSCRIPTOS_X_AÑO --3 anda
+alter proc SP_CANTIDAD_INSCRIPTOS_X_AÑO --3 anda
 @año1 int,
 @año2 int
 as
 begin
-select count(a.legajo) Cantidad, @año1 'Año Ingreso'
+select count(a.legajo) Cantidad, @año1 'Año_Ingreso'
 from alumnos a 
 where year(fecha_insc) = @año1
 union 
@@ -617,35 +617,39 @@ from alumnos a
 where year(fecha_insc) = @año2
 end
 
-
+exec SP_CANTIDAD_INSCRIPTOS_X_AÑO 2022, 2021
 ---
 
-create proc SP_CANTIDAD_INSCRIPTOS_X_MATERIA 
+alter proc SP_CANTIDAD_INSCRIPTOS_X_MATERIA 
 @idMateria int
 as
-select count(distinct legajo) 'Cantidad Inscriptos', m.nombre Materia
+select count(distinct legajo) 'Cantidad_Inscriptos', m.nombre Materia
 from estados_academicos ea join materias m on ea.id_materia = m.id_materia
 where ea.id_materia = @idMateria
 group by m.nombre
 
+exec SP_CANTIDAD_INSCRIPTOS_X_MATERIA  1
+
+
 ---
-create PROCEDURE SP_CONSULTAR_ALUMNOS_SEGUN_MATERIAS_CURSADAS --anda
+alter PROCEDURE SP_CONSULTAR_ALUMNOS_SEGUN_MATERIAS_CURSADAS --anda
 @cantidad int
 as
-SELECT a.legajo 'Legajo', apellido+', '+nombre 'alumno',
- dni 'documento',
- fecha_insc 'fecha de inscripcion'
+SELECT a.legajo 'Legajo', apellido+', '+nombre 'Alumno',
+ dni 'Documento',
+ fecha_insc 'fecha_de_inscripcion'
 from alumnos a 
 where @cantidad <any (select count(id_materia)
 from mesa_examenes m join examenes e on m.id_mesa=e.id_mesa
 where  e.legajo = a.legajo)
 
+exec SP_CONSULTAR_ALUMNOS_SEGUN_MATERIAS_CURSADAS 2
 ---
 alter PROCEDURE [dbo].[SP_MATERIAS_SEGUN_PROMEDIO] --1 anda
 @promedio int
 AS
 BEGIN
-SELECT m.id_materia, m.nombre, avg(nota) Nota
+SELECT m.id_materia 'ID_MATERIA' , m.nombre 'NOMBRE_MATERIA', avg(nota) Nota
 FROM Materias M join mesa_examenes mesa on
 M.id_materia=mesa.id_materia join examenes e on e.id_mesa=mesa.id_mesa
 GROUP BY m.id_materia, m.nombre
@@ -673,6 +677,8 @@ Where a.id_carrera = 1 --TUP
 Group by cu.nombre
 END
 
+exec SP_OBTENER_PROMEDIO_EDAD_CURSO
+
 create proc SP_PROXIMO_A_JUBILAR
 as
 SELECT pr.nombre+', '+ pr.apellido Profesor, datediff(year, fecha_nac, getdate()) 'Edad', s.descripcion 'Sexo'
@@ -686,28 +692,19 @@ WHERE  datediff(year, fecha_nac, getdate()) between 54 and  64
 and pr.id_sexo = 1
 order by 3
 
+exec SP_PROXIMO_A_JUBILAR
 
 alter proc SP_ALUMNOS_RINDIERON_ESTE_AÑO
 @año int
 as
-select distinct a.legajo Legajo, a.nombre+', '+ a.apellido 'Nombre Alumno', me.fecha
+select distinct a.legajo Legajo, a.nombre+', '+ a.apellido 'Nombre Alumno', me.fecha Fecha
 from alumnos a join examenes ex on a.legajo = ex.legajo
 		join mesa_examenes me on ex.id_mesa  = me.id_mesa 
 where year(fecha) =@año and a.legajo in (select legajo	
 					from examenes ex join mesa_examenes me on ex.id_mesa = me.id_mesa 
 					where year(fecha) = @año)
 
-
-drop SP_ALUMNOS_NO_RINDIERON_ESTE_AÑO 2022
-create proc SP_ALUMNOS_NO_RINDIERON_ESTE_AÑO
-@año int
-as
-select distinct a.legajo Legajo, a.nombre+', '+ a.apellido 'Nombre Alumno', me.fecha
-from alumnos a join examenes ex on a.legajo = ex.legajo
-		join mesa_examenes me on ex.id_mesa  = me.id_mesa 
-where year(fecha) = year(getdate()) and a.legajo not in (select legajo	
-					from examenes ex join mesa_examenes me on ex.id_mesa = me.id_mesa 
-					where year(fecha) =  year(getdate()))
+exec SP_ALUMNOS_RINDIERON_ESTE_AÑO 2022
 
 create proc SP_DATOS
 @nota int 

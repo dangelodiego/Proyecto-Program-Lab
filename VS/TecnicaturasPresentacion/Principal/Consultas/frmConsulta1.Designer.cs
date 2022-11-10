@@ -28,7 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dgvCantidadInscriptos = new System.Windows.Forms.DataGridView();
+            this.txtAnioUNO = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.lblAñouno = new MaterialSkin.Controls.MaterialLabel();
+            this.lblAñodos = new MaterialSkin.Controls.MaterialLabel();
+            this.txtAniodos = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.btnConsultar = new MaterialSkin.Controls.MaterialRaisedButton();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCantidadInscriptos)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dgvCantidadInscriptos
+            // 
+            this.dgvCantidadInscriptos.AllowUserToAddRows = false;
+            this.dgvCantidadInscriptos.AllowUserToDeleteRows = false;
+            this.dgvCantidadInscriptos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCantidadInscriptos.Location = new System.Drawing.Point(12, 111);
+            this.dgvCantidadInscriptos.Name = "dgvCantidadInscriptos";
+            this.dgvCantidadInscriptos.ReadOnly = true;
+            this.dgvCantidadInscriptos.RowTemplate.Height = 25;
+            this.dgvCantidadInscriptos.Size = new System.Drawing.Size(813, 311);
+            this.dgvCantidadInscriptos.TabIndex = 0;
+            // 
+            // txtAnioUNO
+            // 
+            this.txtAnioUNO.Depth = 0;
+            this.txtAnioUNO.Hint = "";
+            this.txtAnioUNO.Location = new System.Drawing.Point(193, 68);
+            this.txtAnioUNO.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtAnioUNO.Name = "txtAnioUNO";
+            this.txtAnioUNO.PasswordChar = '\0';
+            this.txtAnioUNO.SelectedText = "";
+            this.txtAnioUNO.SelectionLength = 0;
+            this.txtAnioUNO.SelectionStart = 0;
+            this.txtAnioUNO.Size = new System.Drawing.Size(191, 23);
+            this.txtAnioUNO.TabIndex = 1;
+            this.txtAnioUNO.UseSystemPasswordChar = false;
+            // 
+            // lblAñouno
+            // 
+            this.lblAñouno.AutoSize = true;
+            this.lblAñouno.Depth = 0;
+            this.lblAñouno.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAñouno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblAñouno.Location = new System.Drawing.Point(193, 36);
+            this.lblAñouno.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblAñouno.Name = "lblAñouno";
+            this.lblAñouno.Size = new System.Drawing.Size(52, 19);
+            this.lblAñouno.TabIndex = 2;
+            this.lblAñouno.Text = "Año 1:";
+            // 
+            // lblAñodos
+            // 
+            this.lblAñodos.AutoSize = true;
+            this.lblAñodos.Depth = 0;
+            this.lblAñodos.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAñodos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblAñodos.Location = new System.Drawing.Point(449, 35);
+            this.lblAñodos.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblAñodos.Name = "lblAñodos";
+            this.lblAñodos.Size = new System.Drawing.Size(52, 19);
+            this.lblAñodos.TabIndex = 4;
+            this.lblAñodos.Text = "Año 2:";
+            // 
+            // txtAniodos
+            // 
+            this.txtAniodos.Depth = 0;
+            this.txtAniodos.Hint = "";
+            this.txtAniodos.Location = new System.Drawing.Point(449, 67);
+            this.txtAniodos.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtAniodos.Name = "txtAniodos";
+            this.txtAniodos.PasswordChar = '\0';
+            this.txtAniodos.SelectedText = "";
+            this.txtAniodos.SelectionLength = 0;
+            this.txtAniodos.SelectionStart = 0;
+            this.txtAniodos.Size = new System.Drawing.Size(191, 23);
+            this.txtAniodos.TabIndex = 3;
+            this.txtAniodos.UseSystemPasswordChar = false;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Depth = 0;
+            this.btnConsultar.Location = new System.Drawing.Point(688, 46);
+            this.btnConsultar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Primary = true;
+            this.btnConsultar.Size = new System.Drawing.Size(109, 45);
+            this.btnConsultar.TabIndex = 6;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // frmConsulta1
             // 
@@ -36,13 +124,29 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(837, 579);
+            this.Controls.Add(this.btnConsultar);
+            this.Controls.Add(this.lblAñodos);
+            this.Controls.Add(this.txtAniodos);
+            this.Controls.Add(this.lblAñouno);
+            this.Controls.Add(this.txtAnioUNO);
+            this.Controls.Add(this.dgvCantidadInscriptos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmConsulta1";
             this.Text = "frmConsulta1cs";
+            this.Load += new System.EventHandler(this.frmConsulta1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCantidadInscriptos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private DataGridView dgvCantidadInscriptos;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtAnioUNO;
+        private MaterialSkin.Controls.MaterialLabel lblAñouno;
+        private MaterialSkin.Controls.MaterialLabel lblAñodos;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtAniodos;
+        private MaterialSkin.Controls.MaterialRaisedButton btnConsultar;
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DatosCarrera.datos.DTOs;
+using DatosCarrera.datos.Implementaciones;
+using DatosCarrera.datos.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +15,23 @@ namespace TecnicaturasPresentacion.Principal.Consultas
 {
     public partial class frmConsulta4 : Form
     {
+        private IConsultasComplejas consultasDAO;
         public frmConsulta4()
         {
             InitializeComponent();
+            consultasDAO = new CarrerasDAO();
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            int promedio = Convert.ToInt32(txtPromedio.Text);
+            CargarGrilla(promedio);
+        }
+
+        private void CargarGrilla(int promedio)
+        {
+            List<MateriaSegunPromedioDTO> list = consultasDAO.ObtenerMateriaSegunPromedio(promedio);
+            dataGridView1.DataSource = list;
         }
     }
 }

@@ -565,7 +565,7 @@ namespace DatosCarrera.datos.Implementaciones
             return DBHelper.ObtenerInstancia().ConsultaEscalarSQL(sp, "@next");
         }
 
-       
+
 
         public List<EstadosCiviles> ObtenerEstadosCiviles()
         {
@@ -617,7 +617,7 @@ namespace DatosCarrera.datos.Implementaciones
 
         public List<Barrio> ObtenerBarriosXCiudad(int id)
         {
-            
+
             string sp = "SP_OBTENER_BARRIOS_X_CIUDAD";
             List<Parametro> lstParam = new List<Parametro>();
             lstParam.Add(new Parametro("@id_ciudades", id));
@@ -743,5 +743,166 @@ namespace DatosCarrera.datos.Implementaciones
 
         }
 
+        public List<CantidadInscriptosDTO> ObtenerCantidadInscriptos(int anio1, int anio2)
+        {
+            string sp = "SP_CANTIDAD_INSCRIPTOS_X_AÑO";
+            List<Parametro> lstParam = new List<Parametro>();
+            lstParam.Add(new Parametro("@año1", anio1));
+            lstParam.Add(new Parametro("@año2", anio2));
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lstParam);
+            List<CantidadInscriptosDTO> lst = new List<CantidadInscriptosDTO>();
+            foreach (DataRow r in tabla.Rows)
+            {
+
+                CantidadInscriptosDTO c = new CantidadInscriptosDTO();
+                c.Año = Convert.ToInt32(r["Año_Ingreso"]);
+                c.Cantidad = Convert.ToInt32(r["Cantidad"]);
+
+                lst.Add(c);
+
+            }
+            return lst;
+        }
+
+        public List<CantidadInscriptosPorMateriaDTO> ObtenerCantidadInscriptosPorMateria(int idMateria)
+        {
+            string sp = "SP_CANTIDAD_INSCRIPTOS_X_MATERIA";
+            List<Parametro> lstParam = new List<Parametro>();
+            lstParam.Add(new Parametro("@idMateria", idMateria));
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lstParam);
+            List<CantidadInscriptosPorMateriaDTO> lst = new List<CantidadInscriptosPorMateriaDTO>();
+            foreach (DataRow r in tabla.Rows)
+            {
+
+                CantidadInscriptosPorMateriaDTO c = new CantidadInscriptosPorMateriaDTO();
+                c.CantidadInscriptos = Convert.ToInt32(r["Cantidad_Inscriptos"]);
+                c.Materia = Convert.ToString(r["Materia"]);
+
+                lst.Add(c);
+
+            }
+            return lst;
+        }
+
+        public List<AlumnosSegunMateriasCursadasDTO> ObtenerAlumnosSegunMateriaCursada(int cantidad)
+        {
+            string sp = "SP_CONSULTAR_ALUMNOS_SEGUN_MATERIAS_CURSADAS";
+            List<Parametro> lstParam = new List<Parametro>();
+            lstParam.Add(new Parametro("@cantidad", cantidad));
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lstParam);
+            List<AlumnosSegunMateriasCursadasDTO> lst = new List<AlumnosSegunMateriasCursadasDTO>();
+            foreach (DataRow r in tabla.Rows)
+            {
+
+                AlumnosSegunMateriasCursadasDTO c = new AlumnosSegunMateriasCursadasDTO();
+                c.Legajo = Convert.ToInt32(r["Legajo"]);
+                c.Alumno = Convert.ToString(r["Alumno"]);
+                c.DNI = Convert.ToInt32(r["Documento"]);
+                c.FechaInsc = Convert.ToDateTime(r["fecha_de_inscripcion"]);
+
+                lst.Add(c);
+
+            }
+            return lst;
+        }
+
+        public List<MateriaSegunPromedioDTO> ObtenerMateriaSegunPromedio(int promedio)
+        {
+            string sp = "SP_MATERIAS_SEGUN_PROMEDIO";
+            List<Parametro> lstParam = new List<Parametro>();
+            lstParam.Add(new Parametro("@promedio", promedio));
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lstParam);
+            List<MateriaSegunPromedioDTO> lst = new List<MateriaSegunPromedioDTO>();
+            foreach (DataRow r in tabla.Rows)
+            {
+
+                MateriaSegunPromedioDTO c = new MateriaSegunPromedioDTO();
+                c.IdMateria = Convert.ToInt32(r["ID_MATERIA"]);
+                c.NombreMateria = Convert.ToString(r["NOMBRE_MATERIA"]);
+                c.Promedio = Convert.ToDecimal(r["Nota"]);
+
+
+                lst.Add(c);
+
+            }
+            return lst;
+        }
+
+        public List<EdadPromedioDTO> ObtenerEdadPromedio()
+        {
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL("SP_OBTENER_PROMEDIO_EDAD_CURSO");
+            List<EdadPromedioDTO> lst = new List<EdadPromedioDTO>();
+            foreach (DataRow r in tabla.Rows)
+            {
+                EdadPromedioDTO h = new EdadPromedioDTO();
+                h.Curso = Convert.ToString(r["Curso"]);
+                h.EdadPromedio = Convert.ToInt32(r["Edad promedio"]);
+                lst.Add(h);
+            }
+            return lst;
+        }
+
+        public List<ProximoAJubilar> ObtenerJubilar()
+        {
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL("SP_PROXIMO_A_JUBILAR");
+            List<ProximoAJubilar> lst = new List<ProximoAJubilar>();
+            foreach (DataRow r in tabla.Rows)
+            {
+                ProximoAJubilar h = new ProximoAJubilar();
+                h.Profesor = Convert.ToString(r["Profesor"]);
+                h.Edad = Convert.ToInt32(r["Edad"]);
+                h.Sexo = Convert.ToString(r["Sexo"]);
+                lst.Add(h);
+            }
+            return lst;
+        }
+
+        public List<AlumnosRindieronEsteAñoDTO> ObtenerAlumnosRindieronEsteAño(int año)
+        {
+            string sp = "SP_ALUMNOS_RINDIERON_ESTE_AÑO";
+            List<Parametro> lstParam = new List<Parametro>();
+            lstParam.Add(new Parametro("@año", año));
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lstParam);
+            List<AlumnosRindieronEsteAñoDTO> lst = new List<AlumnosRindieronEsteAñoDTO>();
+            foreach (DataRow r in tabla.Rows)
+            {
+
+                AlumnosRindieronEsteAñoDTO c = new AlumnosRindieronEsteAñoDTO();
+                c.Legajo = Convert.ToInt32(r["Legajo"]);
+                c.NombreAlumno = Convert.ToString(r["Nombre Alumno"]);
+                c.Fecha = Convert.ToDateTime(r["Fecha"]);
+
+
+                lst.Add(c);
+
+            }
+            return lst;
+        }
+
+        public List<DatosAlumnosDTO> ObtenerDatosAlumnos(int nota)
+        {
+            string sp = "SP_DATOS";
+            List<Parametro> lstParam = new List<Parametro>();
+            lstParam.Add(new Parametro("@nota", nota));
+            DataTable tabla = DBHelper.ObtenerInstancia().ConsultaSQL(sp, lstParam);
+            List<DatosAlumnosDTO> lst = new List<DatosAlumnosDTO>();
+            foreach (DataRow r in tabla.Rows)
+            {
+
+                DatosAlumnosDTO c = new DatosAlumnosDTO();
+                c.Legajo = Convert.ToInt32(r["Legajo"]);
+                c.NombreAlumno = Convert.ToString(r["Nombre Alumno"]);
+                c.Laboralidad = Convert.ToString(r["Laboralidad"]);
+                c.Habitacionalidad = Convert.ToString(r["Habitacionalidad"]);
+                c.Nota = Convert.ToDecimal(r["Nota"]);
+
+
+                lst.Add(c);
+
+            }
+            return lst;
+        }
+
     }
 }
+

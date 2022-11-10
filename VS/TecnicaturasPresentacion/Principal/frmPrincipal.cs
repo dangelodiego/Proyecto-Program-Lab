@@ -232,6 +232,7 @@ namespace TecnicaturasPresentacion.Principal
 
         private void btnConsulta1_Click(object sender, EventArgs e)
         {
+
             AbrirFrom(new frmConsulta1());
         }
 

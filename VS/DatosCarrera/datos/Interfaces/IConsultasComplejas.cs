@@ -27,6 +27,19 @@ namespace DatosCarrera.datos.Interfaces
 
         List<AlumnoDesertor> ObtenerAlumnosDesertores(int cantidadAnios);
 
+        List<CantidadInscriptosDTO> ObtenerCantidadInscriptos(int anio1, int anio2);
 
+        List<CantidadInscriptosPorMateriaDTO> ObtenerCantidadInscriptosPorMateria(int idMateria);
+
+        List<AlumnosSegunMateriasCursadasDTO> ObtenerAlumnosSegunMateriaCursada(int cantidad);
+
+        List<MateriaSegunPromedioDTO> ObtenerMateriaSegunPromedio(int promedio);
+
+        List<EdadPromedioDTO> ObtenerEdadPromedio();
+        List<ProximoAJubilar> ObtenerJubilar();
+
+        List<AlumnosRindieronEsteAñoDTO> ObtenerAlumnosRindieronEsteAño(int año);
+
+        List<DatosAlumnosDTO> ObtenerDatosAlumnos(int nota);
     }
 }
