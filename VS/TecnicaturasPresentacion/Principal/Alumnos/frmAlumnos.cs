@@ -45,6 +45,7 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             await Combo.CargarComboHabitacionalidades(cboHabitacionalidad, "https://localhost:7148/api/Alumnos/Habitacionalidad");
         }
 
+        
         private async void cboProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboProvincia.SelectedItem != null)
@@ -81,7 +82,7 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             cboBarrio.SelectedValue = -1;
             cboTecnicatura.SelectedValue = -1;
             cboCurso.SelectedValue = -1;
-            dgvAlumnos.Rows.Clear();
+           
         }
 
         private async void cboCiudad_SelectedIndexChanged(object sender, EventArgs e)
@@ -298,6 +299,7 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             alumnos.Add(alumno);
             dgvAlumnos.Rows.Add(new object[] { alumno.Nombre, alumno.Apellido, alumno.FechaNacimiento, alumno.Dni, alumno.Email, alumno.Telefono, sexo, alumno.Calle, alumno.Altura, alumno.EstadoCivil.Descripcion, alumno.Barrio.Ciudad.Provincia.Nombre, alumno.Barrio.Ciudad.Nombre, alumno.Barrio.Nombre, alumno.Carrera.Nombre, alumno.Curso.Nombre, alumno.FechaInscripcion });
 
+            
         }
 
         private void dgvAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -306,8 +308,6 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
             {
                 alumnos.Remove(alumnos[dgvAlumnos.CurrentCell.RowIndex]);
                 dgvAlumnos.Rows.Remove(dgvAlumnos.CurrentRow);
-
-
 
             }
         }
@@ -330,13 +330,15 @@ namespace TecnicaturasPresentacion.Principal.Alumnos
                 }
 
                 MessageBox.Show("Alumnos guardados correctamente!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                
             }
            catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar los alumnos!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            dgvAlumnos.Rows.Clear();
+            
         }
 
 

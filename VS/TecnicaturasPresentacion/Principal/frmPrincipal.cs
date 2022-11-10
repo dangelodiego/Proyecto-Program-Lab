@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TecnicaturasPresentacion.MesasExamenes;
 using TecnicaturasPresentacion.Principal.About;
 using TecnicaturasPresentacion.Principal.Alumnos;
+using TecnicaturasPresentacion.Principal.Consultas;
 using TecnicaturasPresentacion.Principal.Home;
 using TecnicaturasPresentacion.Principal.Profesores;
 
@@ -227,6 +228,46 @@ namespace TecnicaturasPresentacion.Principal
         {
             //AbrirFrom(new frmReporte());
             new ReportesTecnicatura.frmReporte().Show();
+        }
+
+        private void btnConsulta1_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmConsulta1());
+        }
+
+        private void btnConsulta22_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmConsulta2());
+        }
+
+        private void btnConsulta3_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmConsulta3());
+        }
+
+        private void btnConsulta4_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmConsulta4());
+        }
+
+        private void btnConsulta5_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmConsulta5());
+        }
+
+        private void btnConsulta6_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmConsulta6());
+        }
+
+        private void btnConsulta7_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmConsulta7());
+        }
+
+        private void btnConsulta8_Click(object sender, EventArgs e)
+        {
+            AbrirFrom(new frmConsulta8());
         }
     }
 }

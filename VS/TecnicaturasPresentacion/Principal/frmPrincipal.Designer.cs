@@ -45,13 +45,6 @@
             this.btnNuevoAlumno = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnProfesores = new System.Windows.Forms.Button();
-            this.MesasContainer = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.btnRetMesa = new System.Windows.Forms.Button();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.btnNuevaMesa = new System.Windows.Forms.Button();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.btnMesas = new System.Windows.Forms.Button();
             this.ConsultasContainer = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.btnConsulta8 = new System.Windows.Forms.Button();
@@ -72,6 +65,13 @@
             this.btnConsulta1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnConsultas = new System.Windows.Forms.Button();
+            this.MesasContainer = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.btnRetMesa = new System.Windows.Forms.Button();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.btnNuevaMesa = new System.Windows.Forms.Button();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.btnMesas = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnReportes = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -93,10 +93,6 @@
             this.panel26.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.MesasContainer.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel22.SuspendLayout();
-            this.panel23.SuspendLayout();
             this.ConsultasContainer.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -107,6 +103,10 @@
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.MesasContainer.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panel23.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
@@ -120,8 +120,8 @@
             this.flpOpciones.Controls.Add(this.pHome);
             this.flpOpciones.Controls.Add(this.AlumnosContainer);
             this.flpOpciones.Controls.Add(this.panel2);
-            this.flpOpciones.Controls.Add(this.MesasContainer);
             this.flpOpciones.Controls.Add(this.ConsultasContainer);
+            this.flpOpciones.Controls.Add(this.MesasContainer);
             this.flpOpciones.Controls.Add(this.panel4);
             this.flpOpciones.Controls.Add(this.panel5);
             this.flpOpciones.Dock = System.Windows.Forms.DockStyle.Left;
@@ -308,13 +308,285 @@
             this.btnProfesores.UseVisualStyleBackColor = true;
             this.btnProfesores.Click += new System.EventHandler(this.btnProfesores_Click);
             // 
+            // ConsultasContainer
+            // 
+            this.ConsultasContainer.BackColor = System.Drawing.Color.Black;
+            this.ConsultasContainer.Controls.Add(this.panel13);
+            this.ConsultasContainer.Controls.Add(this.panel12);
+            this.ConsultasContainer.Controls.Add(this.panel11);
+            this.ConsultasContainer.Controls.Add(this.panel10);
+            this.ConsultasContainer.Controls.Add(this.panel9);
+            this.ConsultasContainer.Controls.Add(this.panel8);
+            this.ConsultasContainer.Controls.Add(this.panel7);
+            this.ConsultasContainer.Controls.Add(this.panel6);
+            this.ConsultasContainer.Controls.Add(this.panel3);
+            this.ConsultasContainer.Location = new System.Drawing.Point(3, 262);
+            this.ConsultasContainer.MaximumSize = new System.Drawing.Size(223, 360);
+            this.ConsultasContainer.MinimumSize = new System.Drawing.Size(223, 47);
+            this.ConsultasContainer.Name = "ConsultasContainer";
+            this.ConsultasContainer.Size = new System.Drawing.Size(223, 47);
+            this.ConsultasContainer.TabIndex = 7;
+            this.ConsultasContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.ConsultasContainer_Paint);
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.btnConsulta8);
+            this.panel13.Location = new System.Drawing.Point(2, 321);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(223, 44);
+            this.panel13.TabIndex = 13;
+            // 
+            // btnConsulta8
+            // 
+            this.btnConsulta8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsulta8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsulta8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsulta8.ForeColor = System.Drawing.Color.White;
+            this.btnConsulta8.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta8.Image")));
+            this.btnConsulta8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta8.Location = new System.Drawing.Point(-22, -9);
+            this.btnConsulta8.Name = "btnConsulta8";
+            this.btnConsulta8.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsulta8.Size = new System.Drawing.Size(266, 56);
+            this.btnConsulta8.TabIndex = 1;
+            this.btnConsulta8.Text = "                   Consulta 8";
+            this.btnConsulta8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta8.UseVisualStyleBackColor = true;
+            this.btnConsulta8.Click += new System.EventHandler(this.btnConsulta8_Click);
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.btnConsulta7);
+            this.panel12.Location = new System.Drawing.Point(0, 275);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(223, 44);
+            this.panel12.TabIndex = 12;
+            // 
+            // btnConsulta7
+            // 
+            this.btnConsulta7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsulta7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsulta7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsulta7.ForeColor = System.Drawing.Color.White;
+            this.btnConsulta7.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta7.Image")));
+            this.btnConsulta7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta7.Location = new System.Drawing.Point(-22, -7);
+            this.btnConsulta7.Name = "btnConsulta7";
+            this.btnConsulta7.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsulta7.Size = new System.Drawing.Size(266, 56);
+            this.btnConsulta7.TabIndex = 1;
+            this.btnConsulta7.Text = "                   Consulta 7";
+            this.btnConsulta7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta7.UseVisualStyleBackColor = true;
+            this.btnConsulta7.Click += new System.EventHandler(this.btnConsulta7_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.btnConsulta6);
+            this.panel11.Location = new System.Drawing.Point(0, 241);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(223, 44);
+            this.panel11.TabIndex = 11;
+            // 
+            // btnConsulta6
+            // 
+            this.btnConsulta6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsulta6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsulta6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsulta6.ForeColor = System.Drawing.Color.White;
+            this.btnConsulta6.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta6.Image")));
+            this.btnConsulta6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta6.Location = new System.Drawing.Point(-22, -14);
+            this.btnConsulta6.Name = "btnConsulta6";
+            this.btnConsulta6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsulta6.Size = new System.Drawing.Size(266, 56);
+            this.btnConsulta6.TabIndex = 1;
+            this.btnConsulta6.Text = "                   Consulta 6";
+            this.btnConsulta6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta6.UseVisualStyleBackColor = true;
+            this.btnConsulta6.Click += new System.EventHandler(this.btnConsulta6_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.btnConsulta5);
+            this.panel10.Location = new System.Drawing.Point(0, 192);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(223, 44);
+            this.panel10.TabIndex = 10;
+            // 
+            // btnConsulta5
+            // 
+            this.btnConsulta5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsulta5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsulta5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsulta5.ForeColor = System.Drawing.Color.White;
+            this.btnConsulta5.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta5.Image")));
+            this.btnConsulta5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta5.Location = new System.Drawing.Point(-22, -7);
+            this.btnConsulta5.Name = "btnConsulta5";
+            this.btnConsulta5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsulta5.Size = new System.Drawing.Size(266, 56);
+            this.btnConsulta5.TabIndex = 1;
+            this.btnConsulta5.Text = "                   Consulta 5";
+            this.btnConsulta5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta5.UseVisualStyleBackColor = true;
+            this.btnConsulta5.Click += new System.EventHandler(this.btnConsulta5_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.btnConsulta4);
+            this.panel9.Location = new System.Drawing.Point(0, 157);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(223, 44);
+            this.panel9.TabIndex = 8;
+            // 
+            // btnConsulta4
+            // 
+            this.btnConsulta4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsulta4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsulta4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsulta4.ForeColor = System.Drawing.Color.White;
+            this.btnConsulta4.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta4.Image")));
+            this.btnConsulta4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta4.Location = new System.Drawing.Point(-22, -7);
+            this.btnConsulta4.Name = "btnConsulta4";
+            this.btnConsulta4.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsulta4.Size = new System.Drawing.Size(266, 56);
+            this.btnConsulta4.TabIndex = 1;
+            this.btnConsulta4.Text = "                   Consulta 4";
+            this.btnConsulta4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta4.UseVisualStyleBackColor = true;
+            this.btnConsulta4.Click += new System.EventHandler(this.btnConsulta4_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btnConsulta3);
+            this.panel8.Location = new System.Drawing.Point(0, 119);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(223, 44);
+            this.panel8.TabIndex = 7;
+            // 
+            // btnConsulta3
+            // 
+            this.btnConsulta3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsulta3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsulta3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsulta3.ForeColor = System.Drawing.Color.White;
+            this.btnConsulta3.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta3.Image")));
+            this.btnConsulta3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta3.Location = new System.Drawing.Point(-22, -7);
+            this.btnConsulta3.Name = "btnConsulta3";
+            this.btnConsulta3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsulta3.Size = new System.Drawing.Size(266, 56);
+            this.btnConsulta3.TabIndex = 1;
+            this.btnConsulta3.Text = "                   Consulta 3";
+            this.btnConsulta3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta3.UseVisualStyleBackColor = true;
+            this.btnConsulta3.Click += new System.EventHandler(this.btnConsulta3_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btnConsulta22);
+            this.panel7.Controls.Add(this.btnConsulta2);
+            this.panel7.Location = new System.Drawing.Point(0, 77);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(223, 44);
+            this.panel7.TabIndex = 6;
+            // 
+            // btnConsulta22
+            // 
+            this.btnConsulta22.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsulta22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsulta22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsulta22.ForeColor = System.Drawing.Color.White;
+            this.btnConsulta22.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta22.Image")));
+            this.btnConsulta22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta22.Location = new System.Drawing.Point(-22, -7);
+            this.btnConsulta22.Name = "btnConsulta22";
+            this.btnConsulta22.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsulta22.Size = new System.Drawing.Size(266, 56);
+            this.btnConsulta22.TabIndex = 2;
+            this.btnConsulta22.Text = "                   Consulta 2";
+            this.btnConsulta22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta22.UseVisualStyleBackColor = true;
+            this.btnConsulta22.Click += new System.EventHandler(this.btnConsulta22_Click);
+            // 
+            // btnConsulta2
+            // 
+            this.btnConsulta2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsulta2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsulta2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsulta2.ForeColor = System.Drawing.Color.White;
+            this.btnConsulta2.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta2.Image")));
+            this.btnConsulta2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta2.Location = new System.Drawing.Point(3, 365);
+            this.btnConsulta2.Name = "btnConsulta2";
+            this.btnConsulta2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsulta2.Size = new System.Drawing.Size(266, 56);
+            this.btnConsulta2.TabIndex = 1;
+            this.btnConsulta2.Text = "                   Consulta 2";
+            this.btnConsulta2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta2.UseVisualStyleBackColor = true;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.btnConsulta1);
+            this.panel6.Location = new System.Drawing.Point(0, 42);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(223, 44);
+            this.panel6.TabIndex = 5;
+            // 
+            // btnConsulta1
+            // 
+            this.btnConsulta1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsulta1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsulta1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsulta1.ForeColor = System.Drawing.Color.White;
+            this.btnConsulta1.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta1.Image")));
+            this.btnConsulta1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta1.Location = new System.Drawing.Point(-22, -7);
+            this.btnConsulta1.Name = "btnConsulta1";
+            this.btnConsulta1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsulta1.Size = new System.Drawing.Size(266, 56);
+            this.btnConsulta1.TabIndex = 1;
+            this.btnConsulta1.Text = "                   Consulta 1";
+            this.btnConsulta1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsulta1.UseVisualStyleBackColor = true;
+            this.btnConsulta1.Click += new System.EventHandler(this.btnConsulta1_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnConsultas);
+            this.panel3.Location = new System.Drawing.Point(0, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(223, 44);
+            this.panel3.TabIndex = 4;
+            // 
+            // btnConsultas
+            // 
+            this.btnConsultas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnConsultas.ForeColor = System.Drawing.Color.White;
+            this.btnConsultas.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultas.Image")));
+            this.btnConsultas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultas.Location = new System.Drawing.Point(-22, -6);
+            this.btnConsultas.Name = "btnConsultas";
+            this.btnConsultas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConsultas.Size = new System.Drawing.Size(266, 56);
+            this.btnConsultas.TabIndex = 1;
+            this.btnConsultas.Text = "                   Consultas";
+            this.btnConsultas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultas.UseVisualStyleBackColor = true;
+            this.btnConsultas.Click += new System.EventHandler(this.button3_Click);
+            // 
             // MesasContainer
             // 
             this.MesasContainer.BackColor = System.Drawing.Color.Black;
             this.MesasContainer.Controls.Add(this.panel21);
             this.MesasContainer.Controls.Add(this.panel22);
             this.MesasContainer.Controls.Add(this.panel23);
-            this.MesasContainer.Location = new System.Drawing.Point(3, 262);
+            this.MesasContainer.Location = new System.Drawing.Point(3, 315);
             this.MesasContainer.MaximumSize = new System.Drawing.Size(223, 124);
             this.MesasContainer.MinimumSize = new System.Drawing.Size(223, 47);
             this.MesasContainer.Name = "MesasContainer";
@@ -399,270 +671,6 @@
             this.btnMesas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMesas.UseVisualStyleBackColor = true;
             this.btnMesas.Click += new System.EventHandler(this.btnMesas_Click);
-            // 
-            // ConsultasContainer
-            // 
-            this.ConsultasContainer.BackColor = System.Drawing.Color.Black;
-            this.ConsultasContainer.Controls.Add(this.panel13);
-            this.ConsultasContainer.Controls.Add(this.panel12);
-            this.ConsultasContainer.Controls.Add(this.panel11);
-            this.ConsultasContainer.Controls.Add(this.panel10);
-            this.ConsultasContainer.Controls.Add(this.panel9);
-            this.ConsultasContainer.Controls.Add(this.panel8);
-            this.ConsultasContainer.Controls.Add(this.panel7);
-            this.ConsultasContainer.Controls.Add(this.panel6);
-            this.ConsultasContainer.Controls.Add(this.panel3);
-            this.ConsultasContainer.Location = new System.Drawing.Point(3, 315);
-            this.ConsultasContainer.MaximumSize = new System.Drawing.Size(223, 360);
-            this.ConsultasContainer.MinimumSize = new System.Drawing.Size(223, 47);
-            this.ConsultasContainer.Name = "ConsultasContainer";
-            this.ConsultasContainer.Size = new System.Drawing.Size(223, 47);
-            this.ConsultasContainer.TabIndex = 7;
-            this.ConsultasContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.ConsultasContainer_Paint);
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.btnConsulta8);
-            this.panel13.Location = new System.Drawing.Point(2, 321);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(223, 44);
-            this.panel13.TabIndex = 13;
-            // 
-            // btnConsulta8
-            // 
-            this.btnConsulta8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsulta8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConsulta8.ForeColor = System.Drawing.Color.White;
-            this.btnConsulta8.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta8.Image")));
-            this.btnConsulta8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta8.Location = new System.Drawing.Point(-22, -9);
-            this.btnConsulta8.Name = "btnConsulta8";
-            this.btnConsulta8.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsulta8.Size = new System.Drawing.Size(266, 56);
-            this.btnConsulta8.TabIndex = 1;
-            this.btnConsulta8.Text = "                   Consulta 8";
-            this.btnConsulta8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta8.UseVisualStyleBackColor = true;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.btnConsulta7);
-            this.panel12.Location = new System.Drawing.Point(0, 275);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(223, 44);
-            this.panel12.TabIndex = 12;
-            // 
-            // btnConsulta7
-            // 
-            this.btnConsulta7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsulta7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConsulta7.ForeColor = System.Drawing.Color.White;
-            this.btnConsulta7.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta7.Image")));
-            this.btnConsulta7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta7.Location = new System.Drawing.Point(-22, -7);
-            this.btnConsulta7.Name = "btnConsulta7";
-            this.btnConsulta7.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsulta7.Size = new System.Drawing.Size(266, 56);
-            this.btnConsulta7.TabIndex = 1;
-            this.btnConsulta7.Text = "                   Consulta 7";
-            this.btnConsulta7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta7.UseVisualStyleBackColor = true;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.btnConsulta6);
-            this.panel11.Location = new System.Drawing.Point(0, 241);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(223, 44);
-            this.panel11.TabIndex = 11;
-            // 
-            // btnConsulta6
-            // 
-            this.btnConsulta6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsulta6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConsulta6.ForeColor = System.Drawing.Color.White;
-            this.btnConsulta6.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta6.Image")));
-            this.btnConsulta6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta6.Location = new System.Drawing.Point(-22, -14);
-            this.btnConsulta6.Name = "btnConsulta6";
-            this.btnConsulta6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsulta6.Size = new System.Drawing.Size(266, 56);
-            this.btnConsulta6.TabIndex = 1;
-            this.btnConsulta6.Text = "                   Consulta 6";
-            this.btnConsulta6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta6.UseVisualStyleBackColor = true;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.btnConsulta5);
-            this.panel10.Location = new System.Drawing.Point(0, 192);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(223, 44);
-            this.panel10.TabIndex = 10;
-            // 
-            // btnConsulta5
-            // 
-            this.btnConsulta5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsulta5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConsulta5.ForeColor = System.Drawing.Color.White;
-            this.btnConsulta5.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta5.Image")));
-            this.btnConsulta5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta5.Location = new System.Drawing.Point(-22, -7);
-            this.btnConsulta5.Name = "btnConsulta5";
-            this.btnConsulta5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsulta5.Size = new System.Drawing.Size(266, 56);
-            this.btnConsulta5.TabIndex = 1;
-            this.btnConsulta5.Text = "                   Consulta 5";
-            this.btnConsulta5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta5.UseVisualStyleBackColor = true;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.btnConsulta4);
-            this.panel9.Location = new System.Drawing.Point(0, 157);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(223, 44);
-            this.panel9.TabIndex = 8;
-            // 
-            // btnConsulta4
-            // 
-            this.btnConsulta4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsulta4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConsulta4.ForeColor = System.Drawing.Color.White;
-            this.btnConsulta4.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta4.Image")));
-            this.btnConsulta4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta4.Location = new System.Drawing.Point(-22, -7);
-            this.btnConsulta4.Name = "btnConsulta4";
-            this.btnConsulta4.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsulta4.Size = new System.Drawing.Size(266, 56);
-            this.btnConsulta4.TabIndex = 1;
-            this.btnConsulta4.Text = "                   Consulta 4";
-            this.btnConsulta4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta4.UseVisualStyleBackColor = true;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.btnConsulta3);
-            this.panel8.Location = new System.Drawing.Point(0, 119);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(223, 44);
-            this.panel8.TabIndex = 7;
-            // 
-            // btnConsulta3
-            // 
-            this.btnConsulta3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsulta3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConsulta3.ForeColor = System.Drawing.Color.White;
-            this.btnConsulta3.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta3.Image")));
-            this.btnConsulta3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta3.Location = new System.Drawing.Point(-22, -7);
-            this.btnConsulta3.Name = "btnConsulta3";
-            this.btnConsulta3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsulta3.Size = new System.Drawing.Size(266, 56);
-            this.btnConsulta3.TabIndex = 1;
-            this.btnConsulta3.Text = "                   Consulta 3";
-            this.btnConsulta3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta3.UseVisualStyleBackColor = true;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btnConsulta22);
-            this.panel7.Controls.Add(this.btnConsulta2);
-            this.panel7.Location = new System.Drawing.Point(0, 77);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(223, 44);
-            this.panel7.TabIndex = 6;
-            // 
-            // btnConsulta22
-            // 
-            this.btnConsulta22.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsulta22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta22.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConsulta22.ForeColor = System.Drawing.Color.White;
-            this.btnConsulta22.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta22.Image")));
-            this.btnConsulta22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta22.Location = new System.Drawing.Point(-22, -7);
-            this.btnConsulta22.Name = "btnConsulta22";
-            this.btnConsulta22.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsulta22.Size = new System.Drawing.Size(266, 56);
-            this.btnConsulta22.TabIndex = 2;
-            this.btnConsulta22.Text = "                   Consulta 2";
-            this.btnConsulta22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta22.UseVisualStyleBackColor = true;
-            // 
-            // btnConsulta2
-            // 
-            this.btnConsulta2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsulta2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConsulta2.ForeColor = System.Drawing.Color.White;
-            this.btnConsulta2.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta2.Image")));
-            this.btnConsulta2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta2.Location = new System.Drawing.Point(3, 365);
-            this.btnConsulta2.Name = "btnConsulta2";
-            this.btnConsulta2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsulta2.Size = new System.Drawing.Size(266, 56);
-            this.btnConsulta2.TabIndex = 1;
-            this.btnConsulta2.Text = "                   Consulta 2";
-            this.btnConsulta2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta2.UseVisualStyleBackColor = true;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.btnConsulta1);
-            this.panel6.Location = new System.Drawing.Point(0, 42);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(223, 44);
-            this.panel6.TabIndex = 5;
-            // 
-            // btnConsulta1
-            // 
-            this.btnConsulta1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsulta1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConsulta1.ForeColor = System.Drawing.Color.White;
-            this.btnConsulta1.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta1.Image")));
-            this.btnConsulta1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta1.Location = new System.Drawing.Point(-22, -7);
-            this.btnConsulta1.Name = "btnConsulta1";
-            this.btnConsulta1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsulta1.Size = new System.Drawing.Size(266, 56);
-            this.btnConsulta1.TabIndex = 1;
-            this.btnConsulta1.Text = "                   Consulta 1";
-            this.btnConsulta1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsulta1.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnConsultas);
-            this.panel3.Location = new System.Drawing.Point(0, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(223, 44);
-            this.panel3.TabIndex = 4;
-            // 
-            // btnConsultas
-            // 
-            this.btnConsultas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConsultas.ForeColor = System.Drawing.Color.White;
-            this.btnConsultas.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultas.Image")));
-            this.btnConsultas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultas.Location = new System.Drawing.Point(-22, -6);
-            this.btnConsultas.Name = "btnConsultas";
-            this.btnConsultas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsultas.Size = new System.Drawing.Size(266, 56);
-            this.btnConsultas.TabIndex = 1;
-            this.btnConsultas.Text = "                   Consultas";
-            this.btnConsultas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultas.UseVisualStyleBackColor = true;
-            this.btnConsultas.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel4
             // 
@@ -799,10 +807,6 @@
             this.panel26.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.MesasContainer.ResumeLayout(false);
-            this.panel21.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
-            this.panel23.ResumeLayout(false);
             this.ConsultasContainer.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -813,6 +817,10 @@
             this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.MesasContainer.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel23.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
